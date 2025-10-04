@@ -46,6 +46,9 @@ jobs:
         target: 'http://localhost:3000'
         rules_file_name: '.zap/rules.tsv'
         cmd_options: '-a -j -l WARN'
+        issue_title: 'ZAP Security Scan Results'
+        fail_action: false
+        allow_issue_writing: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     
     - name: Upload ZAP Report
       uses: actions/upload-artifact@v4
