@@ -1,11 +1,6 @@
 {
-  "extends": [
-    "next/core-web-vitals"
-  ],
-  "plugins": [
-    "security",
-    "no-secrets"
-  ],
+  "extends": ["next/core-web-vitals"],
+  "plugins": ["security", "no-secrets"],
   "rules": {
     "security/detect-object-injection": "warn",
     "security/detect-non-literal-regexp": "warn",

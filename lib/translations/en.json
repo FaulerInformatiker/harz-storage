@@ -34,15 +34,27 @@
     "sizes": {
       "small": {
         "description": "Perfect for moving boxes and smaller items",
-        "features": ["About 10-15 moving boxes", "Ideal for documents", "Seasonal decorations"]
+        "features": [
+          "About 10-15 moving boxes",
+          "Ideal for documents",
+          "Seasonal decorations"
+        ]
       },
       "medium": {
         "description": "Space for a 1-room apartment",
-        "features": ["Furniture from 1-room apartment", "Household appliances", "Bicycles and sports equipment"]
+        "features": [
+          "Furniture from 1-room apartment",
+          "Household appliances",
+          "Bicycles and sports equipment"
+        ]
       },
       "large": {
         "description": "Sufficient for a 2-3 room apartment",
-        "features": ["Complete apartment furnishing", "Large furniture pieces", "Multiple household appliances"]
+        "features": [
+          "Complete apartment furnishing",
+          "Large furniture pieces",
+          "Multiple household appliances"
+        ]
       }
     }
   },

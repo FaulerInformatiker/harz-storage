@@ -7,11 +7,13 @@ The HarzStorage website uses a REST API for contact form submissions with enviro
 ## Environment Configuration
 
 ### Development
+
 - **Base URL**: `http://localhost:3001`
 - **Mock Server**: JSON Server
 - **Port**: 3001
 
 ### Production
+
 - **Base URL**: `/api`
 - **Real API**: Production endpoints
 
@@ -22,30 +24,33 @@ The HarzStorage website uses a REST API for contact form submissions with enviro
 Submit a contact form inquiry.
 
 **Request Body:**
+
 ```typescript
 interface ContactFormData {
-  name: string        // Required: Customer name
-  email: string       // Required: Customer email
-  phone: string       // Optional: Customer phone
-  size: string        // Optional: Requested storage size
-  message: string     // Optional: Additional message
+  name: string; // Required: Customer name
+  email: string; // Required: Customer email
+  phone: string; // Optional: Customer phone
+  size: string; // Optional: Requested storage size
+  message: string; // Optional: Additional message
 }
 ```
 
 **Response:**
+
 ```typescript
 interface ContactSubmission {
-  id: number
-  name: string
-  email: string
-  phone: string
-  size: string
-  message: string
-  createdAt: string   // ISO timestamp
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  size: string;
+  message: string;
+  createdAt: string; // ISO timestamp
 }
 ```
 
 **Example Request:**
+
 ```bash
 curl -X POST http://localhost:3001/contacts \
   -H "Content-Type: application/json" \
@@ -59,6 +64,7 @@ curl -X POST http://localhost:3001/contacts \
 ```
 
 **Example Response:**
+
 ```json
 {
   "id": 1,
@@ -74,17 +80,20 @@ curl -X POST http://localhost:3001/contacts \
 ## Error Handling
 
 ### Client-Side
+
 - Form validation before submission
 - Loading states during API calls
 - User-friendly error messages
 - Automatic form reset on success
 
 ### Server-Side
+
 - HTTP status codes
 - JSON error responses
 - Request validation
 
 **Error Response Format:**
+
 ```json
 {
   "error": "Error message",
@@ -96,12 +105,15 @@ curl -X POST http://localhost:3001/contacts \
 ## Mock Server Setup
 
 ### Installation
+
 ```bash
 npm install --save-dev json-server
 ```
 
 ### Configuration
+
 File: `mock-api/db.json`
+
 ```json
 {
   "contacts": [],
@@ -110,6 +122,7 @@ File: `mock-api/db.json`
 ```
 
 ### Scripts
+
 ```bash
 # Start mock server
 npm run mock-api
@@ -121,42 +134,48 @@ npm run dev:full
 ## API Service Usage
 
 ### Import
+
 ```typescript
-import { submitContactForm, type ContactFormData } from '../lib/api'
+import { submitContactForm, type ContactFormData } from "../lib/api";
 ```
 
 ### Implementation
+
 ```typescript
 const handleSubmit = async (formData: ContactFormData) => {
   try {
-    const result = await submitContactForm(formData)
-    console.log('Submission successful:', result)
+    const result = await submitContactForm(formData);
+    console.log("Submission successful:", result);
   } catch (error) {
-    console.error('Submission failed:', error)
+    console.error("Submission failed:", error);
   }
-}
+};
 ```
 
 ## Testing
 
 ### Unit Tests
+
 Mock API calls in Jest tests:
+
 ```typescript
-jest.mock('../lib/api', () => ({
-  submitContactForm: jest.fn()
-}))
+jest.mock("../lib/api", () => ({
+  submitContactForm: jest.fn(),
+}));
 ```
 
 ### E2E Tests
+
 Mock API responses in Playwright:
+
 ```typescript
-await page.route('http://localhost:3001/contacts', async route => {
+await page.route("http://localhost:3001/contacts", async (route) => {
   await route.fulfill({
     status: 201,
-    contentType: 'application/json',
-    body: JSON.stringify({ id: 1, createdAt: new Date().toISOString() })
-  })
-})
+    contentType: "application/json",
+    body: JSON.stringify({ id: 1, createdAt: new Date().toISOString() }),
+  });
+});
 ```
 
 ## Security Considerations
