@@ -228,9 +228,9 @@ const result = await submitContactForm(formData)
 
 ## 🚀 Release Management
 
-### Automated Releases
-- **Automatic**: Triggered on push to main branch (patch version)
-- **Manual**: Use GitHub Actions workflow dispatch for minor/major versions
+### Manual Releases Only
+- **Manual Trigger**: Use GitHub Actions workflow dispatch for all releases
+- **Version Types**: Choose patch, minor, or major version bumps
 - **Version Bumping**: Automatically updates package.json and Helm chart
 - **GitHub Releases**: Creates release with changelog and deployment instructions
 
