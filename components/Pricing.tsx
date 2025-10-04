@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useTranslation } from '../lib/TranslationContext'
 
 export default function Pricing() {
@@ -34,9 +35,17 @@ export default function Pricing() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {t('pricing.title')}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mb-8">
             {t('pricing.subtitle')}
           </p>
+          <div className="relative w-full max-w-2xl mx-auto h-64 rounded-lg overflow-hidden mb-8">
+            <Image
+              src="/images/storage-units.jpg"
+              alt="Storage units facility"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">

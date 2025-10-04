@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Camera, Lock, Shield } from 'lucide-react'
 
 const securityFeatures = [
@@ -26,9 +27,17 @@ export default function Security() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ihre Sicherheit ist unser Auftrag
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-gray-300 mb-8">
             Modernste Sicherheitstechnik schützt Ihr Eigentum
           </p>
+          <div className="relative w-full max-w-md mx-auto h-48 rounded-lg overflow-hidden">
+            <Image
+              src="/images/security-camera.jpg"
+              alt="Security camera monitoring"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">

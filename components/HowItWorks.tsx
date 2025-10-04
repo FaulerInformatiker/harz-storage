@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Search, FileText, Key } from 'lucide-react'
 import { useTranslation } from '../lib/TranslationContext'
 
@@ -31,9 +32,17 @@ export default function HowItWorks() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {t('howItWorks.title')}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mb-8">
             {t('howItWorks.subtitle')}
           </p>
+          <div className="relative w-full max-w-lg mx-auto h-64 rounded-lg overflow-hidden">
+            <Image
+              src="/images/moving-boxes.jpg"
+              alt="Moving boxes ready for storage"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
