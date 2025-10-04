@@ -123,6 +123,29 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* Local Trust Signals */}
+            <div className="mt-8 p-6 bg-gradient-to-r from-primary-50 to-accent-50 rounded-lg">
+              <h4 className="font-semibold text-gray-900 mb-4">Warum HarzStorage?</h4>
+              <div className="space-y-3 text-sm text-gray-700">
+                <div className="flex items-center">
+                  <span className="text-green-600 mr-2">✓</span>
+                  <span>Lokales Familienunternehmen aus Langelsheim</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-green-600 mr-2">✓</span>
+                  <span>Über 200 zufriedene Kunden aus der Region</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-green-600 mr-2">✓</span>
+                  <span>Persönlicher Service & kurze Wege</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-green-600 mr-2">✓</span>
+                  <span>Flexible Lösungen für Privat & Gewerbe</span>
+                </div>
+              </div>
+            </div>
+
             {/* Location Map */}
             <div className="mt-8">
               <h4 className="font-semibold text-gray-900 mb-4">Standort</h4>

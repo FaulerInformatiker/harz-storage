@@ -65,12 +65,22 @@ export default function Pricing() {
               )}
               
               <div className="text-center mb-6">
+                <div className="w-16 h-16 mx-auto mb-4 bg-primary-100 rounded-lg flex items-center justify-center">
+                  {index === 0 && <span className="text-2xl">📦</span>}
+                  {index === 1 && <span className="text-2xl">🏠</span>}
+                  {index === 2 && <span className="text-2xl">🏢</span>}
+                </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.size}</h3>
                 <div className="text-4xl font-bold text-primary-600 mb-2">
                   {plan.price}
                   <span className="text-lg text-gray-500">{t('pricing.month')}</span>
                 </div>
-                <p className="text-gray-600">{plan.description}</p>
+                <p className="text-gray-600 mb-2">{plan.description}</p>
+                <div className="text-xs text-gray-500 italic">
+                  {index === 0 && "Perfekt für: Umzugskartons, Saisonware, Fahrrad"}
+                  {index === 1 && "Perfekt für: 1-Zimmer-Wohnung, Büroausstattung"}
+                  {index === 2 && "Perfekt für: Komplette Wohnung, Firmeninventar"}
+                </div>
               </div>
               
               <ul className="space-y-3 mb-8">
