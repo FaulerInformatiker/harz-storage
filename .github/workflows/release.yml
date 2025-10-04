@@ -1,8 +1,6 @@
 name: Release
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
     inputs:
       version_type:
@@ -18,7 +16,6 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     
     steps:
     - uses: actions/checkout@v4
@@ -49,12 +46,7 @@ jobs:
     - name: Bump version
       id: version
       run: |
-        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-          VERSION_TYPE="${{ github.event.inputs.version_type }}"
-        else
-          VERSION_TYPE="patch"
-        fi
-        
+        VERSION_TYPE="${{ github.event.inputs.version_type }}"
         NEW_VERSION=$(npm version $VERSION_TYPE --no-git-tag-version)
         echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
         echo "version_number=${NEW_VERSION#v}" >> $GITHUB_OUTPUT
