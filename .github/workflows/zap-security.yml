@@ -12,6 +12,8 @@ on:
 permissions:
   contents: read
   security-events: write
+  issues: write
+  actions: read
 
 jobs:
   zap-baseline:
