@@ -1,0 +1,135 @@
+{
+  "hero": {
+    "title": "Self-Storage in Langelsheim",
+    "subtitle": "Flexible, secure storage units from 5m² in the heart of the Harz. Monthly cancellation, from €25/month.",
+    "cta": "Request Storage Now",
+    "prices": "View Prices"
+  },
+  "advantages": {
+    "title": "Why HarzStorage?",
+    "subtitle": "Your advantages at a glance",
+    "access": {
+      "title": "24/7 Access",
+      "description": "Round-the-clock access to your belongings with personal access code"
+    },
+    "security": {
+      "title": "Video Monitored & Alarm Secured",
+      "description": "State-of-the-art security technology reliably protects your property"
+    },
+    "pricing": {
+      "title": "Transparent Pricing",
+      "description": "No hidden costs - you only pay for the box size you need"
+    },
+    "flexibility": {
+      "title": "Flexible Terms",
+      "description": "Monthly cancellation - perfect for short and long-term storage"
+    }
+  },
+  "pricing": {
+    "title": "Sizes & Prices",
+    "subtitle": "Find the right box for your needs",
+    "popular": "Popular",
+    "month": "/month",
+    "request": "Request Box",
+    "sizes": {
+      "small": {
+        "description": "Perfect for moving boxes and smaller items",
+        "features": ["About 10-15 moving boxes", "Ideal for documents", "Seasonal decorations"]
+      },
+      "medium": {
+        "description": "Space for a 1-room apartment",
+        "features": ["Furniture from 1-room apartment", "Household appliances", "Bicycles and sports equipment"]
+      },
+      "large": {
+        "description": "Sufficient for a 2-3 room apartment",
+        "features": ["Complete apartment furnishing", "Large furniture pieces", "Multiple household appliances"]
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Your storage space in just 3 simple steps",
+    "steps": {
+      "select": {
+        "title": "Select Box",
+        "description": "Choose the right box size and request online"
+      },
+      "contract": {
+        "title": "Sign Contract",
+        "description": "Short rental agreement and you receive your personal access code"
+      },
+      "access": {
+        "title": "Store & Access",
+        "description": "Store your belongings and have 24/7 access anytime"
+      }
+    }
+  },
+  "security": {
+    "title": "Your Security is Our Mission",
+    "subtitle": "State-of-the-art security technology protects your property",
+    "video": {
+      "title": "Video Surveillance",
+      "description": "High-resolution cameras monitor the entire premises around the clock"
+    },
+    "access": {
+      "title": "Electronic Access Control",
+      "description": "Each customer receives an individual access code for maximum security"
+    },
+    "insurance": {
+      "title": "Insurance Protection",
+      "description": "Optional insurance for your stored items available"
+    },
+    "note": "Additionally, we recommend every customer to take out household insurance or check if existing insurance also covers items in storage boxes.",
+    "cta": "Request Security Info"
+  },
+  "contact": {
+    "title": "Contact & Request",
+    "subtitle": "Let us find your perfect storage box",
+    "info": "Get in Touch",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Office Hours",
+    "access": "Box access: 24/7",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "boxSize": "Desired Box Size",
+      "message": "Message",
+      "placeholder": "Tell us what you want to store or ask your questions...",
+      "submit": "Send Request",
+      "required": "* Required fields. Your data will be treated confidentially and not shared with third parties.",
+      "select": "Please select",
+      "other": "Other size",
+      "error": "Error sending request. Please try again."
+    },
+    "schedule": {
+      "weekdays": "Mon - Fri: 9:00 AM - 6:00 PM",
+      "saturday": "Sat: 9:00 AM - 2:00 PM",
+      "sunday": "Sun: Closed"
+    }
+  },
+  "footer": {
+    "description": "Your reliable partner for secure storage in Langelsheim. Flexible solutions for private and commercial customers.",
+    "hours": "Opening Hours",
+    "service": "Service",
+    "access": "Box access: 24/7",
+    "copyright": "© 2024 HarzStorage. All rights reserved.",
+    "links": {
+      "prices": "Prices",
+      "contact": "Contact",
+      "imprint": "Imprint",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "schedule": {
+      "weekdays": "Mon - Fri:",
+      "saturday": "Saturday:",
+      "sunday": "Sunday:",
+      "closed": "Closed",
+      "weekdaysTime": "9:00 AM - 6:00 PM",
+      "saturdayTime": "9:00 AM - 2:00 PM"
+    }
+  }
+}

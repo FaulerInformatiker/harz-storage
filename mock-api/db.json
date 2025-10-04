@@ -1,0 +1,78 @@
+{
+  "contacts": [
+    {
+      "id": "963d",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "123456789",
+      "size": "5m²",
+      "message": "Test message",
+      "createdAt": "2025-10-04T16:04:41.436Z"
+    },
+    {
+      "id": "4f73",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-04T16:04:41.888Z"
+    },
+    {
+      "id": "f603",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "123456789",
+      "size": "5m²",
+      "message": "Test message",
+      "createdAt": "2025-10-04T16:05:22.236Z"
+    },
+    {
+      "id": "70f6",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-04T16:05:22.703Z"
+    },
+    {
+      "id": "f6e3",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-04T16:05:46.922Z"
+    },
+    {
+      "id": "1f2d",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "123456789",
+      "size": "5m²",
+      "message": "Test message",
+      "createdAt": "2025-10-04T16:08:34.963Z"
+    },
+    {
+      "id": "96bf",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-04T16:08:35.452Z"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "1",
+      "name": "Max Mustermann",
+      "email": "max@example.com",
+      "phone": "0123456789",
+      "size": "10m²",
+      "message": "Ich interessiere mich für eine Lagerbox.",
+      "createdAt": "2024-01-15T10:30:00Z"
+    }
+  ]
+}
