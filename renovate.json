@@ -3,7 +3,6 @@
   "extends": [
     "config:recommended"
   ],
-  "repositories": ["FaulerInformatiker/harz-storage"],
   "schedule": ["before 6am on monday"],
   "timezone": "Europe/Berlin",
   "labels": ["dependencies"],
