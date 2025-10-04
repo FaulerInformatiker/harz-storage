@@ -29,39 +29,46 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 ## 📋 Inhalte
 
 ### 1. Hero-Bereich
+
 - Prägnante Überschrift "Self-Storage in Langelsheim"
 - Kurzbeschreibung der Services
 - Call-to-Action Buttons
 - Sprachumschaltung (DE/EN)
 
 ### 2. Vorteile-Sektion
+
 - 24/7 Zugang per Code
 - Videoüberwacht und alarmgesichert
 - Transparente Preise
 - Flexible Laufzeiten
 
 ### 3. Größen & Preise
+
 - 5m² - 25€/Monat (Umzugskartons)
 - 10m² - 45€/Monat (1-Zimmer-Wohnung)
 - 20m² - 80€/Monat (2-3 Zimmer-Wohnung)
 
 ### 4. So funktioniert's
+
 - Schritt 1: Box auswählen und anfragen
 - Schritt 2: Vertrag unterschreiben
 - Schritt 3: Einlagern mit 24/7 Zugang
 
 ### 5. Sicherheit
+
 - Videoüberwachung
 - Elektronische Zugangskontrolle
 - Versicherungsmöglichkeiten
 
 ### 6. Kontakt & Anfrageformular
+
 - Vollständiges Kontaktformular mit API Integration
 - Kontaktinformationen
 - Öffnungszeiten
 - Formularvalidierung und Fehlerbehandlung
 
 ### 7. Footer
+
 - Adresse und Kontaktdaten
 - Öffnungszeiten
 - Links zu Impressum/Datenschutz
@@ -69,6 +76,7 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 ## 🛠️ Entwicklung
 
 ### Lokale Entwicklung
+
 ```bash
 # Abhängigkeiten installieren
 npm install
@@ -84,6 +92,7 @@ npm run mock-api
 ```
 
 ### API Entwicklung
+
 ```bash
 # Mock Server läuft auf http://localhost:3001
 # Endpoints:
@@ -96,6 +105,7 @@ npm run mock-api
 ```
 
 ### Produktions-Build
+
 ```bash
 # Build erstellen
 npm run build
@@ -107,6 +117,7 @@ npm run start
 ## 🧪 Testing
 
 ### Unit Tests (Jest + React Testing Library)
+
 ```bash
 # Tests ausführen
 npm test
@@ -121,6 +132,7 @@ npm run test:coverage
 **Test Coverage**: 70% Minimum für branches, functions, lines, statements
 
 ### E2E Tests (Playwright)
+
 ```bash
 # E2E Tests ausführen
 npm run test:e2e
@@ -133,6 +145,7 @@ npx playwright show-report
 ```
 
 **E2E Test Suites**:
+
 - Homepage functionality
 - Language switching (DE/EN)
 - Contact form API integration
@@ -140,6 +153,7 @@ npx playwright show-report
 - Form validation and error handling
 
 ### Test Struktur
+
 ```
 app/__tests__/          # Jest Unit Tests
 tests/e2e/             # Playwright E2E Tests
@@ -149,6 +163,7 @@ mock-api/              # JSON Server Mock Data
 ## 🌐 Internationalization
 
 ### Sprachunterstützung
+
 - **Deutsch** (Standard)
 - **Englisch**
 - React Context für State Management
@@ -156,6 +171,7 @@ mock-api/              # JSON Server Mock Data
 - Vollständige Übersetzung aller UI-Elemente
 
 ### Translation Files
+
 ```
 lib/translations/de.json    # Deutsche Übersetzungen
 lib/translations/en.json    # Englische Übersetzungen
@@ -163,32 +179,35 @@ lib/TranslationContext.tsx  # React Context Provider
 ```
 
 ### Usage
-```tsx
-import { useTranslation } from '../lib/TranslationContext'
 
-const { t, language, setLanguage } = useTranslation()
-const text = t('hero.title')
+```tsx
+import { useTranslation } from "../lib/TranslationContext";
+
+const { t, language, setLanguage } = useTranslation();
+const text = t("hero.title");
 ```
 
 ## 🔧 API Integration
 
 ### Contact Form API
+
 ```typescript
 // Interface
 interface ContactFormData {
-  name: string
-  email: string
-  phone: string
-  size: string
-  message: string
+  name: string;
+  email: string;
+  phone: string;
+  size: string;
+  message: string;
 }
 
 // Usage
-import { submitContactForm } from '../lib/api'
-const result = await submitContactForm(formData)
+import { submitContactForm } from "../lib/api";
+const result = await submitContactForm(formData);
 ```
 
 ### Environment Configuration
+
 - **Development**: Mock Server (localhost:3001)
 - **Production**: Real API (/api endpoints)
 - Automatische Umschaltung basierend auf NODE_ENV
@@ -196,11 +215,13 @@ const result = await submitContactForm(formData)
 ## 🎨 Design-System
 
 ### Farben
+
 - **Primary**: Blautöne (#3b82f6, #2563eb, #1d4ed8)
 - **Accent**: Grüntöne (#22c55e, #16a34a)
 - **Neutral**: Graustufen für Text und Hintergründe
 
 ### Komponenten
+
 - Wiederverwendbare Button-Styles
 - Konsistente Spacing-Patterns
 - Responsive Grid-Layouts
@@ -216,12 +237,14 @@ const result = await submitContactForm(formData)
 ## 🔧 Dependency Management
 
 ### Automated Updates
+
 - **Renovate Bot**: Automated dependency updates every Monday morning
 - **Security Alerts**: Immediate notifications for vulnerability fixes
 - **Grouped Updates**: Related packages updated together for compatibility
 - **Manual Review**: All updates require manual approval before merging
 
 ### Update Schedule
+
 - **Regular Updates**: Weekly on Monday before 6 AM (Europe/Berlin)
 - **Security Updates**: Immediate via vulnerability alerts
 - **Lock File Maintenance**: Weekly cleanup of package-lock.json
@@ -229,12 +252,14 @@ const result = await submitContactForm(formData)
 ## 🚀 Release Management
 
 ### Manual Releases Only
+
 - **Manual Trigger**: Use GitHub Actions workflow dispatch for all releases
 - **Version Types**: Choose patch, minor, or major version bumps
 - **Version Bumping**: Automatically updates package.json and Helm chart
 - **GitHub Releases**: Creates release with changelog and deployment instructions
 
 ### Release Commands
+
 ```bash
 # Local version bumping (for testing)
 npm run release:patch   # 1.0.0 -> 1.0.1
@@ -243,6 +268,7 @@ npm run release:major   # 1.0.0 -> 2.0.0
 ```
 
 ### Manual Release Trigger
+
 1. Go to GitHub Actions tab
 2. Select "Release" workflow
 3. Click "Run workflow"
@@ -251,6 +277,7 @@ npm run release:major   # 1.0.0 -> 2.0.0
 ## 🚀 Deployment
 
 ### Kubernetes (Helm)
+
 ```bash
 # Build Docker image
 docker build -t harz-storage:latest .
@@ -266,6 +293,7 @@ helm install harz-storage ./helm -f custom-values.yaml
 ```
 
 ### Helm Configuration
+
 ```yaml
 # custom-values.yaml
 image:
@@ -298,6 +326,7 @@ autoscaling:
 ## 🔒 Sicherheit
 
 ### Container Security Scanning
+
 ```bash
 # Complete security scan (npm + Docker)
 npm run security:complete
@@ -312,6 +341,7 @@ npm run security:zap            # OWASP ZAP penetration test
 ```
 
 ### Security Tools
+
 - **Trivy**: CVE vulnerability scanning
 - **Hadolint**: Dockerfile best practices
 - **Dockle**: Container security checker
@@ -321,6 +351,7 @@ npm run security:zap            # OWASP ZAP penetration test
 - **npm audit**: Dependency vulnerability checking
 
 ### Security Features
+
 - **Input Validation** auf Client und Server
 - **CSRF Protection** für API Calls
 - **XSS Prevention** durch React

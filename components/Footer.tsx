@@ -1,4 +1,4 @@
-import { MapPin, Clock, Mail, Phone } from 'lucide-react'
+import { MapPin, Clock, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">HarzStorage</h3>
             <p className="text-gray-300 mb-4">
-              Ihr zuverlässiger Partner für sichere Lagerung in Langelsheim. 
+              Ihr zuverlässiger Partner für sichere Lagerung in Langelsheim.
               Flexible Lösungen für private und gewerbliche Kunden.
             </p>
             <div className="flex items-center text-gray-300 mb-2">
@@ -25,7 +25,7 @@ export default function Footer() {
               <span>info@harzstorage.de</span>
             </div>
           </div>
-          
+
           {/* Opening Hours */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Öffnungszeiten</h4>
@@ -50,24 +50,59 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Service</h4>
             <ul className="text-gray-300 space-y-2">
-              <li><a href="#preise" className="hover:text-primary-400 transition-colors">Preise</a></li>
-              <li><a href="#kontakt" className="hover:text-primary-400 transition-colors">Kontakt</a></li>
-              <li><a href="/impressum" className="hover:text-primary-400 transition-colors">Impressum</a></li>
-              <li><a href="/datenschutz" className="hover:text-primary-400 transition-colors">Datenschutz</a></li>
-              <li><a href="/agb" className="hover:text-primary-400 transition-colors">AGB</a></li>
+              <li>
+                <a
+                  href="#preise"
+                  className="hover:text-primary-400 transition-colors"
+                >
+                  Preise
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#kontakt"
+                  className="hover:text-primary-400 transition-colors"
+                >
+                  Kontakt
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/impressum"
+                  className="hover:text-primary-400 transition-colors"
+                >
+                  Impressum
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/datenschutz"
+                  className="hover:text-primary-400 transition-colors"
+                >
+                  Datenschutz
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/agb"
+                  className="hover:text-primary-400 transition-colors"
+                >
+                  AGB
+                </a>
+              </li>
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2024 HarzStorage. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

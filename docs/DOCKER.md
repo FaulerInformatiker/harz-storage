@@ -7,12 +7,14 @@ The HarzStorage application is fully containerized with Docker for consistent de
 ## Docker Images
 
 ### Production Image
+
 - **Base**: Node.js 18 Alpine Linux
 - **Size**: ~150MB (optimized multi-stage build)
 - **Security**: Non-root user, minimal attack surface
 - **Performance**: Standalone Next.js output for optimal startup
 
 ### Development Image
+
 - **Base**: Node.js 18 Alpine Linux
 - **Features**: Hot reload, volume mounting, development tools
 - **Usage**: Local development with live code changes
@@ -20,6 +22,7 @@ The HarzStorage application is fully containerized with Docker for consistent de
 ## Quick Start
 
 ### Production Deployment
+
 ```bash
 # Build and run production container
 npm run docker:build
@@ -30,6 +33,7 @@ npm run docker:prod
 ```
 
 ### Development Environment
+
 ```bash
 # Start development environment with hot reload
 npm run docker:dev
@@ -38,6 +42,7 @@ npm run docker:dev
 ## Docker Commands
 
 ### Building Images
+
 ```bash
 # Production build
 docker build -t harz-storage .
@@ -47,6 +52,7 @@ docker build -f Dockerfile.dev -t harz-storage:dev .
 ```
 
 ### Running Containers
+
 ```bash
 # Production container
 docker run -p 3000:3000 harz-storage
@@ -56,6 +62,7 @@ docker run -p 3000:3000 -v $(pwd):/app harz-storage:dev
 ```
 
 ### Docker Compose
+
 ```bash
 # Production stack (app + mock API)
 docker-compose up --build
@@ -70,6 +77,7 @@ docker-compose down
 ## Container Configuration
 
 ### Environment Variables
+
 ```bash
 NODE_ENV=production          # Runtime environment
 NEXT_TELEMETRY_DISABLED=1   # Disable Next.js telemetry
@@ -78,6 +86,7 @@ HOSTNAME=0.0.0.0           # Bind to all interfaces
 ```
 
 ### Health Checks
+
 ```bash
 # Container health check
 wget --no-verbose --tries=1 --spider http://localhost:3000/
@@ -91,6 +100,7 @@ healthcheck:
 ```
 
 ### Security Features
+
 - **Non-root user**: Runs as `nextjs` user (UID 1001)
 - **Minimal base**: Alpine Linux for reduced attack surface
 - **Read-only filesystem**: Application files owned by nextjs user
@@ -99,6 +109,7 @@ healthcheck:
 ## Multi-Stage Build
 
 ### Stage 1: Dependencies
+
 ```dockerfile
 FROM node:18-alpine AS deps
 COPY package*.json ./
@@ -106,6 +117,7 @@ RUN npm ci
 ```
 
 ### Stage 2: Builder
+
 ```dockerfile
 FROM node:18-alpine AS builder
 COPY . .
@@ -113,6 +125,7 @@ RUN npm run build
 ```
 
 ### Stage 3: Runtime
+
 ```dockerfile
 FROM node:18-alpine AS runner
 # Copy only production artifacts
@@ -122,27 +135,31 @@ FROM node:18-alpine AS runner
 ## Volume Mounts
 
 ### Development
+
 ```yaml
 volumes:
-  - .:/app                    # Source code
-  - /app/node_modules        # Preserve node_modules
-  - /app/.next               # Preserve Next.js cache
+  - .:/app # Source code
+  - /app/node_modules # Preserve node_modules
+  - /app/.next # Preserve Next.js cache
 ```
 
 ### Production Data
+
 ```yaml
 volumes:
-  - ./data:/app/data         # Persistent data
-  - ./logs:/app/logs         # Application logs
+  - ./data:/app/data # Persistent data
+  - ./logs:/app/logs # Application logs
 ```
 
 ## Networking
 
 ### Port Configuration
+
 - **Application**: 3000 (HTTP)
 - **Mock API**: 3001 (Development only)
 
 ### Service Communication
+
 ```yaml
 services:
   app:
@@ -155,12 +172,14 @@ services:
 ## Performance Optimization
 
 ### Image Size Reduction
+
 - Multi-stage build eliminates dev dependencies
 - Alpine Linux base image (~5MB vs ~100MB)
 - Standalone Next.js output removes unnecessary files
 - .dockerignore excludes development files
 
 ### Runtime Performance
+
 - Pre-built static assets
 - Optimized Node.js startup
 - Minimal memory footprint
@@ -169,6 +188,7 @@ services:
 ## Deployment Strategies
 
 ### Single Container
+
 ```bash
 docker run -d \
   --name harz-storage \
@@ -178,6 +198,7 @@ docker run -d \
 ```
 
 ### Docker Compose Stack
+
 ```bash
 # Production deployment
 docker-compose up -d
@@ -187,6 +208,7 @@ docker-compose up -d --scale app=3
 ```
 
 ### Container Orchestration
+
 - **Kubernetes**: Ready for K8s deployment
 - **Docker Swarm**: Supports swarm mode
 - **AWS ECS**: Compatible with ECS task definitions
@@ -195,6 +217,7 @@ docker-compose up -d --scale app=3
 ## Monitoring & Logging
 
 ### Container Logs
+
 ```bash
 # View application logs
 docker logs harz-storage
@@ -207,6 +230,7 @@ docker-compose logs -f app
 ```
 
 ### Health Monitoring
+
 ```bash
 # Check container health
 docker inspect --format='{{.State.Health.Status}}' harz-storage
@@ -220,6 +244,7 @@ docker stats harz-storage
 ### Common Issues
 
 **Build Failures**
+
 ```bash
 # Clear Docker cache
 docker system prune -a
@@ -229,6 +254,7 @@ docker build --no-cache -t harz-storage .
 ```
 
 **Permission Issues**
+
 ```bash
 # Fix file permissions
 sudo chown -R $(id -u):$(id -g) .
@@ -238,6 +264,7 @@ docker exec harz-storage id
 ```
 
 **Network Connectivity**
+
 ```bash
 # Test container networking
 docker exec harz-storage wget -qO- http://localhost:3000
@@ -247,6 +274,7 @@ docker port harz-storage
 ```
 
 ### Debug Mode
+
 ```bash
 # Run container with shell access
 docker run -it --entrypoint /bin/sh harz-storage
@@ -258,18 +286,21 @@ docker-compose -f docker-compose.dev.yml exec app sh
 ## Security Best Practices
 
 ### Container Security
+
 - Non-root user execution
 - Minimal base image (Alpine)
 - No unnecessary packages
 - Read-only root filesystem where possible
 
 ### Image Security
+
 - Regular base image updates
 - Vulnerability scanning with `docker scan`
 - Multi-stage builds to reduce attack surface
 - Secrets management via environment variables
 
 ### Runtime Security
+
 ```bash
 # Run with security options
 docker run --security-opt=no-new-privileges \
@@ -281,6 +312,7 @@ docker run --security-opt=no-new-privileges \
 ## CI/CD Integration
 
 ### GitHub Actions
+
 ```yaml
 - name: Build Docker Image
   run: docker build -t harz-storage .
@@ -293,6 +325,7 @@ docker run --security-opt=no-new-privileges \
 ```
 
 ### Registry Push
+
 ```bash
 # Tag for registry
 docker tag harz-storage:latest registry.example.com/harz-storage:latest
@@ -304,6 +337,7 @@ docker push registry.example.com/harz-storage:latest
 ## Production Deployment
 
 ### Environment Setup
+
 ```bash
 # Create production environment file
 cat > .env.production << EOF
@@ -314,6 +348,7 @@ EOF
 ```
 
 ### Load Balancer Configuration
+
 ```nginx
 upstream harz-storage {
     server 127.0.0.1:3000;

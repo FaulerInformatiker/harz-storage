@@ -5,6 +5,7 @@ All images in this directory are sourced from Unsplash and are free to use under
 ## Images Used
 
 ### hero-storage.jpg
+
 - **Source**: Unsplash
 - **Photographer**: Tiger Lily
 - **URL**: https://unsplash.com/photos/4lVpaoEVl4k
@@ -12,6 +13,7 @@ All images in this directory are sourced from Unsplash and are free to use under
 - **Description**: Modern warehouse/storage facility interior
 
 ### storage-units.jpg
+
 - **Source**: Unsplash
 - **Photographer**: Ruchindra Gunasekara
 - **URL**: https://unsplash.com/photos/GK8x_XCcDZg
@@ -19,6 +21,7 @@ All images in this directory are sourced from Unsplash and are free to use under
 - **Description**: Self-storage facility with multiple units
 
 ### security-camera.jpg
+
 - **Source**: Unsplash
 - **Photographer**: Scott Webb
 - **URL**: https://unsplash.com/photos/yekGLpc3vro
@@ -26,6 +29,7 @@ All images in this directory are sourced from Unsplash and are free to use under
 - **Description**: Security camera for surveillance
 
 ### moving-boxes.jpg
+
 - **Source**: Unsplash
 - **Photographer**: Erda Estremera
 - **URL**: https://unsplash.com/photos/sxNt9g77PE0
@@ -35,6 +39,7 @@ All images in this directory are sourced from Unsplash and are free to use under
 ## Unsplash License
 
 These images are provided under the Unsplash License, which allows:
+
 - Free use for any purpose
 - No permission needed
 - Commercial and personal use
