@@ -46,6 +46,9 @@ jobs:
           target: "http://localhost:3000"
           rules_file_name: ".zap/rules.tsv"
           cmd_options: "-a -j -l WARN"
+          issue_title: "ZAP Scan Baseline Report"
+          fail_action: ${{ github.event_name == 'pull_request' }}
+          create_issue: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
 
       - name: Upload ZAP Report
         uses: actions/upload-artifact@v4
