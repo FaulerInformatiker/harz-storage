@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { Globe } from 'lucide-react'
-import { useTranslation } from '../lib/TranslationContext'
+import { Globe } from "lucide-react";
+import { useTranslation } from "../lib/TranslationContext";
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage } = useTranslation()
-  const languages = ['de', 'en'] as const
+  const { language, setLanguage } = useTranslation();
+  const languages = ["de", "en"] as const;
 
   return (
     <div className="flex items-center space-x-2">
@@ -17,8 +17,8 @@ export default function LanguageSwitcher() {
             onClick={() => setLanguage(lng)}
             className={`px-2 py-1 text-sm rounded transition-colors ${
               language === lng
-                ? 'bg-primary-600 text-white'
-                : 'text-gray-600 hover:bg-gray-100'
+                ? "bg-primary-600 text-white"
+                : "text-gray-600 hover:bg-gray-100"
             }`}
           >
             {lng.toUpperCase()}
@@ -26,5 +26,5 @@ export default function LanguageSwitcher() {
         ))}
       </div>
     </div>
-  )
+  );
 }

@@ -34,15 +34,27 @@
     "sizes": {
       "small": {
         "description": "Perfekt für Umzugskartons und kleinere Gegenstände",
-        "features": ["Ca. 10-15 Umzugskartons", "Ideal für Dokumente", "Saisonale Dekoration"]
+        "features": [
+          "Ca. 10-15 Umzugskartons",
+          "Ideal für Dokumente",
+          "Saisonale Dekoration"
+        ]
       },
       "medium": {
         "description": "Platz für eine 1-Zimmer-Wohnung",
-        "features": ["Möbel einer 1-Zimmer-Wohnung", "Haushaltsgeräte", "Fahrräder und Sportgeräte"]
+        "features": [
+          "Möbel einer 1-Zimmer-Wohnung",
+          "Haushaltsgeräte",
+          "Fahrräder und Sportgeräte"
+        ]
       },
       "large": {
         "description": "Ausreichend für eine 2-3 Zimmer-Wohnung",
-        "features": ["Komplette Wohnungseinrichtung", "Große Möbelstücke", "Mehrere Haushaltsgeräte"]
+        "features": [
+          "Komplette Wohnungseinrichtung",
+          "Große Möbelstücke",
+          "Mehrere Haushaltsgeräte"
+        ]
       }
     }
   },
