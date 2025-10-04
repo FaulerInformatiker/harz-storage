@@ -65,8 +65,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm test
+      - name: Run tests with coverage
+        run: npm run test:coverage
 
       - name: Upload test results
         if: always()
@@ -75,6 +75,7 @@ jobs:
           name: test-results-node-${{ matrix.node-version }}
           path: coverage/
           retention-days: 30
+          if-no-files-found: warn
 
   build:
     runs-on: ubuntu-latest
@@ -100,6 +101,7 @@ jobs:
           name: build-artifacts
           path: .next/
           retention-days: 7
+          if-no-files-found: warn
 
   security:
     runs-on: ubuntu-latest
