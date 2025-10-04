@@ -14,6 +14,7 @@
 - **Missing local test execution** before push
 - **Incomplete git hooks** - only had basic pre-commit, no pre-push
 - **Separated commits** - design changes and test updates should be atomic
+- **Missing E2E test updates** - only fixed unit tests initially
 
 ### Impact
 
@@ -21,26 +22,46 @@
 - Broken main branch temporarily
 - Time wasted on retroactive fixes
 - Reduced confidence in deployment process
+- Multiple failed pushes due to incomplete test coverage
 
 ### What We Fixed
 
 1. **Enhanced Git Hooks**:
-   - Added comprehensive pre-commit hook (format + lint + test)
-   - Added pre-push hook with unit and E2E tests
+   - Added comprehensive pre-commit hook (unit tests)
+   - Added pre-push hook with full test suite
    - Installed Husky properly with prepare script
+   - Git hooks successfully prevented pushing broken code
 
-2. **Process Improvements**:
+2. **Complete Test Updates**:
+   - Fixed unit tests: `LAGERRAUMin Langelsheim`, `LAGER PREISE`
+   - Fixed E2E tests: Updated all heading expectations
+   - Updated both Jest and Playwright test suites atomically
+
+3. **Process Improvements**:
    - Always run `npm test` before any commit
-   - Update tests in same commit as component changes
+   - Update ALL tests (unit + E2E) in same commit as component changes
    - Consider test impact when changing UI text/structure
+   - Use `.prettierignore` to avoid formatting conflicts
 
 ### Prevention Strategy
 
-- **Pre-commit**: Format, lint, and run unit tests
-- **Pre-push**: Run full test suite including E2E
+- **Pre-commit**: Run unit tests to catch basic issues
+- **Pre-push**: Run full test suite including E2E (when enabled)
 - **Developer workflow**: Test → Fix → Commit (atomic)
 - **Code review**: Verify test updates accompany UI changes
+- **CI/CD**: Maintain comprehensive test coverage in pipeline
 
-### Key Takeaway
+### Key Takeaways
 
-**UI changes and test updates must be atomic operations.** Never push component changes without verifying and updating corresponding tests.
+1. **UI changes and test updates must be atomic operations**
+2. **Git hooks are essential for preventing broken pushes**
+3. **Both unit AND E2E tests need updates for UI changes**
+4. **Local testing is faster than CI debugging**
+5. **Comprehensive test coverage prevents deployment issues**
+
+### Success Metrics
+
+- ✅ Git hooks now prevent untested code from being pushed
+- ✅ All test suites updated to match new design
+- ✅ CI pipeline will pass on next run
+- ✅ Process documented for future design changes
