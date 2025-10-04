@@ -123,22 +123,37 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Google Maps Embed */}
+            {/* Location Map */}
             <div className="mt-8">
               <h4 className="font-semibold text-gray-900 mb-4">Standort</h4>
               <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2449.8!2d10.3!3d51.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a4c8b123456789%3A0x123456789abcdef0!2sLangelsheim%2C%20Germany!5e0!3m2!1sde!2sde!4v1696435200000!5m2!1sde!2sde"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="HarzStorage Standort in Langelsheim"
-                ></iframe>
+                <a 
+                  href="https://www.google.com/maps/search/Langelsheim,+Deutschland" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block relative group"
+                >
+                  <div className="bg-gradient-to-br from-blue-50 to-green-50 h-64 flex items-center justify-center border-2 border-dashed border-gray-300 group-hover:border-primary-400 transition-colors">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-200 transition-colors">
+                        <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      </div>
+                      <h5 className="text-lg font-semibold text-gray-900 mb-2">Langelsheim, Deutschland</h5>
+                      <p className="text-gray-600 mb-3">Klicken Sie hier, um die Route zu planen</p>
+                      <span className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg group-hover:bg-primary-700 transition-colors">
+                        In Google Maps öffnen
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </a>
               </div>
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="text-sm text-gray-500 mt-4">
                 📍 Direkt im Herzen des Harzes - leicht erreichbar über die B82
               </p>
             </div>
