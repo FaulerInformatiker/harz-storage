@@ -19,17 +19,17 @@ jobs:
       context: "HarzStorage"
       url: "http://localhost:3000"
       maxDuration: 2
-      
+
   - type: passiveScan-wait
     parameters:
       maxDuration: 5
-      
+
   - type: activeScan
     parameters:
       context: "HarzStorage"
       policy: "Default Policy"
       maxDuration: 5
-      
+
   - type: report
     parameters:
       template: "traditional-html"

@@ -7,6 +7,7 @@ The HarzStorage website is built with Next.js and can be deployed to various pla
 ## Build Process
 
 ### Local Build
+
 ```bash
 # Install dependencies
 npm install
@@ -19,6 +20,7 @@ npm run start
 ```
 
 ### Build Output
+
 - Static files in `.next/static/`
 - Server-side code in `.next/server/`
 - Optimized images and assets
@@ -28,11 +30,13 @@ npm run start
 ### Vercel (Recommended)
 
 #### Automatic Deployment
+
 1. Connect GitHub repository to Vercel
 2. Configure environment variables
 3. Deploy automatically on git push
 
 #### Manual Deployment
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -45,7 +49,9 @@ vercel --prod
 ```
 
 #### Configuration
+
 File: `vercel.json`
+
 ```json
 {
   "framework": "nextjs",
@@ -58,12 +64,15 @@ File: `vercel.json`
 ### Netlify
 
 #### Build Settings
+
 - **Build Command**: `npm run build`
 - **Publish Directory**: `.next`
 - **Node Version**: 18.x
 
 #### Configuration
+
 File: `netlify.toml`
+
 ```toml
 [build]
   command = "npm run build"
@@ -81,6 +90,7 @@ File: `netlify.toml`
 ### AWS Amplify
 
 #### Build Settings
+
 ```yaml
 version: 1
 frontend:
@@ -94,7 +104,7 @@ frontend:
   artifacts:
     baseDirectory: .next
     files:
-      - '**/*'
+      - "**/*"
   cache:
     paths:
       - node_modules/**/*
@@ -103,6 +113,7 @@ frontend:
 ### Docker Deployment
 
 #### Dockerfile
+
 ```dockerfile
 FROM node:18-alpine AS deps
 WORKDIR /app
@@ -136,6 +147,7 @@ CMD ["npm", "start"]
 ```
 
 #### Docker Commands
+
 ```bash
 # Build image
 docker build -t harz-storage .
@@ -147,12 +159,14 @@ docker run -p 3000:3000 harz-storage
 ## Environment Variables
 
 ### Development
+
 ```env
 NODE_ENV=development
 NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
 ### Production
+
 ```env
 NODE_ENV=production
 NEXT_PUBLIC_API_URL=https://api.harzstorage.de
@@ -165,13 +179,17 @@ SMTP_PASS=password
 ### Platform Configuration
 
 #### Vercel
+
 Set in Vercel dashboard or via CLI:
+
 ```bash
 vercel env add NEXT_PUBLIC_API_URL
 ```
 
 #### Netlify
+
 Set in Netlify dashboard or `netlify.toml`:
+
 ```toml
 [build.environment]
   NEXT_PUBLIC_API_URL = "https://api.harzstorage.de"
@@ -180,32 +198,39 @@ Set in Netlify dashboard or `netlify.toml`:
 ## API Configuration
 
 ### Development API
+
 - Mock server on `localhost:3001`
 - JSON Server with mock data
 - No authentication required
 
 ### Production API
+
 - Real API endpoints
 - Authentication/authorization
 - Rate limiting and security
 
 ### API Service Configuration
+
 File: `lib/api.ts`
+
 ```typescript
-const API_BASE_URL = process.env.NODE_ENV === 'development' 
-  ? 'http://localhost:3001' 
-  : process.env.NEXT_PUBLIC_API_URL || '/api'
+const API_BASE_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3001"
+    : process.env.NEXT_PUBLIC_API_URL || "/api";
 ```
 
 ## Performance Optimization
 
 ### Next.js Optimizations
+
 - Automatic code splitting
 - Image optimization with `next/image`
 - Static generation where possible
 - Bundle analysis with `@next/bundle-analyzer`
 
 ### Build Optimizations
+
 ```bash
 # Analyze bundle size
 npm install --save-dev @next/bundle-analyzer
@@ -224,6 +249,7 @@ ANALYZE=true npm run build
 ```
 
 ### CDN Configuration
+
 - Static assets served from CDN
 - Image optimization and caching
 - Gzip/Brotli compression
@@ -231,34 +257,37 @@ ANALYZE=true npm run build
 ## Security Configuration
 
 ### Headers
+
 File: `next.config.js`
+
 ```javascript
 module.exports = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'DENY',
+            key: "X-Frame-Options",
+            value: "DENY",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
+            key: "Referrer-Policy",
+            value: "origin-when-cross-origin",
           },
         ],
       },
-    ]
+    ];
   },
-}
+};
 ```
 
 ### HTTPS
+
 - Force HTTPS in production
 - HSTS headers
 - Secure cookies
@@ -266,34 +295,39 @@ module.exports = {
 ## Monitoring and Analytics
 
 ### Error Tracking
+
 - Sentry integration
 - Error boundaries
 - Performance monitoring
 
 ### Analytics
+
 - Google Analytics
 - Core Web Vitals tracking
 - User behavior analysis
 
 ### Health Checks
+
 ```typescript
 // pages/api/health.ts
 export default function handler(req, res) {
-  res.status(200).json({ 
-    status: 'ok', 
-    timestamp: new Date().toISOString() 
-  })
+  res.status(200).json({
+    status: "ok",
+    timestamp: new Date().toISOString(),
+  });
 }
 ```
 
 ## Backup and Recovery
 
 ### Database Backups
+
 - Automated daily backups
 - Point-in-time recovery
 - Cross-region replication
 
 ### Static Assets
+
 - CDN backup strategy
 - Version control for assets
 - Rollback procedures
@@ -301,6 +335,7 @@ export default function handler(req, res) {
 ## Deployment Checklist
 
 ### Pre-Deployment
+
 - [ ] Run all tests (`npm test && npm run test:e2e`)
 - [ ] Build successfully (`npm run build`)
 - [ ] Environment variables configured
@@ -308,6 +343,7 @@ export default function handler(req, res) {
 - [ ] Security headers configured
 
 ### Post-Deployment
+
 - [ ] Health check passes
 - [ ] Contact form works
 - [ ] Language switching works
@@ -316,6 +352,7 @@ export default function handler(req, res) {
 - [ ] Error tracking active
 
 ### Rollback Plan
+
 - [ ] Previous version tagged
 - [ ] Database migration rollback ready
 - [ ] CDN cache invalidation plan

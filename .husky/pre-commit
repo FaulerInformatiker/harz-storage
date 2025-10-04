@@ -1,11 +1,4 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-echo "🎨 Running Prettier..."
-npx prettier --write .
-
-echo "🔍 Running ESLint..."
-npx eslint . --fix
 
 echo "🧪 Running unit tests..."
 npm test
