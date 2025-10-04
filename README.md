@@ -68,6 +68,21 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 
 ## 🛠️ Entwicklung
 
+### Voraussetzungen
+- **Node.js**: v22.0.0 oder höher
+- **npm**: v10.0.0 oder höher
+
+### Node.js Version Management
+```bash
+# Mit nvm (empfohlen)
+nvm use
+
+# Mit fnm
+fnm use
+
+# Oder manuell Node.js 22+ installieren
+```
+
 ### Lokale Entwicklung
 ```bash
 # Abhängigkeiten installieren

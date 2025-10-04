@@ -36,6 +36,10 @@
     "react": "^18",
     "react-dom": "^18"
   },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
     "@testing-library/jest-dom": "^6.9.1",
