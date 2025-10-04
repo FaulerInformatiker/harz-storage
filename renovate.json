@@ -1,8 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
+  "repositories": ["FaulerInformatiker/harz-storage"],
   "schedule": ["before 6am on monday"],
   "timezone": "Europe/Berlin",
   "labels": ["dependencies"],
