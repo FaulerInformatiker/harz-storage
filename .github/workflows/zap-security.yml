@@ -53,6 +53,7 @@ jobs:
         with:
           name: zap-baseline-report
           path: report_html.html
+          retention-days: 30
 
   zap-full-scan:
     runs-on: ubuntu-latest
@@ -90,5 +91,6 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: zap-full-scan-report
+          name: zap-full-report
           path: report_html.html
+          retention-days: 30
