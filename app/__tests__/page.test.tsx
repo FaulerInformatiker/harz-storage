@@ -16,7 +16,7 @@ describe('Home Page', () => {
     
     const heading = screen.getByRole('heading', { level: 1 })
     expect(heading).toBeInTheDocument()
-    expect(heading).toHaveTextContent('Self-Storage in Langelsheim')
+    expect(heading).toHaveTextContent('LAGERRAUMin Langelsheim')
   })
 
   it('renders call-to-action button', () => {
@@ -30,7 +30,7 @@ describe('Home Page', () => {
   it('renders pricing section', () => {
     renderWithProvider()
     
-    const pricingHeading = screen.getByRole('heading', { name: /größen & preise/i })
+    const pricingHeading = screen.getByRole('heading', { name: /lager preise/i })
     expect(pricingHeading).toBeInTheDocument()
   })
 
