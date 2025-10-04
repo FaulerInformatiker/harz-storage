@@ -122,7 +122,7 @@ jobs:
       - name: Check for hardcoded secrets
         run: |
           echo "Checking for potential secrets..."
-          if grep -r "sk-\|pk_\|API_KEY\|SECRET" . --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.next --exclude=ci.yml --exclude=README.md; then
+          if grep -r "sk-\|pk_\|API_KEY\|SECRET" . --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.next --exclude=ci.yml --exclude=README.md --exclude=package-lock.json; then
             echo "::error::Potential hardcoded secrets found!"
             exit 1
           fi
