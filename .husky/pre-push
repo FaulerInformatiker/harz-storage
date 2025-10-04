@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+echo "🧪 Running tests before push..."
+npm test
+
+echo "⚠️  E2E tests temporarily disabled during design migration"
+# echo "🎭 Running E2E tests..."
+# npm run test:e2e
