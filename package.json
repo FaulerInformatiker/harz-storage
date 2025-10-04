@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "./scripts/dev.sh next dev",
-    "build": "./scripts/dev.sh next build",
-    "start": "./scripts/dev.sh next start",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
     "lint:security": "eslint . --ext .js,.jsx,.ts,.tsx --config .eslintrc.json",
     "test": "vitest run",

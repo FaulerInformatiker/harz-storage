@@ -1,22 +1,22 @@
-FROM node:18-alpine AS deps
+FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN npm run build
 
-FROM node:18-alpine AS runner
+FROM node:22-alpine AS runner
 WORKDIR /app
 
 # Install security updates and curl for healthcheck
 RUN apk update && apk upgrade && apk add --no-cache curl && rm -rf /var/cache/apk/*
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # Create non-root user with specific UID/GID
 RUN addgroup --system --gid 1001 nodejs
@@ -37,8 +37,8 @@ USER nextjs
 
 # Expose port (non-privileged)
 EXPOSE 3000
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 
 # Add labels for security scanning
 LABEL maintainer="HarzStorage" \
