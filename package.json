@@ -13,6 +13,8 @@
     "test:coverage": "jest --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "test:contract": "jest --config jest.contract.config.js",
+    "test:contract:publish": "pact-broker publish pacts --consumer-app-version=$npm_package_version --broker-base-url=$PACT_BROKER_BASE_URL",
     "test:zap": "npm run dev & sleep 10 && docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://host.docker.internal:3000 -r zap-report.html -x zap-report.xml",
     "test:zap:full": "npm run dev & sleep 10 && docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py -t http://host.docker.internal:3000 -r zap-full-report.html -x zap-full-report.xml",
     "mock-api": "json-server --watch mock-api/db.json --port 3001",
@@ -40,6 +42,7 @@
   },
   "devDependencies": {
     "@cyclonedx/cyclonedx-npm": "^4.0.3",
+    "@pact-foundation/pact": "^15.0.1",
     "@playwright/test": "^1.40.0",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
