@@ -94,6 +94,32 @@ jobs:
           docker build -t harz-storage:${{ steps.version.outputs.version_number }} .
           docker tag harz-storage:${{ steps.version.outputs.version_number }} harz-storage:latest
 
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          path: ./
+          format: spdx-json
+          output-file: sbom-${{ steps.version.outputs.version_number }}.spdx.json
+
+      - name: Run Trivy container scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: harz-storage:${{ steps.version.outputs.version_number }}
+          format: sarif
+          output: trivy-results-${{ steps.version.outputs.version_number }}.sarif
+
+      - name: Generate dependency report
+        run: |
+          npm audit --audit-level=moderate --json > security-audit-${{ steps.version.outputs.version_number }}.json || true
+
+      - name: Package Helm chart
+        run: |
+          helm package helm/ --version ${{ steps.version.outputs.version_number }}
+
+      - name: Generate checksums
+        run: |
+          sha256sum harz-storage-${{ steps.version.outputs.version_number }}.tgz > checksums-${{ steps.version.outputs.version_number }}.txt
+
       - name: Create GitHub Release
         run: |
           CHANGELOG=""
@@ -108,6 +134,12 @@ jobs:
             --notes "## Changes
           $CHANGELOG
 
+          ## Security Artifacts
+          - 📋 SBOM: \`sbom-${{ steps.version.outputs.version_number }}.spdx.json\`
+          - 🔒 Container Scan: \`trivy-results-${{ steps.version.outputs.version_number }}.sarif\`
+          - 📊 Dependency Audit: \`security-audit-${{ steps.version.outputs.version_number }}.json\`
+          - ✅ Checksums: \`checksums-${{ steps.version.outputs.version_number }}.txt\`
+
           ## Docker Image
           \`\`\`bash
           docker pull harz-storage:${{ steps.version.outputs.version_number }}
@@ -115,7 +147,12 @@ jobs:
 
           ## Helm Deployment
           \`\`\`bash
-          helm upgrade --install harz-storage ./helm --set image.tag=${{ steps.version.outputs.version_number }}
-          \`\`\`"
+          helm upgrade --install harz-storage ./harz-storage-${{ steps.version.outputs.version_number }}.tgz --set image.tag=${{ steps.version.outputs.version_number }}
+          \`\`\`" \
+            sbom-${{ steps.version.outputs.version_number }}.spdx.json \
+            trivy-results-${{ steps.version.outputs.version_number }}.sarif \
+            security-audit-${{ steps.version.outputs.version_number }}.json \
+            harz-storage-${{ steps.version.outputs.version_number }}.tgz \
+            checksums-${{ steps.version.outputs.version_number }}.txt
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
