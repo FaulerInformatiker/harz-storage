@@ -77,7 +77,24 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 - Öffnungszeiten
 - Links zu Impressum/Datenschutz
 
-## 🛠️ Entwicklung
+## 🔧 Development
+
+### Git Workflow
+
+This project follows a protected main branch workflow with required status checks. See [Git Workflow Documentation](docs/GIT_WORKFLOW.md) for detailed guidelines.
+
+**Quick Start:**
+```bash
+# Create feature branch
+git checkout -b feature/your-feature
+
+# Make changes and push
+git add . && git commit -m "feat: your changes"
+git push -u origin feature/your-feature
+
+# Create PR (requires 1 approval + passing CI)
+gh pr create --title "feat: Your Feature"
+```
 
 ### Lokale Entwicklung
 
