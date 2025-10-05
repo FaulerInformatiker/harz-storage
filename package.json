@@ -11,7 +11,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:e2e": "playwright test",
+    "test:e2e": "npm run test:contract && playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:contract": "jest --config jest.contract.config.js",
     "test:contract:publish": "pact-broker publish pacts --consumer-app-version=$npm_package_version --broker-base-url=$PACT_BROKER_BASE_URL",
