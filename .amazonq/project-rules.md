@@ -278,6 +278,14 @@ docs/               # Project documentation
 - **Include documentation updates in the same commit as code changes**
 - **Verify all referenced files and paths exist and are accurate**
 
+### Architecture Decision Records (ADR)
+- **Create ADR for every new technology or library added to the project**
+- **Document context, decision rationale, alternatives considered, and consequences**
+- **Place ADRs in `docs/adr/` directory following the established template**
+- **Update ADR index in `docs/adr/README.md` with new entries**
+- **Include ADR creation in the same PR as the technology introduction**
+- **Review and approve ADRs as part of the code review process**
+
 ## Enforcement
 
 These rules are enforced through:
