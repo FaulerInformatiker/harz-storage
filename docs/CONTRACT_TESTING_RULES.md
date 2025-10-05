@@ -50,6 +50,14 @@ Contract tests verify that:
 
 ## Contract Test Workflow
 
+### Automated Execution
+Contract tests run automatically via Git hooks:
+- **Pre-commit**: Validates contracts before each commit
+- **Pre-push**: Ensures contracts pass before pushing to remote
+- **CI/CD Pipeline**: Runs on all pull requests and deployments
+
+This ensures contract validation at every stage of development.
+
 ### Adding New Contracts
 1. Coordinate with API provider to define contract
 2. Create contract test file in `tests/contract/`
