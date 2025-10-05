@@ -14,11 +14,11 @@
 [![ESLint](https://img.shields.io/badge/ESLint-passing-green?logo=eslint)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-enabled-ff69b4?logo=prettier)](https://prettier.io/)
 [![Jest](https://img.shields.io/badge/Jest-40%20tests-green?logo=jest)](https://jestjs.io/)
-[![Playwright](https://img.shields.io/badge/Playwright-13%20E2E-green?logo=playwright)](https://playwright.dev/)
+[![Playwright](https://img.shields.io/badge/Playwright-20%20E2E-green?logo=playwright)](https://playwright.dev/)
 
 ## Technology Stack
 
-[![Next.js](https://img.shields.io/badge/Next.js-14.2+-black?logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.5+-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18+-blue?logo=react)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0+-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-22+-green?logo=node.js)](https://nodejs.org/)
@@ -61,7 +61,7 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 
 ## 🏗️ Technologie-Stack
 
-- **Framework**: Next.js 14.2.15 mit App Router
+- **Framework**: Next.js 15.5.4 mit App Router
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **TypeScript**: Vollständige Typisierung
