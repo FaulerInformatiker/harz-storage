@@ -25,6 +25,7 @@
     "security:zap": "npm run test:zap",
     "security:docker": "./scripts/security-scan.sh",
     "security:complete": "npm run security:full && npm run security:docker",
+    "sbom:generate": "cyclonedx-npm --output-file sbom.json && cyclonedx-npm --output-format xml --output-file sbom.xml",
     "release:patch": "npm version patch",
     "release:minor": "npm version minor",
     "release:major": "npm version major",
@@ -37,6 +38,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@cyclonedx/cyclonedx-npm": "^4.0.3",
     "@playwright/test": "^1.40.0",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
