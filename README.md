@@ -4,6 +4,7 @@
 
 [![Main Branch CI](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/ci.yml)
 [![Release Pipeline](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/release.yml/badge.svg)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/release.yml)
+[![Release Process](https://img.shields.io/badge/Release%20Process-Documented-blue?logo=github)](docs/RELEASE_PROCESS.md)
 [![Security Scan](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/security.yml/badge.svg)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/security.yml)
 [![ZAP Security](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/zap-security.yml/badge.svg)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/zap-security.yml)
 
