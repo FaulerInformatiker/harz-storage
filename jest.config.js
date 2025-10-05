@@ -15,13 +15,19 @@ const customJestConfig = {
     "lib/**/*.{js,jsx,ts,tsx}",
     "!**/*.d.ts",
     "!**/node_modules/**",
+    "!app/layout.tsx",
+    "!app/*/page.tsx",
+    "!app/globals.css",
+    "!**/__tests__/**",
+    "!**/coverage/**",
   ],
+  coverageReporters: ["text", "lcov", "cobertura", "html"],
   coverageThreshold: {
     global: {
-      branches: 70,
-      functions: 70,
-      lines: 70,
-      statements: 70,
+      branches: 85,
+      functions: 90,
+      lines: 90,
+      statements: 90,
     },
   },
   testMatch: [
