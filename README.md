@@ -214,6 +214,22 @@ npx playwright show-report
 - Mobile responsiveness
 - Form validation and error handling
 
+### Contract Tests (Pact)
+
+```bash
+# Run contract tests
+npm run test:contract
+
+# Publish contracts to Pact Broker (requires PACT_BROKER_BASE_URL)
+npm run test:contract:publish
+```
+
+**⚠️ Important**: Contract tests represent external API expectations. See [Contract Testing Rules](docs/CONTRACT_TESTING_RULES.md) before modifying contract tests.
+
+**Contract Coverage**:
+- Contacts API (`/api/contacts`) - POST operations
+- Boxes API (`/api/boxes`) - GET operations
+
 ### Test Struktur
 
 ```
