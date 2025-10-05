@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "projectRules": {
+    "enabled": true,
+    "rulesFile": "project-rules.md"
+  },
+  "codeGeneration": {
+    "followProjectPatterns": true,
+    "enforceTypeScript": true,
+    "includeTests": true
+  },
+  "documentation": {
+    "autoUpdate": true,
+    "includeExamples": true
+  }
+}
