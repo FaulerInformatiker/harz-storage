@@ -1,365 +1,35 @@
 {
+  "boxes": [
+    {
+      "id": "5m2",
+      "size": "5m²",
+      "price": 25,
+      "available": true,
+      "description": "Perfect for boxes and small items",
+      "icon": "📦",
+      "currency": "€/Monat"
+    },
+    {
+      "id": "10m2",
+      "size": "10m²",
+      "price": 45,
+      "available": true,
+      "description": "Ideal for 1-room apartment contents",
+      "popular": true,
+      "icon": "🏠",
+      "currency": "€/Monat"
+    },
+    {
+      "id": "20m2",
+      "size": "20m²",
+      "price": 80,
+      "available": false,
+      "description": "Suitable for 2-3 room apartment contents",
+      "icon": "🏢",
+      "currency": "€/Monat"
+    }
+  ],
   "contacts": [
-    {
-      "id": "963d",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-04T16:04:41.436Z"
-    },
-    {
-      "id": "4f73",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-04T16:04:41.888Z"
-    },
-    {
-      "id": "f603",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-04T16:05:22.236Z"
-    },
-    {
-      "id": "70f6",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-04T16:05:22.703Z"
-    },
-    {
-      "id": "f6e3",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-04T16:05:46.922Z"
-    },
-    {
-      "id": "1f2d",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-04T16:08:34.963Z"
-    },
-    {
-      "id": "96bf",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-04T16:08:35.452Z"
-    },
-    {
-      "id": "51a4",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-04T18:25:49.162Z"
-    },
-    {
-      "id": "b7c0",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-04T19:09:36.450Z"
-    },
-    {
-      "id": "2bdd",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-04T19:09:37.849Z"
-    },
-    {
-      "id": "07b7",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:37:55.736Z"
-    },
-    {
-      "id": "e46b",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:39:42.835Z"
-    },
-    {
-      "id": "b629",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:44:01.698Z"
-    },
-    {
-      "id": "ec80",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:45:58.140Z"
-    },
-    {
-      "id": "9ed3",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:51:43.925Z"
-    },
-    {
-      "id": "6769",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:52:48.371Z"
-    },
-    {
-      "id": "8ae6",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:54:15.769Z"
-    },
-    {
-      "id": "8af2",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:54:32.718Z"
-    },
-    {
-      "id": "c6ca",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T08:56:59.480Z"
-    },
-    {
-      "id": "b660",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:56:59.446Z"
-    },
-    {
-      "id": "248a",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T08:57:36.577Z"
-    },
-    {
-      "id": "ff24",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T08:57:36.611Z"
-    },
-    {
-      "id": "f58b",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:00:07.505Z"
-    },
-    {
-      "id": "8f52",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:00:07.488Z"
-    },
-    {
-      "id": "7dfb",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:01:34.434Z"
-    },
-    {
-      "id": "10c4",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:01:34.469Z"
-    },
-    {
-      "id": "29a0",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:01:48.700Z"
-    },
-    {
-      "id": "7606",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:01:48.685Z"
-    },
-    {
-      "id": "bbca",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:03:53.846Z"
-    },
-    {
-      "id": "4581",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:03:53.879Z"
-    },
-    {
-      "id": "4f0e",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:08:13.551Z"
-    },
-    {
-      "id": "f449",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:08:13.585Z"
-    },
-    {
-      "id": "ef6c",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:10:16.263Z"
-    },
-    {
-      "id": "2264",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:10:16.249Z"
-    },
-    {
-      "id": "0122",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:11:17.393Z"
-    },
-    {
-      "id": "0fb1",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:11:17.360Z"
-    },
-    {
-      "id": "3607",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:14:37.803Z"
-    },
-    {
-      "id": "22f9",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:14:37.788Z"
-    },
-    {
-      "id": "7500",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "123456789",
-      "size": "5m²",
-      "message": "Test message",
-      "createdAt": "2025-10-05T09:14:49.901Z"
-    },
-    {
-      "id": "b97b",
-      "name": "Test User",
-      "email": "test@example.com",
-      "phone": "",
-      "size": "",
-      "message": "",
-      "createdAt": "2025-10-05T09:14:49.885Z"
-    },
     {
       "id": "17fc",
       "name": "Test User",
@@ -431,6 +101,51 @@
       "size": "",
       "message": "",
       "createdAt": "2025-10-05T09:33:08.691Z"
+    },
+    {
+      "id": "7ac1",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-05T12:04:18.824Z"
+    },
+    {
+      "id": "4642",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-05T12:04:39.490Z"
+    },
+    {
+      "id": "2f5d",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-05T12:05:04.192Z"
+    },
+    {
+      "id": "4aa2",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-05T12:06:55.337Z"
+    },
+    {
+      "id": "0533",
+      "name": "Test User",
+      "email": "test@example.com",
+      "phone": "",
+      "size": "",
+      "message": "",
+      "createdAt": "2025-10-05T12:07:16.068Z"
     }
   ],
   "submissions": [
