@@ -1,10 +1,14 @@
-FROM node:22-alpine AS deps
+FROM node:22.11-alpine AS deps
 WORKDIR /app
+# Update npm to latest version to fix cross-spawn vulnerability
+RUN npm install -g npm@latest
 COPY package*.json ./
 RUN npm ci
 
-FROM node:22-alpine AS builder
+FROM node:22.11-alpine AS builder
 WORKDIR /app
+# Update npm to latest version to fix cross-spawn vulnerability
+RUN npm install -g npm@latest
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN npm run build
@@ -13,11 +17,14 @@ RUN npm run build
 RUN npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json
 RUN npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
 
-FROM node:22-alpine AS runner
+FROM node:22.11-alpine AS runner
 WORKDIR /app
 
 # Install security updates and curl for healthcheck
 RUN apk update && apk upgrade && apk add --no-cache curl && rm -rf /var/cache/apk/*
+
+# Update npm to latest version to fix cross-spawn vulnerability
+RUN npm install -g npm@latest
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
