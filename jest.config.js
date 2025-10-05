@@ -21,6 +21,7 @@ const customJestConfig = {
     "!**/__tests__/**",
     "!**/coverage/**",
   ],
+  coverageReporters: ["text", "lcov", "cobertura", "html"],
   coverageThreshold: {
     global: {
       branches: 85,
