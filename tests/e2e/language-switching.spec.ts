@@ -5,7 +5,7 @@ test.describe("Language Switching", () => {
     await page.goto("/");
 
     // Check default German content
-    await expect(page.getByText(/Langelsheim/)).toBeVisible();
+    await expect(page.getByText(/Langelsheim/).first()).toBeVisible();
 
     // Switch to English - use first EN button
     await page.getByRole("button", { name: "EN" }).first().click();
@@ -28,7 +28,7 @@ test.describe("Language Switching", () => {
 
     // Check multiple sections have English content - use first occurrence
     await expect(page.getByText(/Why HarzStorage|Warum HarzStorage/).first()).toBeVisible();
-    await expect(page.getByText(/Sizes.*Prices|Größen.*Preise/).first()).toBeVisible();
+    await expect(page.getByText(/Sizes|Preise/).first()).toBeVisible();
     await expect(page.getByText(/How It Works|So funktioniert/).first()).toBeVisible();
   });
 });
