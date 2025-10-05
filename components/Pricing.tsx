@@ -1,151 +1,126 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslation } from "../lib/TranslationContext";
+import { useTranslation } from "@/lib/TranslationContext";
+import { Check, AlertCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { getBoxes, Box } from "@/lib/api";
 
 export default function Pricing() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+  const [boxSizes, setBoxSizes] = useState<Box[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const pricingPlans = [
-    {
-      size: "5m²",
-      price: "25€",
-      description: t("pricing.sizes.small.description"),
-      features: t("pricing.sizes.small.features"),
-    },
-    {
-      size: "10m²",
-      price: "45€",
-      description: t("pricing.sizes.medium.description"),
-      features: t("pricing.sizes.medium.features"),
-      popular: true,
-    },
-    {
-      size: "20m²",
-      price: "80€",
-      description: t("pricing.sizes.large.description"),
-      features: t("pricing.sizes.large.features"),
-    },
-  ];
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return;
+    
+    const loadBoxSizes = async () => {
+      try {
+        const data = await getBoxes();
+        setBoxSizes(data);
+      } catch (error) {
+        console.error('Failed to load box sizes:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  return (
-    <section
-      id="preise"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white relative"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute top-0 left-0 w-full h-full"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        ></div>
-      </div>
+    loadBoxSizes();
+  }, []);
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-            LAGER<span className="text-orange-500">PREISE</span>
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">{t("pricing.subtitle")}</p>
-          <div className="relative w-full max-w-2xl mx-auto h-64 rounded-3xl overflow-hidden mb-8 shadow-2xl transform hover:scale-105 transition-transform">
-            <Image
-              src="/images/storage-units.jpg"
-              alt="Storage units facility"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <div className="text-sm font-medium">Unsere Lagerräume</div>
-              <div className="text-xs opacity-80">
-                Sauber • Sicher • Zugänglich
-              </div>
-            </div>
+  if (loading) {
+    return (
+      <section id="preise" className="py-20 bg-white dark:bg-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto"></div>
+            <p className="mt-4 text-slate-600 dark:text-slate-400">{t("pricing.loading")}</p>
           </div>
         </div>
+      </section>
+    );
+  }
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {pricingPlans.map((plan, index) => (
+  return (
+    <section id="preise" className="py-20 bg-white dark:bg-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
+            {t("pricing.title")}
+          </h2>
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+            {t("pricing.subtitle")}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {boxSizes.map((box) => (
             <div
-              key={index}
-              className={`relative group ${
-                plan.popular
-                  ? "bg-gradient-to-br from-orange-500 to-red-500 text-white scale-110 shadow-2xl"
-                  : "bg-white text-gray-900 shadow-xl hover:shadow-2xl"
-              } rounded-3xl p-8 transition-all transform hover:scale-105`}
+              key={box.id}
+              className={`relative p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
+                box.popular
+                  ? "bg-emerald-600 text-white border-emerald-500 scale-105 shadow-2xl"
+                  : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white shadow-lg hover:shadow-xl"
+              } ${!box.available ? "opacity-75" : ""}`}
             >
-              {plan.popular && (
+              {box.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                    ⭐ {t("pricing.popular")}
+                  <span className="bg-amber-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    {t("pricing.popular")}
                   </span>
                 </div>
               )}
 
-              <div className="text-center mb-6">
-                <div
-                  className={`w-20 h-20 mx-auto mb-4 ${plan.popular ? "bg-white/20" : "bg-orange-100"} rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform`}
-                >
-                  {index === 0 && <span className="text-4xl">📦</span>}
-                  {index === 1 && <span className="text-4xl">🏠</span>}
-                  {index === 2 && <span className="text-4xl">🏢</span>}
+              {!box.available && (
+                <div className="absolute -top-4 right-4">
+                  <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3" />
+                    {t("pricing.soldOut")}
+                  </span>
                 </div>
-                <h3 className="text-3xl font-black mb-2">{plan.size}</h3>
-                <div
-                  className={`text-5xl font-black mb-2 ${plan.popular ? "text-yellow-300" : "text-orange-500"}`}
-                >
-                  {plan.price}
-                  <span
-                    className={`text-lg font-normal ${plan.popular ? "text-white/80" : "text-gray-500"}`}
-                  >
+              )}
+
+              <div className="text-center mb-8">
+                <div className="text-4xl mb-4">{box.icon}</div>
+                <div className="text-4xl font-bold mb-2">{box.size}</div>
+                <div className={`text-3xl font-bold mb-4 ${box.popular ? "text-emerald-100" : "text-emerald-600"}`}>
+                  {box.price}{box.currency}
+                  <span className={`text-lg font-normal ${box.popular ? "text-emerald-200" : "text-slate-500 dark:text-slate-400"}`}>
                     {t("pricing.month")}
                   </span>
                 </div>
-                <p
-                  className={`${plan.popular ? "text-white/90" : "text-gray-600"} mb-2`}
-                >
-                  {plan.description}
+                <p className={`text-sm mb-4 ${box.popular ? "text-emerald-100" : "text-slate-600 dark:text-slate-400"}`}>
+                  {box.description}
                 </p>
-                <div
-                  className={`text-sm ${plan.popular ? "text-white/70" : "text-gray-500"} italic font-medium`}
-                >
-                  {index === 0 &&
-                    "Perfekt für: Umzugskartons, Saisonware, Fahrrad"}
-                  {index === 1 &&
-                    "Perfekt für: 1-Zimmer-Wohnung, Büroausstattung"}
-                  {index === 2 &&
-                    "Perfekt für: Komplette Wohnung, Firmeninventar"}
+                
+                {/* Availability indicator */}
+                <div className={`text-xs ${box.popular ? "text-emerald-200" : "text-slate-500 dark:text-slate-400"}`}>
+                  {box.available ? (
+                    <span className="flex items-center justify-center gap-1">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      {t("pricing.available")}
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-1">
+                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                      {t("pricing.soldOut")}
+                    </span>
+                  )}
                 </div>
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {Array.isArray(plan.features) &&
-                  plan.features.map((feature: string, featureIndex: number) => (
-                    <li
-                      key={featureIndex}
-                      className={`flex items-center ${plan.popular ? "text-white" : "text-gray-600"}`}
-                    >
-                      <span
-                        className={`w-5 h-5 ${plan.popular ? "text-yellow-300" : "text-orange-500"} mr-3 font-bold`}
-                      >
-                        ✓
-                      </span>
-                      {feature}
-                    </li>
-                  ))}
-              </ul>
-
               <a
                 href="#kontakt"
-                className={`w-full block text-center py-4 rounded-2xl font-bold text-lg transition-all transform hover:scale-105 ${
-                  plan.popular
-                    ? "bg-white text-orange-500 hover:bg-gray-100 shadow-lg"
-                    : "bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600 shadow-lg"
+                className={`block w-full py-4 px-6 rounded-xl font-semibold text-center transition-all duration-300 ${
+                  !box.available
+                    ? "bg-gray-400 text-white cursor-not-allowed"
+                    : box.popular
+                    ? "bg-white text-emerald-600 hover:bg-gray-100"
+                    : "bg-emerald-600 text-white hover:bg-emerald-700"
                 }`}
+                onClick={!box.available ? (e) => e.preventDefault() : undefined}
               >
-                {t("pricing.request")}
+                {!box.available ? t("pricing.soldOut") : t("pricing.request")}
               </a>
             </div>
           ))}

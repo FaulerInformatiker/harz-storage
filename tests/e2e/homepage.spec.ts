@@ -4,14 +4,14 @@ test.describe("Homepage", () => {
   test("should load and display all main sections", async ({ page }) => {
     await page.goto("/");
 
-    // Hero section - use first occurrence
+    // Hero section - check for actual text that exists
     await expect(page.getByText(/Langelsheim/).first()).toBeVisible();
-    await expect(page.getByRole("link", { name: /Box anfragen|Request/ }).first()).toBeVisible();
+    await expect(page.getByText(/Jetzt Lager anfragen/).first()).toBeVisible();
 
     // Advantages section
     await expect(page.getByText(/24\/7 Zugang|24\/7 Access/).first()).toBeVisible();
 
-    // Pricing section
+    // Pricing section - check for pricing content
     await expect(page.getByText(/25€/).first()).toBeVisible();
 
     // Contact section
@@ -21,6 +21,20 @@ test.describe("Homepage", () => {
 
   test("should have working contact form", async ({ page }) => {
     await page.goto("/");
+
+    // Mock successful API response
+    await page.route("**/contacts", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          id: 1,
+          name: "Test User",
+          email: "test@example.com",
+          createdAt: new Date().toISOString(),
+        }),
+      });
+    });
 
     // Fill out form using specific selectors
     await page.locator("input[placeholder*='Name']").fill("Test User");
@@ -32,8 +46,9 @@ test.describe("Homepage", () => {
     // Submit form
     await page.getByRole("button", { name: /senden|Send/ }).click();
 
-    // Check for response - the form shows "Wird gesendet..."
-    await expect(page.locator("body")).toContainText(/Wird gesendet|wird gesendet|sending|erfolgreich|success/i, { timeout: 10000 });
+    // Check for success message with flexible matching
+    const hasSuccess = await page.getByText(/vielen dank|thank you|success|erfolgreich/i).waitFor({ timeout: 10000 }).then(() => true).catch(() => false);
+    expect(hasSuccess).toBeTruthy();
   });
 
   test("should be responsive on mobile", async ({ page }) => {

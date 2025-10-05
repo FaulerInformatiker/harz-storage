@@ -1,7 +1,7 @@
 "use client";
 
 import { Clock, Shield, Euro, Calendar } from "lucide-react";
-import { useTranslation } from "../lib/TranslationContext";
+import { useTranslation } from "@/lib/TranslationContext";
 
 export default function Advantages() {
   const { t } = useTranslation();
@@ -30,13 +30,15 @@ export default function Advantages() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="vorteile" className="py-20 bg-slate-100 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
             {t("advantages.title")}
           </h2>
-          <p className="text-xl text-gray-600">{t("advantages.subtitle")}</p>
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+            {t("advantages.subtitle")}
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -45,15 +47,15 @@ export default function Advantages() {
             return (
               <div
                 key={index}
-                className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow"
+                className="text-center p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 text-primary-600 rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-600 text-white rounded-full mb-6">
                   <Icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
                   {advantage.title}
                 </h3>
-                <p className="text-gray-600">{advantage.description}</p>
+                <p className="text-slate-600 dark:text-slate-400">{advantage.description}</p>
               </div>
             );
           })}

@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { Search, FileText, Key } from "lucide-react";
-import { useTranslation } from "../lib/TranslationContext";
+import { useTranslation } from "@/lib/TranslationContext";
 
 export default function HowItWorks() {
   const { t } = useTranslation();
@@ -26,44 +25,34 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="ablauf" className="py-20 bg-slate-100 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
             {t("howItWorks.title")}
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             {t("howItWorks.subtitle")}
           </p>
-          <div className="relative w-full max-w-lg mx-auto h-64 rounded-lg overflow-hidden">
-            <Image
-              src="/images/moving-boxes.jpg"
-              alt="Moving boxes ready for storage"
-              fill
-              className="object-cover"
-            />
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="text-center relative">
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200 z-0">
-                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-gray-200 rotate-45"></div>
+            <div key={index} className="text-center p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="relative mb-8">
+                <div className="w-20 h-20 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <step.icon size={32} className="text-white" />
                 </div>
-              )}
-
-              <div className="relative z-10 inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white rounded-full mb-4">
-                <step.icon size={32} />
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  {index + 1}
+                </div>
               </div>
-
-              <div className="bg-white px-4">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
+                {step.title}
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>

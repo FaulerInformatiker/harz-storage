@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { TranslationProvider } from "@/lib/TranslationContext";
+import { ThemeProvider } from "@/lib/ThemeContext";
 
 export const metadata: Metadata = {
   title: "HarzStorage - Self-Storage in Langelsheim",
@@ -14,9 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de">
+    <html lang="de" suppressHydrationWarning>
       <body className="antialiased">
-        <TranslationProvider>{children}</TranslationProvider>
+        <ThemeProvider>
+          <TranslationProvider>{children}</TranslationProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

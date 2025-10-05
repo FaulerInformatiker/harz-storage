@@ -1,92 +1,75 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslation } from "../lib/TranslationContext";
+import { useTranslation } from "@/lib/TranslationContext";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Hero() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white/20 rounded-full animate-pulse"></div>
-        <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white/20 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-40 h-40 border-2 border-white/20 rounded-full animate-pulse delay-2000"></div>
-      </div>
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 overflow-hidden">
+      {/* Subtle accent */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent dark:from-emerald-500/10"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24">
+        {/* Controls */}
+        <div className="absolute top-6 right-6 flex gap-3">
+          <ThemeToggle />
+          <LanguageSwitcher />
+        </div>
 
-      {/* Main Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-storage.jpg"
-          alt="Modern storage facility"
-          fill
-          className="object-cover opacity-30"
-          priority
-        />
-      </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
+          {/* Left Content */}
+          <div className="text-left">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-slate-900 dark:text-white">
+              <span className="text-emerald-600">Harz</span>Storage
+            </h1>
+            <p className="text-xl lg:text-2xl text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+              {t("hero.subtitle")}
+            </p>
+            <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 italic">
+              {t("hero.personal")}
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <a
+                href="#kontakt"
+                className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-700 transition-colors shadow-lg"
+              >
+                {t("hero.cta")}
+              </a>
+              <a
+                href="#preise"
+                className="border-2 border-emerald-600 text-emerald-600 dark:text-emerald-400 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors"
+              >
+                {t("hero.prices")}
+              </a>
+            </div>
 
-      <div className="absolute top-4 right-4 z-10">
-        <LanguageSwitcher />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          {/* Distinctive Badge */}
-          <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 rounded-full px-6 py-3 mb-8 shadow-lg transform hover:scale-105 transition-transform">
-            <span className="text-white font-bold text-sm tracking-wide">
-              🏔️ HARZ • LOKAL • SICHER
-            </span>
           </div>
 
-          {/* Large Typography */}
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            <span className="block">LAGER</span>
-            <span className="block text-orange-400 text-6xl md:text-8xl">
-              RAUM
-            </span>
-            <span className="block text-2xl md:text-3xl font-normal text-gray-300">
-              in Langelsheim
-            </span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
-            {t("hero.subtitle")}
-          </p>
-
-          {/* Distinctive Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a
-              href="#contact"
-              className="group relative bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl"
-            >
-              <span className="relative z-10">{t("hero.cta")}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </a>
-            <a
-              href="#pricing"
-              className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all transform hover:scale-105"
-            >
-              {t("hero.prices")}
-            </a>
-          </div>
-
-          {/* Unique Trust Indicators */}
-          <div className="flex items-center justify-center space-x-8 text-white/90">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-400">200+</div>
-              <div className="text-sm">Kunden</div>
+          {/* Right Content - Benefits Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="text-3xl mb-4">🔑</div>
+              <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{t("hero.benefit1.title")}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm">{t("hero.benefit1.desc")}</p>
             </div>
-            <div className="w-px h-12 bg-white/30"></div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-400">24/7</div>
-              <div className="text-sm">Zugang</div>
+            <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="text-3xl mb-4">💰</div>
+              <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{t("hero.benefit2.title")}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm">{t("hero.benefit2.desc")}</p>
             </div>
-            <div className="w-px h-12 bg-white/30"></div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-400">5★</div>
-              <div className="text-sm">Bewertung</div>
+            <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="text-3xl mb-4">🤝</div>
+              <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{t("hero.benefit3.title")}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm">{t("hero.benefit3.desc")}</p>
+            </div>
+            <div className="p-6 rounded-2xl bg-emerald-600 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="text-3xl mb-4">📍</div>
+              <h3 className="font-semibold mb-2">{t("business.newInTown")}</h3>
+              <p className="text-emerald-100 text-sm">{t("business.localPartner")}</p>
             </div>
           </div>
         </div>

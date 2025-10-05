@@ -1,5 +1,77 @@
 # Lessons Learned
 
+## Navigation Link Testing & UI Consistency (2025-10-05)
+
+### What Happened
+
+- Updated Hero component with personal touch design and removed greeting
+- Changed opening hours from fixed office hours to appointment-based availability
+- Discovered broken navigation links: Hero CTA linked to `#kontakt` but Contact section had `id="contact"`
+- Links appeared to work visually but didn't actually navigate to sections
+
+### Root Cause
+
+- **Inconsistent ID naming**: Mixed English (`id="contact"`) and German (`#kontakt`) anchor references
+- **Missing section IDs**: Major sections (Advantages, HowItWorks, Security) had no IDs for navigation
+- **Insufficient navigation testing**: E2E tests didn't verify internal link functionality
+- **Translation updates without link verification**: Changed text without checking anchor targets
+
+### Impact
+
+- Broken user experience - CTAs didn't work
+- Poor navigation flow throughout the site
+- Unrealistic business hours displayed (9-18 office hours for self-storage)
+- Missing test coverage for critical navigation functionality
+
+### What We Fixed
+
+1. **Consistent Anchor System**:
+   - Fixed Contact section: `id="contact"` → `id="kontakt"`
+   - Added German IDs to all sections: `#vorteile`, `#preise`, `#ablauf`, `#sicherheit`, `#kontakt`
+   - All internal links now use German anchors consistently
+
+2. **Realistic Business Model**:
+   - Removed fixed office hours (9:00-18:00)
+   - Updated to appointment-based availability
+   - Added weekend availability messaging
+   - Emphasized personal contact approach
+
+3. **Comprehensive Navigation Testing**:
+   - Created `navigation.spec.ts` with 7 test scenarios
+   - Tests all CTA buttons and footer links
+   - Verifies section visibility after navigation
+   - Tests navigation with language switching
+   - Validates all section IDs exist
+
+4. **Translation Consistency**:
+   - Updated both German and English translations
+   - Removed unused greeting keys
+   - Fixed schedule structure to match component expectations
+
+### Prevention Strategy
+
+- **Navigation audit**: Check all `href="#"` links have matching `id=""` targets
+- **Consistent naming**: Use single language for internal anchors (German for this project)
+- **E2E navigation tests**: Always test critical user flows like CTA → Contact
+- **Business model validation**: Ensure displayed information matches actual business operations
+- **Atomic updates**: Update translations, components, and tests together
+
+### Key Takeaways
+
+1. **Internal navigation is critical UX - must be tested thoroughly**
+2. **Consistent anchor naming prevents broken links**
+3. **Business information should reflect reality, not templates**
+4. **E2E tests should cover complete user journeys, not just component rendering**
+5. **Translation updates can break functionality if not carefully coordinated**
+
+### Success Metrics
+
+- ✅ All navigation links work correctly (7 new E2E tests passing)
+- ✅ Realistic business hours and availability information
+- ✅ Consistent German anchor system throughout site
+- ✅ Complete test coverage for navigation functionality
+- ✅ Personal touch design without broken greeting references
+
 ## Test Failures After Design Changes (2025-10-04)
 
 ### What Happened
