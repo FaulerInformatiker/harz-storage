@@ -9,7 +9,7 @@ const mockProvider = new Pact({
   port: 1235,
   log: path.resolve(process.cwd(), 'logs', 'pact.log'),
   dir: path.resolve(process.cwd(), 'pacts'),
-  logLevel: 'INFO',
+  logLevel: 'info',
 });
 
 // Store original fetch and NODE_ENV
@@ -22,7 +22,7 @@ describe.skip('Boxes API Contract', () => {
   afterAll(() => {
     // Restore original fetch and NODE_ENV
     global.fetch = originalFetch;
-    process.env.NODE_ENV = originalNodeEnv;
+    (process.env as any).NODE_ENV = originalNodeEnv;
     return mockProvider.finalize();
   });
 
@@ -57,7 +57,7 @@ describe.skip('Boxes API Contract', () => {
       });
 
       // Set NODE_ENV to production so API_BASE_URL is "/api"
-      process.env.NODE_ENV = 'production';
+      (process.env as any).NODE_ENV = 'production';
       
       // Mock fetch to redirect to Pact mock server
       global.fetch = jest.fn().mockImplementation(async (url: string, options: any) => {
