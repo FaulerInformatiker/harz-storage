@@ -28,16 +28,35 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate SBOM
+      - name: Generate npm SBOM
         run: |
-          npx @cyclonedx/cyclonedx-npm --output-file sbom.json
-          npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom.xml
+          npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json
+          npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
+
+      - name: Build Docker image
+        run: docker build -t harz-storage:sbom .
+
+      - name: Generate Docker SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          image: harz-storage:sbom
+          format: cyclonedx-json
+          output-file: sbom-docker.json
+
+      - name: Generate Docker SBOM XML
+        uses: anchore/sbom-action@v0
+        with:
+          image: harz-storage:sbom
+          format: cyclonedx-xml
+          output-file: sbom-docker.xml
 
       - name: Upload SBOM artifacts
         uses: actions/upload-artifact@v4
         with:
           name: sbom-files
           path: |
-            sbom.json
-            sbom.xml
+            sbom-npm.json
+            sbom-npm.xml
+            sbom-docker.json
+            sbom-docker.xml
           retention-days: 90
