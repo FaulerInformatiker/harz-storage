@@ -204,6 +204,15 @@ docs/               # Project documentation
 - Cache API responses appropriately
 - Handle offline scenarios gracefully
 
+### API Route Testing (MANDATORY)
+- **ALL Next.js API routes MUST have corresponding tests**
+- API route tests MUST be placed in `app/api/[route]/__tests__/` directory
+- MUST test both success and error scenarios
+- MUST validate request/response schemas
+- MUST test authentication/authorization if applicable
+- Coverage requirement: 90% minimum for all API routes
+- **NO API route should have 0% test coverage**
+
 ### Development Environment
 - Use consistent Node.js version across team (specified in .nvmrc)
 - Set up proper IDE configurations for consistent formatting

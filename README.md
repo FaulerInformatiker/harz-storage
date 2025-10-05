@@ -9,11 +9,11 @@
 
 ## Code Quality & Testing
 
-[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/FaulerInformatiker/harz-storage)
+[![Coverage](https://img.shields.io/badge/coverage-92.85%25-brightgreen)](https://github.com/FaulerInformatiker/harz-storage)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![ESLint](https://img.shields.io/badge/ESLint-passing-green?logo=eslint)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-enabled-ff69b4?logo=prettier)](https://prettier.io/)
-[![Jest](https://img.shields.io/badge/Jest-33%20tests-green?logo=jest)](https://jestjs.io/)
+[![Jest](https://img.shields.io/badge/Jest-40%20tests-green?logo=jest)](https://jestjs.io/)
 [![Playwright](https://img.shields.io/badge/Playwright-13%20E2E-green?logo=playwright)](https://playwright.dev/)
 
 ## Technology Stack
@@ -202,6 +202,30 @@ npm run test:coverage
 ```
 
 **Test Coverage**: 90% Minimum für branches, functions, lines, statements
+
+### API Route Testing (MANDATORY)
+
+**ALL Next.js API routes MUST have tests with 100% coverage:**
+- Place tests in `app/api/[route]/__tests__/route.test.ts`
+- Test both success and error scenarios
+- Validate request/response schemas
+- Mock external dependencies properly
+- **CRITICAL**: No API route should have 0% coverage
+
+```bash
+# API route test structure (IMPLEMENTED)
+app/api/
+├── boxes/
+│   ├── route.ts                    # ✅ 100% coverage
+│   └── __tests__/
+│       └── route.test.ts          # ✅ Comprehensive tests
+└── contacts/
+    ├── route.ts                    # ✅ 100% coverage
+    └── __tests__/
+        └── route.test.ts          # ✅ Comprehensive tests
+```
+
+**Current API Route Coverage**: 100% - All routes fully tested
 
 ### E2E Tests (Playwright)
 
