@@ -39,6 +39,6 @@
     "enabled": true,
     "schedule": ["before 6am on monday"]
   },
-  "automerge": false,
-  "platformAutomerge": false
+  "automerge": true,
+  "platformAutomerge": true
 }
