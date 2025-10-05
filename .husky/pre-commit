@@ -3,6 +3,9 @@
 echo "🧪 Running unit tests..."
 npm test
 
+echo "📋 Running contract tests..."
+npm run test:contract
+
 echo "🎭 Running E2E tests..."
 npm run test:e2e
 
