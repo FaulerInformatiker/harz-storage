@@ -2,7 +2,22 @@
   "hero": {
     "title": "Self-Storage in Langelsheim",
     "subtitle": "Flexible, secure storage units from 5m² in the heart of the Harz. Monthly cancellation, from €25/month.",
+    "personal": "Your personal contact for secure storage",
+    "tagline": "Simple. Secure. Personal.",
+    "benefit1": {
+      "title": "24/7 Access",
+      "desc": "Round-the-clock access to your belongings"
+    },
+    "benefit2": {
+      "title": "Fair Prices",
+      "desc": "Transparent costs without hidden fees"
+    },
+    "benefit3": {
+      "title": "Personal Service",
+      "desc": "Direct contact with me as the owner"
+    },
     "cta": "Request Storage Now",
+    "contact_info": "Call me or write to me!",
     "prices": "View Prices"
   },
   "advantages": {
@@ -31,6 +46,11 @@
     "popular": "Popular",
     "month": "/month",
     "request": "Request Box",
+    "loading": "Loading prices...",
+    "soldOut": "Sold Out",
+    "available": "available",
+    "allBooked": "All {count} boxes booked",
+    "availableCount": "{available} of {total} available",
     "sizes": {
       "small": {
         "description": "Perfect for moving boxes and smaller items",
@@ -87,12 +107,13 @@
       "title": "Electronic Access Control",
       "description": "Each customer receives an individual access code for maximum security"
     },
-    "insurance": {
-      "title": "Insurance Protection",
-      "description": "Optional insurance for your stored items available"
-    },
     "note": "Additionally, we recommend every customer to take out household insurance or check if existing insurance also covers items in storage boxes.",
     "cta": "Request Security Info"
+  },
+  "business": {
+    "newInTown": "New in Langelsheim",
+    "localPartner": "Your local partner for secure storage",
+    "reliablePartner": "Your reliable partner for secure storage in Langelsheim."
   },
   "contact": {
     "title": "Contact & Request",
@@ -101,7 +122,7 @@
     "address": "Address",
     "phone": "Phone",
     "email": "Email",
-    "hours": "Office Hours",
+    "hours": "Availability",
     "access": "Box access: 24/7",
     "form": {
       "name": "Name",
@@ -110,21 +131,32 @@
       "boxSize": "Desired Box Size",
       "message": "Message",
       "placeholder": "Tell us what you want to store or ask your questions...",
+      "placeholderName": "Your Name",
+      "placeholderEmail": "your@email.com",
+      "placeholderPhone": "0123 456789",
       "submit": "Send Request",
       "required": "* Required fields. Your data will be treated confidentially and not shared with third parties.",
       "select": "Please select",
       "other": "Other size",
-      "error": "Error sending request. Please try again."
+      "error": "Error sending request. Please try again.",
+      "success": "Thank you for your request! We will contact you as soon as possible.",
+      "sending": "Sending..."
     },
     "schedule": {
-      "weekdays": "Mon - Fri: 9:00 AM - 6:00 PM",
-      "saturday": "Sat: 9:00 AM - 2:00 PM",
-      "sunday": "Sun: Closed"
-    }
+      "weekdays": "Appointments:",
+      "saturday": "Weekends:",
+      "sunday": "Flexible:",
+      "weekdaysTime": "By appointment",
+      "saturdayTime": "Also available on weekends",
+      "closed": "Just give me a call!"
+    },
+    "locationNote": "Right in the heart of the Harz - easily accessible via B82",
+    "mapDescription": "Click here to plan your route",
+    "openMaps": "Open in Google Maps"
   },
   "footer": {
     "description": "Your reliable partner for secure storage in Langelsheim. Flexible solutions for private and commercial customers.",
-    "hours": "Opening Hours",
+    "hours": "Availability",
     "service": "Service",
     "access": "Box access: 24/7",
     "copyright": "© 2024 HarzStorage. All rights reserved.",
@@ -136,12 +168,12 @@
       "terms": "Terms"
     },
     "schedule": {
-      "weekdays": "Mon - Fri:",
-      "saturday": "Saturday:",
-      "sunday": "Sunday:",
-      "closed": "Closed",
-      "weekdaysTime": "9:00 AM - 6:00 PM",
-      "saturdayTime": "9:00 AM - 2:00 PM"
+      "weekdays": "Appointments:",
+      "saturday": "Available:",
+      "sunday": "Flexible:",
+      "closed": "By appointment",
+      "weekdaysTime": "By appointment",
+      "saturdayTime": "Also weekends"
     }
   }
 }

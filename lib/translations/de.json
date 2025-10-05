@@ -2,7 +2,22 @@
   "hero": {
     "title": "Self-Storage in Langelsheim",
     "subtitle": "Flexible, sichere Lagerboxen ab 5m² im Herzen des Harzes. Monatlich kündbar, ab 25€/Monat.",
+    "personal": "Ihr persönlicher Ansprechpartner für sichere Lagerung",
+    "tagline": "Einfach. Sicher. Persönlich.",
+    "benefit1": {
+      "title": "24/7 Zugang",
+      "desc": "Rund um die Uhr Zugang zu Ihren Sachen"
+    },
+    "benefit2": {
+      "title": "Faire Preise",
+      "desc": "Transparente Kosten ohne versteckte Gebühren"
+    },
+    "benefit3": {
+      "title": "Persönlicher Service",
+      "desc": "Direkter Kontakt zu mir als Inhaber"
+    },
     "cta": "Jetzt Lager anfragen",
+    "contact_info": "Rufen Sie mich an oder schreiben Sie mir!",
     "prices": "Preise ansehen"
   },
   "advantages": {
@@ -31,6 +46,11 @@
     "popular": "Beliebt",
     "month": "/Monat",
     "request": "Box anfragen",
+    "loading": "Lade Preise...",
+    "soldOut": "Ausgebucht",
+    "available": "verfügbar",
+    "allBooked": "Alle {count} Boxen belegt",
+    "availableCount": "{available} von {total} verfügbar",
     "sizes": {
       "small": {
         "description": "Perfekt für Umzugskartons und kleinere Gegenstände",
@@ -87,12 +107,13 @@
       "title": "Elektronische Zugangskontrolle",
       "description": "Jeder Kunde erhält einen individuellen Zugangscode für maximale Sicherheit"
     },
-    "insurance": {
-      "title": "Versicherungsschutz",
-      "description": "Optionale Versicherung für Ihre gelagerten Gegenstände verfügbar"
-    },
     "note": "Zusätzlich empfehlen wir jedem Kunden, eine Hausratversicherung abzuschließen oder zu prüfen, ob die bestehende Versicherung auch Gegenstände in Lagerboxen abdeckt.",
     "cta": "Sicherheit anfragen"
+  },
+  "business": {
+    "newInTown": "Neu in Langelsheim",
+    "localPartner": "Ihr lokaler Partner für sichere Lagerung",
+    "reliablePartner": "Ihr zuverlässiger Partner für sichere Lagerung in Langelsheim."
   },
   "contact": {
     "title": "Kontakt & Anfrage",
@@ -101,7 +122,7 @@
     "address": "Adresse",
     "phone": "Telefon",
     "email": "E-Mail",
-    "hours": "Öffnungszeiten Büro",
+    "hours": "Erreichbarkeit",
     "access": "Zugang zu den Boxen: 24/7",
     "form": {
       "name": "Name",
@@ -110,21 +131,32 @@
       "boxSize": "Gewünschte Boxgröße",
       "message": "Nachricht",
       "placeholder": "Teilen Sie uns mit, was Sie lagern möchten oder stellen Sie Ihre Fragen...",
+      "placeholderName": "Ihr Name",
+      "placeholderEmail": "ihre@email.de",
+      "placeholderPhone": "0123 456789",
       "submit": "Anfrage senden",
       "required": "* Pflichtfelder. Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.",
       "select": "Bitte wählen",
       "other": "Andere Größe",
-      "error": "Fehler beim Senden der Anfrage. Bitte versuchen Sie es erneut."
+      "error": "Fehler beim Senden der Anfrage. Bitte versuchen Sie es erneut.",
+      "success": "Vielen Dank für Ihre Anfrage! Wir melden uns schnellstmöglich bei Ihnen.",
+      "sending": "Wird gesendet..."
     },
     "schedule": {
-      "weekdays": "Mo - Fr: 9:00 - 18:00 Uhr",
-      "saturday": "Sa: 9:00 - 14:00 Uhr",
-      "sunday": "So: Geschlossen"
-    }
+      "weekdays": "Termine:",
+      "saturday": "Wochenende:",
+      "sunday": "Flexibel:",
+      "weekdaysTime": "Nach Vereinbarung",
+      "saturdayTime": "Auch am Wochenende erreichbar",
+      "closed": "Rufen Sie einfach an!"
+    },
+    "locationNote": "Direkt im Herzen des Harzes - leicht erreichbar über die B82",
+    "mapDescription": "Klicken Sie hier, um die Route zu planen",
+    "openMaps": "In Google Maps öffnen"
   },
   "footer": {
     "description": "Ihr zuverlässiger Partner für sichere Lagerung in Langelsheim. Flexible Lösungen für private und gewerbliche Kunden.",
-    "hours": "Öffnungszeiten",
+    "hours": "Erreichbarkeit",
     "service": "Service",
     "access": "Boxzugang: 24/7",
     "copyright": "© 2024 HarzStorage. Alle Rechte vorbehalten.",
@@ -136,12 +168,12 @@
       "terms": "AGB"
     },
     "schedule": {
-      "weekdays": "Mo - Fr:",
-      "saturday": "Samstag:",
-      "sunday": "Sonntag:",
-      "closed": "Geschlossen",
-      "weekdaysTime": "9:00 - 18:00",
-      "saturdayTime": "9:00 - 14:00"
+      "weekdays": "Termine:",
+      "saturday": "Erreichbar:",
+      "sunday": "Flexibel:",
+      "closed": "Nach Vereinbarung",
+      "weekdaysTime": "Nach Vereinbarung",
+      "saturdayTime": "Auch am Wochenende"
     }
   }
 }

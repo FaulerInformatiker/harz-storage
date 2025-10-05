@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { submitContactForm, type ContactFormData } from "../lib/api";
 import { validateContactForm, sanitizeInput } from "../lib/validation";
-import { useTranslation } from "../lib/TranslationContext";
+import { useTranslation } from "@/lib/TranslationContext";
 
 export default function Contact() {
   const { t } = useTranslation();
@@ -71,7 +71,7 @@ export default function Contact() {
 
   return (
     <section
-      id="contact"
+      id="kontakt"
       className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden"
     >
       {/* Animated Background Elements */}
@@ -89,8 +89,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            KONTAKT &<br />
-            <span className="text-orange-400">ANFRAGE</span>
+            {t("contact.title").toUpperCase()}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {t("contact.subtitle")}
@@ -182,31 +181,31 @@ export default function Contact() {
             {/* Distinctive Trust Section */}
             <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm p-6 rounded-3xl border border-orange-500/30">
               <h4 className="font-bold text-white mb-4 text-lg">
-                🏔️ Warum HarzStorage?
+                🏔️ {t("advantages.title")}
               </h4>
               <div className="grid grid-cols-2 gap-4 text-sm text-gray-300">
                 <div className="flex items-center">
                   <span className="text-orange-400 mr-2 text-lg">✓</span>
-                  <span>Lokal & Familiär</span>
+                  <span>{t("hero.benefit3.title")}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-orange-400 mr-2 text-lg">✓</span>
-                  <span>200+ Kunden</span>
+                  <span>{t("business.newInTown")}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-orange-400 mr-2 text-lg">✓</span>
-                  <span>Persönlicher Service</span>
+                  <span>{t("hero.benefit3.title")}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-orange-400 mr-2 text-lg">✓</span>
-                  <span>Flexible Lösungen</span>
+                  <span>{t("advantages.flexibility.title")}</span>
                 </div>
               </div>
             </div>
 
             {/* Location Map */}
             <div className="mt-8">
-              <h4 className="font-semibold text-gray-900 mb-4">Standort</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">{t("contact.address")}</h4>
               <div className="bg-white rounded-lg overflow-hidden shadow-lg">
                 <a
                   href="https://www.google.com/maps/search/Langelsheim,+Deutschland"
@@ -241,10 +240,10 @@ export default function Contact() {
                         Langelsheim, Deutschland
                       </h5>
                       <p className="text-gray-600 mb-3">
-                        Klicken Sie hier, um die Route zu planen
+                        {t("contact.mapDescription")}
                       </p>
                       <span className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg group-hover:bg-primary-700 transition-colors">
-                        In Google Maps öffnen
+                        {t("contact.openMaps")}
                         <svg
                           className="w-4 h-4 ml-2"
                           fill="none"
@@ -264,7 +263,7 @@ export default function Contact() {
                 </a>
               </div>
               <p className="text-sm text-gray-500 mt-4">
-                📍 Direkt im Herzen des Harzes - leicht erreichbar über die B82
+                📍 {t("contact.locationNote")}
               </p>
             </div>
           </div>
@@ -279,8 +278,7 @@ export default function Contact() {
               {success && (
                 <div className="mb-6 p-4 bg-green-500/20 border border-green-400/30 rounded-2xl backdrop-blur-sm">
                   <p className="text-green-300 text-sm font-medium">
-                    ✅ Vielen Dank für Ihre Anfrage! Wir melden uns
-                    schnellstmöglich bei Ihnen.
+                    ✅ {t("contact.form.success")}
                   </p>
                 </div>
               )}
@@ -311,7 +309,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-2xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm"
-                    placeholder="Ihr Name"
+                    placeholder={t("contact.form.placeholderName")}
                   />
                 </div>
 
@@ -330,7 +328,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-2xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm"
-                    placeholder="ihre@email.de"
+                    placeholder={t("contact.form.placeholderEmail")}
                   />
                 </div>
               </div>
@@ -350,7 +348,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-2xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white placeholder-gray-400 backdrop-blur-sm"
-                    placeholder="0123 456789"
+                    placeholder={t("contact.form.placeholderPhone")}
                   />
                 </div>
 
@@ -411,7 +409,7 @@ export default function Contact() {
                 className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white py-4 rounded-2xl font-bold text-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-xl"
               >
                 {isSubmitting
-                  ? "📤 Wird gesendet..."
+                  ? `📤 ${t("contact.form.sending")}`
                   : `🚀 ${t("contact.form.submit")}`}
               </button>
 
