@@ -82,6 +82,11 @@ HarzStorage is a modern Next.js self-storage website with comprehensive testing,
 
 ## Development Workflow
 
+### Critical Development Rules
+- **NEVER disable E2E tests** - Always fix them properly by debugging and updating selectors/expectations
+- **New features always start from fresh origin/main branch** - Never branch from other feature branches or outdated main
+- **Make sure branch is up-to-date with main when creating PR** - Sync with main and resolve conflicts before PR creation
+
 ### Branch Management
 - Create feature branches from `main`: `feature/your-feature-name`
 - Use protected main branch with required status checks
