@@ -9,6 +9,10 @@ COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN npm run build
 
+# Generate SBOM
+RUN npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json
+RUN npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
+
 FROM node:22-alpine AS runner
 WORKDIR /app
 
@@ -27,6 +31,10 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Copy SBOM files into the image
+COPY --from=builder /app/sbom-npm.json /app/sbom/
+COPY --from=builder /app/sbom-npm.xml /app/sbom/
+
 # Set proper permissions
 RUN chmod -R 755 /app && \
     find /app -type d -exec chmod 755 {} \; && \
@@ -44,7 +52,8 @@ ENV HOSTNAME "0.0.0.0"
 LABEL maintainer="HarzStorage" \
       version="1.0.0" \
       description="HarzStorage Self-Storage Website" \
-      security.scan="enabled"
+      security.scan="enabled" \
+      sbom.included="true"
 
 # Health check with proper timeout
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
