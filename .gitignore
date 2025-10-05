@@ -50,7 +50,3 @@ report_html.html
 report_json.json
 report_md.md
 report_xml.xml
-
-# IDE files
-.cursor/
-.cursorrules

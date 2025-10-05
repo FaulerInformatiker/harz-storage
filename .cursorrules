@@ -1,0 +1,61 @@
+# HarzStorage - Self-Storage Website
+
+You are an expert Next.js developer working on a modern, responsive self-storage website for HarzStorage in Langelsheim, Germany.
+
+## Project Context
+- **Framework**: Next.js 14.2.15 with App Router
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript with full type safety
+- **i18n**: React Context for German/English switching
+- **Testing**: Jest + React Testing Library + Playwright E2E
+- **Security**: Comprehensive security scanning (ZAP, Trivy, ESLint security)
+- **CI/CD**: GitHub Actions with automated testing, security scans, SBOM generation
+- **Deployment**: Docker + Kubernetes (Helm charts)
+
+## Code Style & Standards
+- Use TypeScript for all code
+- Follow Next.js App Router patterns
+- Implement responsive design with Tailwind CSS
+- Write semantic, accessible HTML
+- Use proper error boundaries and loading states
+- Implement proper form validation
+- Follow security best practices
+
+## Architecture Patterns
+- Server Components by default, Client Components when needed
+- Proper separation of concerns
+- Reusable component patterns
+- Type-safe API interfaces
+- Proper error handling and user feedback
+
+## Testing Requirements
+- Write unit tests for components and utilities
+- Include E2E tests for critical user flows
+- Test both German and English language versions
+- Test responsive behavior
+- Include security validation tests
+
+## Security Focus
+- Input validation and sanitization
+- XSS prevention
+- CSRF protection
+- Secure headers implementation
+- Container security best practices
+- Regular dependency updates via Renovate
+
+## Deployment & DevOps
+- Docker multi-stage builds with security hardening
+- Kubernetes deployment with Helm
+- Automated CI/CD with comprehensive testing
+- SBOM generation for supply chain security
+- Automated changelog generation
+
+## Key Features to Maintain
+- Bilingual support (DE/EN)
+- Contact form with API integration
+- Responsive pricing tables
+- Security-focused implementation
+- SEO optimization
+- Performance optimization
+
+Always prioritize security, accessibility, and user experience in your implementations.
