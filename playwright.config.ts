@@ -20,8 +20,9 @@ export default defineConfig({
   webServer: [
     {
       command: "npm run mock-api",
-      port: 3001,
+      url: "http://localhost:3001",
       reuseExistingServer: !process.env.CI,
+      timeout: 60 * 1000,
     },
     {
       command: "npm run dev",
