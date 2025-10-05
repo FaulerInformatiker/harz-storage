@@ -1,5 +1,9 @@
 # HarzStorage - Self-Storage Website
 
+[![Main Branch CI](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/ci.yml)
+[![Release Pipeline](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/release.yml/badge.svg)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/release.yml)
+[![Code Coverage](https://img.shields.io/badge/coverage-90%25-brightgreen)](https://github.com/FaulerInformatiker/harz-storage)
+
 Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter in Langelsheim im Harz.
 
 ## 🚀 Features
@@ -129,7 +133,7 @@ npm run test:watch
 npm run test:coverage
 ```
 
-**Test Coverage**: 70% Minimum für branches, functions, lines, statements
+**Test Coverage**: 90% Minimum für branches, functions, lines, statements
 
 ### E2E Tests (Playwright)
 
