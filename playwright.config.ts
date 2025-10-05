@@ -19,7 +19,7 @@ export default defineConfig({
   ],
   webServer: [
     {
-      command: "npm run mock-api",
+      command: "npm run mock-api:setup && npm run mock-api",
       url: "http://localhost:3001",
       reuseExistingServer: !process.env.CI,
       timeout: 60 * 1000,
