@@ -150,6 +150,9 @@ gh pr create --title "feat: Your Feature"
 # Abhängigkeiten installieren
 npm install
 
+# Mock API Datenbank einrichten (nur beim ersten Mal)
+npm run mock-api:setup
+
 # Entwicklungsserver starten
 npm run dev
 
