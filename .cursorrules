@@ -35,6 +35,12 @@ You are an expert Next.js developer working on a modern, responsive self-storage
 - Test responsive behavior
 - Include security validation tests
 
+## 🚨 CRITICAL RULE: E2E Tests Must Always Be Enabled
+- E2E tests MUST NEVER be disabled in Husky hooks
+- Any modification to .husky/ files must maintain E2E test execution
+- If E2E tests fail, fix them - never disable them
+- E2E tests are required for code quality and user experience validation
+
 ## Security Focus
 - Input validation and sanitization
 - XSS prevention
@@ -58,4 +64,4 @@ You are an expert Next.js developer working on a modern, responsive self-storage
 - SEO optimization
 - Performance optimization
 
-Always prioritize security, accessibility, and user experience in your implementations.
+Always prioritize security, accessibility, and user experience in your implementations. Never compromise on testing standards.
