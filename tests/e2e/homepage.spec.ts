@@ -5,7 +5,7 @@ test.describe("Homepage", () => {
     await page.goto("/");
 
     // Hero section - use first occurrence
-    await expect(page.getByText(/Langelsheim/)).toBeVisible();
+    await expect(page.getByText(/Langelsheim/).first()).toBeVisible();
     await expect(page.getByRole("link", { name: /Box anfragen|Request/ })).toBeVisible();
 
     // Advantages section
@@ -25,7 +25,7 @@ test.describe("Homepage", () => {
     // Fill out form using specific selectors
     await page.locator("input[placeholder*='Name']").fill("Test User");
     await page.locator("input[type='email']").fill("test@example.com");
-    await page.locator("input[placeholder*='Telefon']").fill("123456789");
+    await page.locator("input[placeholder*='Telefon'], input[placeholder*='Phone']").fill("123456789");
     await page.locator("select").selectOption("5m²");
     await page.locator("textarea").fill("Test message");
 
@@ -41,7 +41,7 @@ test.describe("Homepage", () => {
     await page.goto("/");
 
     // Check mobile layout
-    await expect(page.getByText(/Langelsheim/)).toBeVisible();
+    await expect(page.getByText(/Langelsheim/).first()).toBeVisible();
     await expect(page.getByText("DE")).toBeVisible();
 
     // Check pricing section is accessible
