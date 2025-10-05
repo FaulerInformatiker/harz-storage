@@ -84,7 +84,19 @@ jobs:
 
       - name: Push changes
         run: |
-          git push origin main
+          # Create and push to a temporary branch first
+          TEMP_BRANCH="release-${{ steps.version.outputs.version_number }}-$(date +%s)"
+          git checkout -b $TEMP_BRANCH
+          git push origin $TEMP_BRANCH
+          
+          # Create PR to main branch
+          gh pr create \
+            --title "chore: release ${{ steps.version.outputs.new_version }}" \
+            --body "Automated release PR for version ${{ steps.version.outputs.new_version }}" \
+            --base main \
+            --head $TEMP_BRANCH
+          
+          # Push the tag directly (tags aren't protected)
           git push origin ${{ steps.version.outputs.new_version }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -148,7 +160,9 @@ jobs:
           ## Helm Deployment
           \`\`\`bash
           helm upgrade --install harz-storage ./harz-storage-${{ steps.version.outputs.version_number }}.tgz --set image.tag=${{ steps.version.outputs.version_number }}
-          \`\`\`" \
+          \`\`\`
+
+          **Note:** This release requires merging PR for version bump to complete the release process." \
             sbom-${{ steps.version.outputs.version_number }}.spdx.json \
             trivy-results-${{ steps.version.outputs.version_number }}.sarif \
             security-audit-${{ steps.version.outputs.version_number }}.json \
