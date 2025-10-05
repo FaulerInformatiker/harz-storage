@@ -18,6 +18,7 @@
     "test:zap": "npm run dev & sleep 10 && docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://host.docker.internal:3000 -r zap-report.html -x zap-report.xml",
     "test:zap:full": "npm run dev & sleep 10 && docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py -t http://host.docker.internal:3000 -r zap-full-report.html -x zap-full-report.xml",
     "mock-api": "json-server --watch mock-api/db.json --port 3001",
+    "mock-api:setup": "cp mock-api/db.template.json mock-api/db.json",
     "dev:full": "concurrently \"npm run mock-api\" \"npm run dev\"",
     "audit": "npm audit",
     "audit:fix": "npm audit fix",
