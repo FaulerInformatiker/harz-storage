@@ -2,7 +2,7 @@
 
 [![Main Branch CI](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/ci.yml)
 [![Release Pipeline](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/release.yml/badge.svg)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/release.yml)
-[![codecov](https://codecov.io/gh/FaulerInformatiker/harz-storage/branch/main/graph/badge.svg)](https://codecov.io/gh/FaulerInformatiker/harz-storage)
+[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/FaulerInformatiker/harz-storage)
 
 Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter in Langelsheim im Harz.
 

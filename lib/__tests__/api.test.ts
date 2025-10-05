@@ -6,7 +6,6 @@ const mockFetch = fetch as jest.MockedFunction<typeof fetch>;
 describe('API Functions', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    process.env.NODE_ENV = 'test';
   });
 
   it('submits contact form successfully', async () => {

@@ -68,15 +68,6 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/lcov.info
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false
-
       - name: Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
@@ -89,13 +80,6 @@ jobs:
           indicators: true
           output: both
           thresholds: '85 90'
-
-      - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        if: github.event_name == 'pull_request'
-        with:
-          recreate: true
-          path: code-coverage-results.md
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
