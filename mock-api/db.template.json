@@ -1,0 +1,44 @@
+{
+  "boxes": [
+    {
+      "id": "5m2",
+      "size": "5m²",
+      "price": 25,
+      "available": true,
+      "description": "Perfect for boxes and small items",
+      "icon": "📦",
+      "currency": "€/Monat"
+    },
+    {
+      "id": "10m2",
+      "size": "10m²",
+      "price": 45,
+      "available": true,
+      "description": "Ideal for 1-room apartment contents",
+      "popular": true,
+      "icon": "🏠",
+      "currency": "€/Monat"
+    },
+    {
+      "id": "20m2",
+      "size": "20m²",
+      "price": 80,
+      "available": false,
+      "description": "Suitable for 2-3 room apartment contents",
+      "icon": "🏢",
+      "currency": "€/Monat"
+    }
+  ],
+  "contacts": [],
+  "submissions": [
+    {
+      "id": "1",
+      "name": "Max Mustermann",
+      "email": "max@example.com",
+      "phone": "0123456789",
+      "size": "10m²",
+      "message": "Ich interessiere mich für eine Lagerbox.",
+      "createdAt": "2024-01-15T10:30:00Z"
+    }
+  ]
+}
