@@ -120,6 +120,13 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 
 ## 🔧 Development
 
+### Amazon Q Integration
+
+This project includes Amazon Q Developer rules for consistent development practices:
+- **Project Rules**: See `.amazonq/project-rules.md` for comprehensive development guidelines
+- **Contract Testing**: Critical rules in `docs/CONTRACT_TESTING_RULES.md`
+- **Automated Assistance**: Amazon Q follows project patterns and enforces best practices
+
 ### Git Workflow
 
 This project follows a protected main branch workflow with required status checks. See [Git Workflow Documentation](docs/GIT_WORKFLOW.md) for detailed guidelines.
@@ -142,6 +149,9 @@ gh pr create --title "feat: Your Feature"
 ```bash
 # Abhängigkeiten installieren
 npm install
+
+# Mock API Datenbank einrichten (nur beim ersten Mal)
+npm run mock-api:setup
 
 # Entwicklungsserver starten
 npm run dev
@@ -213,6 +223,22 @@ npx playwright show-report
 - Contact form API integration
 - Mobile responsiveness
 - Form validation and error handling
+
+### Contract Tests (Pact)
+
+```bash
+# Run contract tests
+npm run test:contract
+
+# Publish contracts to Pact Broker (requires PACT_BROKER_BASE_URL)
+npm run test:contract:publish
+```
+
+**⚠️ Important**: Contract tests represent external API expectations. See [Contract Testing Rules](docs/CONTRACT_TESTING_RULES.md) before modifying contract tests.
+
+**Contract Coverage**:
+- Contacts API (`/api/contacts`) - POST operations
+- Boxes API (`/api/boxes`) - GET operations
 
 ### Test Struktur
 
