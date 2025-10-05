@@ -28,10 +28,12 @@ HarzStorage is a modern Next.js self-storage website with comprehensive testing,
 
 ### Unit Testing (Jest + React Testing Library)
 - MANDATORY: Write unit tests for all new components and functions
-- Maintain minimum 90% code coverage for branches, functions, lines, statements
+- Maintain minimum 90% code coverage for branches, functions, lines, statements (updated from 70% in TESTING.md)
 - Mock external dependencies and API calls
 - Test both happy path and error scenarios
 - Use descriptive test names that explain the expected behavior
+- Wrap async state updates in React.act() for testing
+- All components using translations must be wrapped in TranslationProvider for tests
 
 ### E2E Testing (Playwright)
 - Add E2E tests for new user-facing features
@@ -39,6 +41,9 @@ HarzStorage is a modern Next.js self-storage website with comprehensive testing,
 - Use data-testid attributes for reliable element selection
 - Test responsive behavior on mobile and desktop
 - Verify accessibility compliance
+- **MANDATORY: Test all internal navigation links** - Verify all CTA buttons and anchor links work correctly
+- Test complete user workflows end-to-end, not just component rendering
+- Use semantic queries (getByRole, getByLabelText) for better test reliability
 
 ### Contract Testing (Pact)
 - ⚠️ CRITICAL: Never modify contract tests without understanding external API impact
@@ -81,6 +86,16 @@ HarzStorage is a modern Next.js self-storage website with comprehensive testing,
 - Keep commits atomic and focused on single changes
 
 ## Development Workflow
+
+### Critical Development Rules
+- **NEVER disable E2E tests** - Always fix them properly by debugging and updating selectors/expectations
+- **New features always start from fresh origin/main branch** - Never branch from other feature branches or outdated main
+- **Make sure branch is up-to-date with main when creating PR** - Sync with main and resolve conflicts before PR creation
+- **NEVER modify contract tests without understanding external API impact** - Contract tests represent agreements with external services (see `docs/CONTRACT_TESTING_RULES.md`)
+- **ALL Next.js API routes MUST have corresponding tests** - API route tests MUST be placed in `app/api/[route]/__tests__/` directory with 90% minimum coverage
+- **UI changes and test updates must be atomic operations** - Update both unit AND E2E tests in same commit as component changes
+- **Always run tests locally before pushing** - Use git hooks to prevent untested code from being pushed
+- **Internal navigation links must be tested thoroughly** - All `href="#"` links must have matching `id=""` targets with consistent naming
 
 ### Branch Management
 - Create feature branches from `main`: `feature/your-feature-name`
@@ -182,7 +197,24 @@ docs/               # Project documentation
 - Provide proper ARIA labels and roles
 - Test with screen readers
 - Ensure keyboard navigation works
-- Maintain proper color contrast ratios
+- Maintain proper color contrast ratios (> 4.5:1)
+- Proper heading hierarchy (h1-h6)
+- Alt text for images
+
+## Performance Standards
+
+### Core Web Vitals
+- Largest Contentful Paint (LCP) < 2.5s
+- First Input Delay (FID) < 100ms
+- Cumulative Layout Shift (CLS) < 0.1
+
+### Optimization Requirements
+- Use React.memo() for expensive renders
+- Implement useMemo() and useCallback() judiciously
+- Lazy load components with React.lazy()
+- Optimize images with Next.js Image component
+- Use dynamic imports for code splitting
+- Implement proper caching strategies
 
 ## Best Practices Not in Official Docs
 
@@ -219,6 +251,33 @@ docs/               # Project documentation
 - Use environment variables for configuration
 - Implement proper logging levels for different environments
 
+## Lessons Learned Rules
+
+### Navigation & UI Consistency
+- **Consistent anchor naming**: Use single language for internal anchors (German for this project)
+- **Navigation audit required**: Check all `href="#"` links have matching `id=""` targets
+- **Business model validation**: Ensure displayed information matches actual business operations
+- **Atomic translation updates**: Update translations, components, and tests together
+
+### Development Workflow
+- **Local testing mandatory**: Always run `npm test` before any commit
+- **Git hooks enforcement**: Use pre-commit and pre-push hooks to prevent broken code
+- **Atomic commits**: UI changes and test updates must be in same commit
+- **Complete test coverage**: Update both unit AND E2E tests for UI changes
+
+### Error Prevention
+- **Test impact consideration**: Consider test impact when changing UI text/structure
+- **Comprehensive navigation testing**: Test complete user journeys, not just component rendering
+- **Translation consistency**: Verify anchor targets when updating translations
+- **Business information accuracy**: Display realistic business hours and availability
+
+### Documentation Synchronization
+- **Always keep documentation in sync with code changes**
+- **Update README.md when adding features, changing APIs, or modifying workflows**
+- **Update relevant docs/ files when changing processes or rules**
+- **Include documentation updates in the same commit as code changes**
+- **Verify all referenced files and paths exist and are accurate**
+
 ## Enforcement
 
 These rules are enforced through:
@@ -228,5 +287,17 @@ These rules are enforced through:
 - Code review requirements
 - Automated dependency updates
 - Security scanning in CI/CD
+- Git hooks preventing untested code pushes
+- Branch protection with required status checks
 
 Violations of these rules should be addressed immediately and may block PR merges.
+
+## Rule Sources
+
+These rules are compiled from:
+- `docs/CONTRACT_TESTING_RULES.md` - Critical contract testing guidelines
+- `docs/TESTING.md` - Comprehensive testing requirements
+- `docs/GIT_WORKFLOW.md` - Git workflow and CI/CD practices
+- `docs/DEVELOPMENT_BEST_PRACTICES.md` - Code quality and performance standards
+- `LESSONS_LEARNED.md` - Historical issues and prevention strategies
+- Project experience and best practices
