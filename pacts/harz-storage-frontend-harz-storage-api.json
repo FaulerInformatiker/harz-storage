@@ -1,0 +1,96 @@
+{
+  "consumer": {
+    "name": "harz-storage-frontend"
+  },
+  "interactions": [
+    {
+      "description": "a request for available boxes",
+      "providerState": "boxes are available",
+      "request": {
+        "method": "GET",
+        "path": "/api/boxes"
+      },
+      "response": {
+        "body": [
+          {
+            "available": true,
+            "currency": "€/Monat",
+            "description": "Perfect for boxes and small items",
+            "icon": "📦",
+            "id": "5m2",
+            "price": 25,
+            "size": "5m²"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a request to create a contact",
+      "providerState": "contact can be created",
+      "request": {
+        "body": {
+          "createdAt": "2025-10-05T11:32:16.503Z",
+          "email": "john@example.com",
+          "message": "I need storage space",
+          "name": "John Doe",
+          "phone": "123456789",
+          "size": "10m²"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.createdAt": {
+            "match": "regex",
+            "regex": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z"
+          }
+        },
+        "method": "POST",
+        "path": "/api/contacts"
+      },
+      "response": {
+        "body": {
+          "createdAt": "2025-10-05T11:32:16.503Z",
+          "email": "john@example.com",
+          "id": "12345",
+          "message": "I need storage space",
+          "name": "John Doe",
+          "phone": "123456789",
+          "size": "10m²"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.createdAt": {
+            "match": "regex",
+            "regex": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z"
+          },
+          "$.body.id": {
+            "match": "type"
+          }
+        },
+        "status": 201
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "15.0.1"
+    },
+    "pactRust": {
+      "ffi": "0.4.28",
+      "models": "1.3.5"
+    },
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "provider": {
+    "name": "harz-storage-api"
+  }
+}
