@@ -92,7 +92,7 @@ git checkout -b feature/your-feature
 git add . && git commit -m "feat: your changes"
 git push -u origin feature/your-feature
 
-# Create PR (requires 1 approval + passing CI)
+# Create PR (requires passing CI only)
 gh pr create --title "feat: Your Feature"
 ```
 

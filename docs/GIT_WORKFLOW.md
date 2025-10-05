@@ -1,5 +1,11 @@
 # Git Workflow Documentation
 
+## ⚠️ Important Note
+
+**SINGLE DEVELOPER PROJECT**: This project does not require code reviews or approving reviewers. The workflow is designed for a single developer with CI/CD automation ensuring code quality.
+
+**NEVER ADD REVIEWER REQUIREMENTS** - This is a solo project where the developer can merge their own PRs after CI passes.
+
 ## Branch Protection Rules
 
 The `main` branch is protected with the following rules:
@@ -12,9 +18,9 @@ The `main` branch is protected with the following rules:
 - **security**: Security audit must pass
 
 ### Pull Request Requirements
-- **1 approving review** required before merge
-- **Dismiss stale reviews** when new commits are pushed
+- **No reviewer required** - Single developer project
 - **Up-to-date branches** required (strict status checks)
+- **All CI checks must pass** before merge
 
 ### Admin Enforcement
 - **Admins must follow rules** - No bypassing protection rules
@@ -51,7 +57,6 @@ gh pr create --title "feat: Your Feature Title" --body "Description of changes"
 
 Before merge, ensure:
 - ✅ All CI checks pass (test, type-check, lint, build, security)
-- ✅ Code review approved
 - ✅ Branch is up-to-date with main
 - ✅ No merge conflicts
 
