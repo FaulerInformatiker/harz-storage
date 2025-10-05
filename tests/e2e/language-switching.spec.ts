@@ -4,8 +4,8 @@ test.describe("Language Switching", () => {
   test("should switch between German and English", async ({ page }) => {
     await page.goto("/");
 
-    // Check default German content
-    await expect(page.getByText(/Self-Storage.*Langelsheim/)).toBeVisible();
+    // Check default German content - target the main H1 heading specifically
+    await expect(page.locator('h1').getByText('HarzStorage')).toBeVisible();
     await expect(page.getByText('Größen & Preise')).toBeVisible();
 
     // Switch to English - use first EN button
