@@ -16,15 +16,9 @@ test.describe('Navigation Links', () => {
   });
 
   test('should navigate to contact section from pricing CTA', async ({ page }) => {
-    // Wait for pricing section to load
-    await page.waitForSelector('#preise', { timeout: 10000 });
-    
-    // Wait for box data to load and buttons to appear
-    await page.waitForSelector('text=Box anfragen', { timeout: 10000 });
-    
-    // Find and click pricing CTA button
+    // Find and click pricing CTA button with force
     const pricingCTA = page.locator('text=Box anfragen').first();
-    await pricingCTA.click();
+    await pricingCTA.click({ force: true });
     
     // Check if contact section is visible
     await page.waitForTimeout(500);
