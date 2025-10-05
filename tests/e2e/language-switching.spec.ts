@@ -11,13 +11,13 @@ test.describe("Language Switching", () => {
     await page.getByRole("button", { name: "EN" }).first().click();
 
     // Check English content appears
-    await expect(page.getByText(/secure storage units|sichere Lager/)).toBeVisible();
+    await expect(page.getByText(/secure storage units|sichere Lager/).first()).toBeVisible();
 
     // Switch back to German
     await page.getByRole("button", { name: "DE" }).first().click();
 
     // Check German content returns
-    await expect(page.getByText(/sichere Lager|Lagerboxen/)).toBeVisible();
+    await expect(page.getByText(/sichere Lager|Lagerboxen/).first()).toBeVisible();
   });
 
   test("should maintain language across sections", async ({ page }) => {
