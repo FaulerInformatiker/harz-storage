@@ -64,3 +64,4 @@ report_xml.xml
 
 # Mock API data (dynamic, changes during tests)
 mock-api/db.json
+zap.yaml
