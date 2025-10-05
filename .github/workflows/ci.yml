@@ -84,11 +84,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run E2E tests
+      - name: Run E2E tests (includes contract tests)
         run: npm run test:e2e
-
-      - name: Run contract tests
-        run: npm run test:contract
 
       - name: Upload test results
         if: always()
