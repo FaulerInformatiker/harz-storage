@@ -29,6 +29,11 @@
 # debug
 npm-debug.log*
 yarn-debug.log*
+debug-*.png
+debug-*.jpg
+debug-*.jpeg
+screenshots/
+*.screenshot.png
 yarn-error.log*
 
 # local env files
