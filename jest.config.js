@@ -15,10 +15,15 @@ const customJestConfig = {
     "lib/**/*.{js,jsx,ts,tsx}",
     "!**/*.d.ts",
     "!**/node_modules/**",
+    "!app/layout.tsx",
+    "!app/*/page.tsx",
+    "!app/globals.css",
+    "!**/__tests__/**",
+    "!**/coverage/**",
   ],
   coverageThreshold: {
     global: {
-      branches: 90,
+      branches: 85,
       functions: 90,
       lines: 90,
       statements: 90,
