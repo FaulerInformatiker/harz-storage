@@ -120,6 +120,13 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 
 ## 🔧 Development
 
+### Amazon Q Integration
+
+This project includes Amazon Q Developer rules for consistent development practices:
+- **Project Rules**: See `.amazonq/project-rules.md` for comprehensive development guidelines
+- **Contract Testing**: Critical rules in `docs/CONTRACT_TESTING_RULES.md`
+- **Automated Assistance**: Amazon Q follows project patterns and enforces best practices
+
 ### Git Workflow
 
 This project follows a protected main branch workflow with required status checks. See [Git Workflow Documentation](docs/GIT_WORKFLOW.md) for detailed guidelines.
