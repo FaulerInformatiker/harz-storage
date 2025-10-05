@@ -8,6 +8,16 @@ on:
   schedule:
     # Run weekly on Sundays at 3 AM UTC
     - cron: "0 3 * * 0"
+  workflow_dispatch:
+    inputs:
+      scan_type:
+        description: 'Type of scan to run'
+        required: true
+        default: 'baseline'
+        type: choice
+        options:
+          - baseline
+          - full
 
 permissions:
   contents: read
@@ -18,7 +28,7 @@ permissions:
 jobs:
   zap-baseline:
     runs-on: ubuntu-latest
-    if: github.event_name != 'schedule'
+    if: github.event_name != 'schedule' && (github.event_name != 'workflow_dispatch' || github.event.inputs.scan_type == 'baseline')
 
     steps:
       - uses: actions/checkout@v4
@@ -61,7 +71,7 @@ jobs:
 
   zap-full-scan:
     runs-on: ubuntu-latest
-    if: github.event_name == 'schedule'
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.scan_type == 'full')
 
     steps:
       - uses: actions/checkout@v4
