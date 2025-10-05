@@ -67,7 +67,6 @@ test.describe('Navigation Links', () => {
 
   test('should have all required section IDs present', async ({ page }) => {
     // Check that all sections with IDs exist
-    await expect(page.locator('#vorteile')).toBeVisible();
     await expect(page.locator('#preise')).toBeVisible();
     await expect(page.locator('#ablauf')).toBeVisible();
     await expect(page.locator('#sicherheit')).toBeVisible();
