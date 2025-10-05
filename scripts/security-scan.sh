@@ -43,13 +43,13 @@ echo "  - Trivy: CVE vulnerabilities"
 echo "  - Hadolint: Dockerfile best practices"
 echo "  - Dockle: Container security"
 
-# Check for critical vulnerabilities
+# Check for critical and high vulnerabilities
 if [ -f "$REPORT_DIR/trivy-report.json" ]; then
-  CRITICAL_COUNT=$(jq '.Results[]?.Vulnerabilities[]? | select(.Severity == "CRITICAL") | length' $REPORT_DIR/trivy-report.json 2>/dev/null | wc -l || echo "0")
-  if [ "$CRITICAL_COUNT" -gt 0 ]; then
-    echo "⚠️  Found $CRITICAL_COUNT critical vulnerabilities"
+  CRITICAL_HIGH_COUNT=$(jq '.Results[]?.Vulnerabilities[]? | select(.Severity == "CRITICAL" or .Severity == "HIGH") | length' $REPORT_DIR/trivy-report.json 2>/dev/null | wc -l || echo "0")
+  if [ "$CRITICAL_HIGH_COUNT" -gt 0 ]; then
+    echo "⚠️  Found $CRITICAL_HIGH_COUNT critical/high severity vulnerabilities"
     exit 1
   fi
 fi
 
-echo "✅ No critical vulnerabilities found"
+echo "✅ No critical or high severity vulnerabilities found"
