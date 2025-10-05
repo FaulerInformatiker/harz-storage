@@ -28,6 +28,7 @@
     "security:zap": "npm run test:zap",
     "security:docker": "./scripts/security-scan.sh",
     "security:complete": "npm run security:full && npm run security:docker",
+    "license:check": "node scripts/check-licenses.js",
     "sbom:generate": "cyclonedx-npm --output-file sbom.json && cyclonedx-npm --output-format xml --output-file sbom.xml",
     "changelog:generate": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "release:patch": "npm version patch",
