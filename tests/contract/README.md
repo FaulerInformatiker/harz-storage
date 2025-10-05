@@ -2,6 +2,12 @@
 
 This directory contains contract tests using [Pact](https://pact.io/) to ensure API compatibility between the frontend and backend services.
 
+## ⚠️ IMPORTANT: Contract Testing Rules
+
+**READ FIRST**: [Contract Testing Rules & Guidelines](../../docs/CONTRACT_TESTING_RULES.md)
+
+**Key Rule**: Contract tests represent external API expectations and **MUST NOT be changed** to fix application bugs. If a contract test fails, fix the application code to match the contract.
+
 ## Overview
 
 Contract testing verifies that the API contracts between consumer (frontend) and provider (backend) are maintained. This prevents breaking changes and ensures reliable integration.
