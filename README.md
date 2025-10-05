@@ -1,8 +1,49 @@
 # HarzStorage - Self-Storage Website
 
+## Status & Quality
+
 [![Main Branch CI](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/ci.yml)
 [![Release Pipeline](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/release.yml/badge.svg)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/release.yml)
+[![Security Scan](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/security.yml/badge.svg)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/security.yml)
+[![ZAP Security](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/zap-security.yml/badge.svg)](https://github.com/FaulerInformatiker/harz-storage/actions/workflows/zap-security.yml)
+
+## Code Quality & Testing
+
 [![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/FaulerInformatiker/harz-storage)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![ESLint](https://img.shields.io/badge/ESLint-passing-green?logo=eslint)](https://eslint.org/)
+[![Prettier](https://img.shields.io/badge/Prettier-enabled-ff69b4?logo=prettier)](https://prettier.io/)
+[![Jest](https://img.shields.io/badge/Jest-33%20tests-green?logo=jest)](https://jestjs.io/)
+[![Playwright](https://img.shields.io/badge/Playwright-13%20E2E-green?logo=playwright)](https://playwright.dev/)
+
+## Technology Stack
+
+[![Next.js](https://img.shields.io/badge/Next.js-14.2+-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-18+-blue?logo=react)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0+-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-22+-green?logo=node.js)](https://nodejs.org/)
+
+## Security & Dependencies
+
+[![Security Audit](https://img.shields.io/badge/npm%20audit-0%20vulnerabilities-green?logo=npm)](https://www.npmjs.com/)
+[![Renovate](https://img.shields.io/badge/Renovate-enabled-blue?logo=renovatebot)](https://renovatebot.com/)
+[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-blue?logo=dependabot)](https://dependabot.com/)
+[![OWASP ZAP](https://img.shields.io/badge/OWASP%20ZAP-baseline-orange?logo=owasp)](https://owasp.org/www-project-zap/)
+[![Trivy](https://img.shields.io/badge/Trivy-container%20scan-blue?logo=aqua)](https://trivy.dev/)
+
+## Deployment & Infrastructure
+
+[![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)](https://www.docker.com/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-Helm%20charts-blue?logo=kubernetes)](https://kubernetes.io/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-blue?logo=github-actions)](https://github.com/features/actions)
+
+## Project Info
+
+[![License](https://img.shields.io/badge/License-Private-red)](LICENSE)
+[![Version](https://img.shields.io/github/package-json/v/FaulerInformatiker/harz-storage?logo=github)](package.json)
+[![Last Commit](https://img.shields.io/github/last-commit/FaulerInformatiker/harz-storage?logo=github)](https://github.com/FaulerInformatiker/harz-storage/commits/main)
+[![Issues](https://img.shields.io/github/issues/FaulerInformatiker/harz-storage?logo=github)](https://github.com/FaulerInformatiker/harz-storage/issues)
+[![PRs](https://img.shields.io/github/issues-pr/FaulerInformatiker/harz-storage?logo=github)](https://github.com/FaulerInformatiker/harz-storage/pulls)
 
 Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter in Langelsheim im Harz.
 
