@@ -1,28 +1,10 @@
 export default function Datenschutz() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-20">
-      <h1 className="text-3xl font-bold mb-8">Datenschutzerklärung</h1>
-      <div className="space-y-6">
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Verantwortlicher</h2>
-          <p>
-            HarzStorage
-            <br />
-            Industriestraße 15
-            <br />
-            38685 Langelsheim
-            <br />
-            E-Mail: info@harzstorage.de
-          </p>
-        </div>
-        <div>
-          <h2 className="text-xl font-semibold mb-2">
-            Erhebung und Speicherung personenbezogener Daten
-          </h2>
-          <p>
-            Wir erheben und verwenden Ihre personenbezogenen Daten nur zur
-            Vertragsabwicklung und Kundenbetreuung.
-          </p>
+    <div className="min-h-screen bg-white dark:bg-slate-900 py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">Datenschutz</h1>
+        <div className="prose dark:prose-invert max-w-none">
+          <p>Datenschutzerklärung wird hier eingefügt.</p>
         </div>
       </div>
     </div>
