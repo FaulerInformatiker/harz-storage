@@ -4,3 +4,4 @@ echo "🧪 Running unit tests..."
 npm test
 
 echo "✅ Pre-commit checks passed!"
+echo "⚠️  E2E tests temporarily disabled during design migration"
