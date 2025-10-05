@@ -3,6 +3,5 @@
 echo "🧪 Running tests before push..."
 npm test
 
-# E2E tests run in CI pipeline - disabled locally to avoid blocking pushes
-# echo "🎭 Running E2E tests..."
-# npm run test:e2e
+echo "🎭 Running E2E tests..."
+npm run test:e2e
