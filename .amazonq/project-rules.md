@@ -270,12 +270,13 @@ docs/               # Project documentation
 - **Comprehensive navigation testing**: Test complete user journeys, not just component rendering
 - **Translation consistency**: Verify anchor targets when updating translations
 - **Business information accuracy**: Display realistic business hours and availability
-- ESLint configuration with custom rules
-- Pre-commit hooks running tests and linting
-- CI/CD pipeline checks
-- Code review requirements
-- Automated dependency updates
-- Security scanning in CI/CD
+
+### Documentation Synchronization
+- **Always keep documentation in sync with code changes**
+- **Update README.md when adding features, changing APIs, or modifying workflows**
+- **Update relevant docs/ files when changing processes or rules**
+- **Include documentation updates in the same commit as code changes**
+- **Verify all referenced files and paths exist and are accurate**
 
 ## Enforcement
 
