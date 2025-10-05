@@ -29,6 +29,15 @@
 # debug
 npm-debug.log*
 yarn-debug.log*
+
+# Debug and test artifacts
+debug/*
+!debug/README.md
+screenshots/
+test-results/
+playwright-report/
+*.screenshot.png
+*.debug.png
 yarn-error.log*
 
 # local env files
