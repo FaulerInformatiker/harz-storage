@@ -13,8 +13,8 @@
       "desc": "Transparente Kosten ohne versteckte Gebühren"
     },
     "benefit3": {
-      "title": "Persönlicher Service",
-      "desc": "Direkter Kontakt zu mir als Inhaber"
+      "title": "Flexible Laufzeiten",
+      "desc": "Monatlich kündbar - keine langfristige Bindung"
     },
     "cta": "Jetzt Lager anfragen",
     "contact_info": "Rufen Sie mich an oder schreiben Sie mir!",
@@ -22,7 +22,7 @@
   },
   "advantages": {
     "title": "Warum HarzStorage?",
-    "subtitle": "Ihre Vorteile auf einen Blick",
+    "subtitle": "Persönlicher Service - nicht nur Container",
     "access": {
       "title": "24/7 Zugang",
       "description": "Rund um die Uhr Zugang zu Ihren Sachen mit persönlichem Zugangscode"
@@ -36,8 +36,8 @@
       "description": "Keine versteckten Kosten - Sie zahlen nur für die Boxgröße, die Sie brauchen"
     },
     "flexibility": {
-      "title": "Flexible Laufzeiten",
-      "description": "Monatlich kündbar - perfekt für kurz- und langfristige Lagerung"
+      "title": "Neu in Langelsheim",
+      "description": "Moderne Anlage mit persönlicher Betreuung direkt vor Ort"
     }
   },
   "pricing": {

@@ -178,31 +178,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Distinctive Trust Section */}
-            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm p-6 rounded-3xl border border-orange-500/30">
-              <h4 className="font-bold text-white mb-4 text-lg">
-                🏔️ {t("advantages.title")}
-              </h4>
-              <div className="grid grid-cols-2 gap-4 text-sm text-gray-300">
-                <div className="flex items-center">
-                  <span className="text-orange-400 mr-2 text-lg">✓</span>
-                  <span>{t("hero.benefit3.title")}</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-orange-400 mr-2 text-lg">✓</span>
-                  <span>{t("business.newInTown")}</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-orange-400 mr-2 text-lg">✓</span>
-                  <span>{t("hero.benefit3.title")}</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-orange-400 mr-2 text-lg">✓</span>
-                  <span>{t("advantages.flexibility.title")}</span>
-                </div>
-              </div>
-            </div>
-
             {/* Location Map */}
             <div className="mt-8">
               <h4 className="font-semibold text-gray-900 mb-4">{t("contact.address")}</h4>
