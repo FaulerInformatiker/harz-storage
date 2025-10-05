@@ -1,7 +1,7 @@
 "use client";
 
 import { Globe } from "lucide-react";
-import { useTranslation } from "../lib/TranslationContext";
+import { useTranslation } from "@/lib/TranslationContext";
 
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useTranslation();
