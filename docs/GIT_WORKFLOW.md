@@ -25,6 +25,189 @@ The `main` branch is protected with the following rules:
 ### Admin Enforcement
 - **Admins must follow rules** - No bypassing protection rules
 
+## Automated Tools & Status
+
+### Dependency Management
+- **Renovate Bot**: Automated dependency updates
+  - **Schedule**: Every Monday morning (6 AM Europe/Berlin)
+  - **Status**: ✅ Active
+  - **Config**: `.github/renovate.json`
+  - **Features**: Grouped updates, security alerts, lock file maintenance
+
+### Security Scanning
+- **npm audit**: Dependency vulnerability scanning
+  - **Trigger**: Every CI run
+  - **Status**: ✅ Active
+  - **Threshold**: High-level vulnerabilities fail CI
+  - **Auto-fix**: Manual resolution required
+
+- **OWASP ZAP**: Web application security testing
+  - **Baseline Scan**: On every PR
+  - **Status**: ✅ Active
+  - **Config**: `.zap/rules.tsv`
+  - **Ignored**: Non-critical warnings for static sites
+
+- **Trivy**: Container and filesystem vulnerability scanning
+  - **Trigger**: On security workflow
+  - **Status**: ✅ Active
+  - **Scope**: Docker images, dependencies, filesystem
+
+- **ESLint Security**: Static code analysis for security issues
+  - **Trigger**: Every CI run (lint job)
+  - **Status**: ✅ Active
+  - **Rules**: Security-focused ESLint rules
+
+### Code Quality
+- **ESLint**: Code style and quality enforcement
+  - **Trigger**: Every CI run
+  - **Status**: ✅ Active
+  - **Config**: `.eslintrc.json`
+  - **Auto-fix**: `npm run lint:fix`
+
+- **TypeScript**: Type checking and compilation
+  - **Trigger**: Every CI run
+  - **Status**: ✅ Active
+  - **Config**: `tsconfig.json`
+  - **Strict mode**: Enabled
+
+- **Prettier**: Code formatting
+  - **Trigger**: Pre-commit hooks
+  - **Status**: ✅ Active
+  - **Config**: `.prettierrc`
+  - **Auto-format**: On save (IDE integration)
+
+### Testing & Coverage
+- **Jest**: Unit testing framework
+  - **Trigger**: Every CI run
+  - **Status**: ✅ Active
+  - **Coverage**: 95.62% statements, 86.11% branches
+  - **Threshold**: 90% statements/lines/functions, 85% branches
+
+- **Playwright**: End-to-end testing
+  - **Trigger**: Every CI run
+  - **Status**: ✅ Active
+  - **Browsers**: Chromium
+  - **Tests**: 13 E2E tests covering core functionality
+
+### Build & Deployment
+- **Next.js Build**: Production build verification
+  - **Trigger**: Every CI run
+  - **Status**: ✅ Active
+  - **Output**: Static export ready for deployment
+
+- **Docker**: Containerization
+  - **Status**: ✅ Available
+  - **Security**: Scanned with Trivy
+  - **Config**: `Dockerfile`, `.dockerignore`
+
+- **Helm**: Kubernetes deployment
+  - **Status**: ✅ Available
+  - **Charts**: `./helm/` directory
+  - **Config**: Values for different environments
+
+### Documentation
+- **SBOM Generation**: Software Bill of Materials
+  - **Trigger**: On security workflow
+  - **Status**: ✅ Active
+  - **Format**: CycloneDX JSON
+  - **Retention**: 30 days
+
+### Monitoring & Alerts
+- **GitHub Actions**: CI/CD pipeline status
+  - **Status**: ✅ Active
+  - **Workflows**: CI, Security, Release, SBOM
+  - **Notifications**: GitHub notifications on failures
+
+- **Dependabot**: Security vulnerability alerts
+  - **Status**: ✅ Active
+  - **Auto-PR**: For security updates
+  - **Integration**: Works with Renovate
+
+## Tool Status Dashboard
+
+| Tool | Status | Last Run | Next Run | Config |
+|------|--------|----------|----------|---------|
+| Renovate | ✅ Active | Weekly | Monday 6AM | `.github/renovate.json` |
+| npm audit | ✅ Active | Every CI | On push/PR | `package.json` |
+| OWASP ZAP | ✅ Active | Every PR | On PR | `.zap/rules.tsv` |
+| Trivy | ✅ Active | Security workflow | On security scan | N/A |
+| ESLint | ✅ Active | Every CI | On push/PR | `.eslintrc.json` |
+| TypeScript | ✅ Active | Every CI | On push/PR | `tsconfig.json` |
+| Jest | ✅ Active | Every CI | On push/PR | `jest.config.js` |
+| Playwright | ✅ Active | Every CI | On push/PR | `playwright.config.ts` |
+| Build | ✅ Active | Every CI | On push/PR | `next.config.js` |
+| SBOM | ✅ Active | Security workflow | On security scan | N/A |
+
+## Workflow Status Checks
+
+### Required for Main Branch
+- ✅ `test (22)` - Unit and E2E tests
+- ✅ `type-check` - TypeScript compilation
+- ✅ `lint` - ESLint code quality
+- ✅ `build` - Next.js production build
+- ✅ `security` - npm audit and security checks
+
+### Optional/Informational
+- 🔍 `Trivy` - Container security scan
+- 🔍 `generate-sbom` - Software Bill of Materials
+- 🔍 `security-scan` - Enhanced security scanning
+- 🔍 `zap-baseline` - OWASP ZAP web security scan
+
+## Tool Configuration Files
+
+```
+.github/
+├── renovate.json          # Renovate dependency updates
+├── workflows/
+│   ├── ci.yml            # Main CI pipeline
+│   ├── security.yml      # Security scanning
+│   ├── release.yml       # Release automation
+│   └── zap-security.yml  # OWASP ZAP scanning
+
+.zap/
+└── rules.tsv             # ZAP scan rules and ignores
+
+Config Files:
+├── .eslintrc.json        # ESLint rules
+├── .prettierrc           # Code formatting
+├── jest.config.js        # Testing configuration
+├── playwright.config.ts  # E2E test configuration
+├── tsconfig.json         # TypeScript configuration
+└── next.config.js        # Next.js build configuration
+```
+
+## Troubleshooting Tools
+
+### Check Tool Status
+```bash
+# Check all CI status
+gh pr checks
+
+# Check specific workflow
+gh run list --workflow=ci.yml
+
+# View security scan results
+gh run list --workflow=security.yml
+
+# Check Renovate PRs
+gh pr list --author="app/renovate"
+```
+
+### Tool-Specific Debugging
+```bash
+# Run tools locally
+npm run lint              # ESLint
+npm run test:coverage     # Jest with coverage
+npm run test:e2e          # Playwright E2E
+npm run build             # Next.js build
+npm audit                 # Security audit
+npx tsc --noEmit         # TypeScript check
+
+# Security tools
+npm run security:complete # All security scans
+docker run --rm -v $(pwd):/app aquasec/trivy fs /app
+```
+
 ## Git Workflow
 
 ### 1. Feature Development
