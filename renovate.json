@@ -39,6 +39,5 @@
   "commitMessageAction": "Update",
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
-  "gitPrivateKey": "{{secrets.RENOVATE_GPG_PRIVATE_KEY}}",
-  "gitSigningKey": "{{secrets.RENOVATE_GPG_KEY_ID}}"
+  "gitPrivateKey": "{{secrets.RENOVATE_GPG_PRIVATE_KEY}}"
 }
