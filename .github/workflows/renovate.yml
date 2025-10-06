@@ -1,6 +1,0 @@
-# This workflow is no longer needed - Renovate is now running as a GitHub App
-# The GitHub App provides better integration and automatic GPG signing
-# 
-# To configure Renovate, use the renovate.json file in the repository root
-# 
-# GitHub App installation: https://github.com/apps/renovate
