@@ -1,29 +1,51 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:recommended"
+  ],
   "autodiscover": true,
   "timezone": "Europe/Berlin",
-  "labels": ["dependencies"],
-  "assignees": ["@me"],
+  "labels": [
+    "dependencies"
+  ],
+  "assignees": [
+    "@me"
+  ],
   "packageRules": [
     {
-      "matchPackagePatterns": ["^@types/"],
-      "groupName": "TypeScript definitions"
+      "groupName": "TypeScript definitions",
+      "matchPackageNames": [
+        "/^@types//"
+      ]
     },
     {
-      "matchPackagePatterns": ["^eslint", "^@typescript-eslint/"],
-      "groupName": "ESLint packages"
+      "groupName": "ESLint packages",
+      "matchPackageNames": [
+        "/^eslint/",
+        "/^@typescript-eslint//"
+      ]
     },
     {
-      "matchPackagePatterns": ["^@playwright/", "^playwright"],
-      "groupName": "Playwright packages"
+      "groupName": "Playwright packages",
+      "matchPackageNames": [
+        "/^@playwright//",
+        "/^playwright/"
+      ]
     },
     {
-      "matchPackagePatterns": ["^jest", "^@jest/", "^@testing-library/"],
-      "groupName": "Testing packages"
+      "groupName": "Testing packages",
+      "matchPackageNames": [
+        "/^jest/",
+        "/^@jest//",
+        "/^@testing-library//"
+      ]
     },
     {
-      "matchPackageNames": ["next", "react", "react-dom"],
+      "matchPackageNames": [
+        "next",
+        "react",
+        "react-dom"
+      ],
       "groupName": "React ecosystem"
     }
   ],
