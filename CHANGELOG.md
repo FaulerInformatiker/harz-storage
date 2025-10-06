@@ -1,3 +1,22 @@
+## [0.1.4](https://github.com/FaulerInformatiker/harz-storage/compare/v0.1.3...v0.1.4) (2025-10-06)
+
+
+### Bug Fixes
+
+* remove debug image and prevent future debug artifacts ([ddfd6be](https://github.com/FaulerInformatiker/harz-storage/commit/ddfd6bee68cdb5a81353f1f77ec13fd8e6e4370f))
+* resolve HIGH severity vulnerability and improve security config ([#37](https://github.com/FaulerInformatiker/harz-storage/issues/37)) ([a1f2ab1](https://github.com/FaulerInformatiker/harz-storage/commit/a1f2ab1ce3a7da5e4e9150e2f301bdfc017e2612))
+* update release pipeline to use PR workflow for protected main branch ([7282454](https://github.com/FaulerInformatiker/harz-storage/commit/7282454e3af5725a26eb5f4ec184bd7a41b30270))
+
+
+### Features
+
+* add license checker for 100% open source validation ([#41](https://github.com/FaulerInformatiker/harz-storage/issues/41)) ([c7d85c5](https://github.com/FaulerInformatiker/harz-storage/commit/c7d85c5859faf6f9662ba7664b571638609ddd2a))
+* implement GitHub App token and security artifacts for release workflow ([#34](https://github.com/FaulerInformatiker/harz-storage/issues/34)) ([4dff5f4](https://github.com/FaulerInformatiker/harz-storage/commit/4dff5f431047161bb95b9826e7a9fb116f5bfb0b))
+* improve UX and add comprehensive legal pages ([#35](https://github.com/FaulerInformatiker/harz-storage/issues/35)) ([889bded](https://github.com/FaulerInformatiker/harz-storage/commit/889bded6f79f8c15a4b1f0293e0d5a42b9838142))
+* integrate contract tests into Git hooks ([#40](https://github.com/FaulerInformatiker/harz-storage/issues/40)) ([d295bf3](https://github.com/FaulerInformatiker/harz-storage/commit/d295bf3b270ffccf8b36759e121335abe161b52c))
+
+
+
 ## [0.1.3](https://github.com/FaulerInformatiker/harz-storage/compare/v0.1.2...v0.1.3) (2025-10-05)
 
 
