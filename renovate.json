@@ -2,43 +2,36 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "autodiscover": true,
-  "schedule": ["before 6am on monday"],
   "timezone": "Europe/Berlin",
   "labels": ["dependencies"],
   "assignees": ["@me"],
   "packageRules": [
     {
       "matchPackagePatterns": ["^@types/"],
-      "groupName": "TypeScript definitions",
-      "schedule": ["before 6am on monday"]
+      "groupName": "TypeScript definitions"
     },
     {
       "matchPackagePatterns": ["^eslint", "^@typescript-eslint/"],
-      "groupName": "ESLint packages",
-      "schedule": ["before 6am on monday"]
+      "groupName": "ESLint packages"
     },
     {
       "matchPackagePatterns": ["^@playwright/", "^playwright"],
-      "groupName": "Playwright packages",
-      "schedule": ["before 6am on monday"]
+      "groupName": "Playwright packages"
     },
     {
       "matchPackagePatterns": ["^jest", "^@jest/", "^@testing-library/"],
-      "groupName": "Testing packages",
-      "schedule": ["before 6am on monday"]
+      "groupName": "Testing packages"
     },
     {
       "matchPackageNames": ["next", "react", "react-dom"],
-      "groupName": "React ecosystem",
-      "schedule": ["before 6am on monday"]
+      "groupName": "React ecosystem"
     }
   ],
   "vulnerabilityAlerts": {
     "enabled": true
   },
   "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["before 6am on monday"]
+    "enabled": true
   },
   "automerge": true,
   "platformAutomerge": true
