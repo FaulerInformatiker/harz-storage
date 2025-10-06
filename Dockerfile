@@ -1,11 +1,11 @@
-FROM node:22.11-alpine AS deps
+FROM node:22.20-alpine AS deps
 WORKDIR /app
 # Update npm to latest version to fix cross-spawn vulnerability
 RUN npm install -g npm@latest
 COPY package*.json ./
 RUN npm ci
 
-FROM node:22.11-alpine AS builder
+FROM node:22.20-alpine AS builder
 WORKDIR /app
 # Update npm to latest version to fix cross-spawn vulnerability
 RUN npm install -g npm@latest
@@ -17,7 +17,7 @@ RUN npm run build
 RUN npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json
 RUN npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
 
-FROM node:22.11-alpine AS runner
+FROM node:22.20-alpine AS runner
 WORKDIR /app
 
 # Install security updates and curl for healthcheck
