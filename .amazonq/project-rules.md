@@ -48,6 +48,15 @@ HarzStorage is a modern Next.js self-storage website with comprehensive testing,
 ### Contract Testing (Pact)
 - ⚠️ CRITICAL: Never modify contract tests without understanding external API impact
 - Contract tests represent agreements with external services
+
+### Performance Testing (Lighthouse CI)
+- MANDATORY: All PRs must pass Lighthouse CI checks
+- Performance: ≥80% (Warning threshold)
+- Accessibility: ≥90% (Error threshold)
+- Best Practices: ≥80% (Warning threshold) 
+- SEO: ≥90% (Error threshold)
+- Configuration in `lighthouserc.js` - do not modify thresholds without approval
+- Runs automatically on every PR and push to main
 - Changes require coordination with API providers
 - See `docs/CONTRACT_TESTING_RULES.md` for detailed guidelines
 
