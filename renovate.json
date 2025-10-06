@@ -35,11 +35,7 @@
   "automerge": true,
   "platformAutomerge": true,
   "rebaseWhen": "behind-base-branch",
-  "gitAuthor": "renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>",
   "commitMessageAction": "Update",
   "commitMessageTopic": "{{depName}}",
-  "commitMessageExtra": "to {{newVersion}}",
-  "ignorePaths": [
-    ".github/workflows/**"
-  ]
+  "commitMessageExtra": "to {{newVersion}}"
 }
