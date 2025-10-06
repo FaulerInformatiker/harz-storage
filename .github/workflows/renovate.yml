@@ -20,3 +20,4 @@ jobs:
         env:
           LOG_LEVEL: "info"
           RENOVATE_GIT_PRIVATE_KEY: ${{ secrets.RENOVATE_GPG_PRIVATE_KEY }}
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
