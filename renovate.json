@@ -34,5 +34,6 @@
     "enabled": true
   },
   "automerge": true,
-  "platformAutomerge": true
+  "platformAutomerge": true,
+  "rebaseWhen": "behind-base-branch"
 }
