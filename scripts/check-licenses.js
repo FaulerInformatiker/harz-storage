@@ -7,6 +7,7 @@ const fs = require('fs');
 const APPROVED_LICENSES = new Set([
   'MIT',
   'Apache-2.0',
+  'BSD',
   'BSD-2-Clause',
   'BSD-3-Clause',
   'ISC',
