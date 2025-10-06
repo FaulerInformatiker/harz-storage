@@ -265,12 +265,29 @@ npm run test:contract:publish
 - Contacts API (`/api/contacts`) - POST operations
 - Boxes API (`/api/boxes`) - GET operations
 
+### Lighthouse Performance Tests
+
+```bash
+# Run Lighthouse CI tests
+npm run test:lighthouse
+```
+
+**Performance Standards**:
+- **Performance**: ≥80% (Warning threshold)
+- **Accessibility**: ≥90% (Error threshold) 
+- **Best Practices**: ≥80% (Warning threshold)
+- **SEO**: ≥90% (Error threshold)
+
+**Configuration**: `lighthouserc.js`
+**CI Integration**: Runs on every PR and push to main
+
 ### Test Struktur
 
 ```
 app/__tests__/          # Jest Unit Tests
 tests/e2e/             # Playwright E2E Tests
 mock-api/              # JSON Server Mock Data
+lighthouserc.js        # Lighthouse CI Configuration
 ```
 
 ## 🌐 Internationalization
@@ -435,6 +452,7 @@ autoscaling:
 - **Meta Tags** für SEO
 - **Semantic HTML** für Accessibility
 - **Core Web Vitals** optimiert
+- **Lighthouse CI** für kontinuierliche Performance-Überwachung
 
 ## 🔒 Sicherheit
 

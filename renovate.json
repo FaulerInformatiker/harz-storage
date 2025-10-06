@@ -56,5 +56,12 @@
     "enabled": true
   },
   "automerge": true,
-  "platformAutomerge": true
+  "platformAutomerge": true,
+  "rebaseWhen": "behind-base-branch",
+  "gitAuthor": "renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>",
+  "commitMessageAction": "Update",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "gitPrivateKey": "{{secrets.RENOVATE_GPG_PRIVATE_KEY}}",
+  "gitSigningKey": "{{secrets.RENOVATE_GPG_KEY_ID}}"
 }
