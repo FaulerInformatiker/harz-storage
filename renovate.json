@@ -39,6 +39,7 @@
   "commitMessageAction": "Update",
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
+  "gitSigningKey": "2FB7C1A30DF5A8ADBA56A50C3E579A7944A66086",
   "ignorePaths": [
     ".github/workflows/**"
   ]
