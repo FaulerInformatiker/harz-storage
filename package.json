@@ -38,6 +38,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@napi-rs/wasm-runtime": "^1.0.6",
     "@tailwindcss/postcss": "^4.1.14",
     "@tailwindcss/vite": "^4.1.14",
     "lucide-react": "^0.545.0",
