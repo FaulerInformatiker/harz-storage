@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Client-side bundle",
+    "path": ".next/static/chunks/**/*.js",
+    "limit": "250 KB"
+  },
+  {
+    "name": "Main page",
+    "path": ".next/static/chunks/app/page-*.js",
+    "limit": "20 KB"
+  },
+  {
+    "name": "All static assets",
+    "path": ".next/static/**/*",
+    "limit": "300 KB"
+  }
+]

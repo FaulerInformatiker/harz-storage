@@ -21,7 +21,11 @@
     "mock-api": "json-server --watch mock-api/db.json --port 3001",
     "mock-api:setup": "cp mock-api/db.template.json mock-api/db.json",
     "dev:full": "concurrently \"npm run mock-api\" \"npm run dev\"",
-    "audit": "npm audit",
+    "analyze": "ANALYZE=true npm run build",
+    "analyze:server": "BUNDLE_ANALYZE=server npm run build",
+    "analyze:browser": "BUNDLE_ANALYZE=browser npm run build",
+    "size": "size-limit",
+    "size:why": "size-limit --why",
     "audit:fix": "npm audit fix",
     "audit:ci": "audit-ci --config audit-ci.json",
     "security:check": "npm run audit && npm run lint:security",
@@ -50,8 +54,10 @@
   "devDependencies": {
     "@cyclonedx/cyclonedx-npm": "^4.0.3",
     "@lhci/cli": "^0.15.1",
+    "@next/bundle-analyzer": "^15.5.4",
     "@pact-foundation/pact": "^16.0.0",
     "@playwright/test": "^1.40.0",
+    "@size-limit/preset-app": "^11.2.0",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^29.5.8",
@@ -71,6 +77,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "json-server": "^1.0.0-beta.3",
     "postcss": "^8.4.32",
+    "size-limit": "^11.2.0",
     "typescript": "^5",
     "undici": "^7.16.0"
   }
