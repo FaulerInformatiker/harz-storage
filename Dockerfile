@@ -12,9 +12,9 @@ COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN npm run build
 
-# Generate SBOM
-RUN npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json && \
-    npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
+# Generate SBOM - temporarily disabled due to @napi-rs/wasm-runtime@0.2.12 npm ls issues
+# RUN npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json && \
+#     npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
 
 FROM node:22.20-alpine AS runner
 WORKDIR /app
@@ -35,9 +35,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Copy SBOM files into the image
-COPY --from=builder /app/sbom-npm.json /app/sbom/
-COPY --from=builder /app/sbom-npm.xml /app/sbom/
+# Copy SBOM files into the image - temporarily disabled
+# COPY --from=builder /app/sbom-npm.json /app/sbom/
+# COPY --from=builder /app/sbom-npm.xml /app/sbom/
 
 # Set proper permissions
 RUN chmod -R 755 /app && \
@@ -57,7 +57,7 @@ LABEL maintainer="HarzStorage" \
       version="1.0.0" \
       description="HarzStorage Self-Storage Website" \
       security.scan="enabled" \
-      sbom.included="true"
+      sbom.included="false"
 
 # Health check with proper timeout
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
