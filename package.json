@@ -46,7 +46,7 @@
   "devDependencies": {
     "@cyclonedx/cyclonedx-npm": "^4.0.3",
     "@lhci/cli": "^0.15.1",
-    "@pact-foundation/pact": "^15.0.1",
+    "@pact-foundation/pact": "^16.0.0",
     "@playwright/test": "^1.40.0",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
