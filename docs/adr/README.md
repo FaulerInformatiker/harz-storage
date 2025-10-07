@@ -10,6 +10,7 @@ This directory contains Architecture Decision Records for the HarzStorage projec
 | [ADR-002](002-styling-framework.md) | Styling Framework Selection | Accepted | 2025-10-05 |
 | [ADR-003](003-state-management.md) | State Management Strategy | Accepted | 2025-10-05 |
 | [ADR-004](004-internationalization.md) | Internationalization Approach | Accepted | 2025-10-05 |
+| [ADR-0004](0004-lighthouse-ci-integration.md) | Lighthouse CI Integration | Accepted | 2025-10-06 |
 | [ADR-005](005-testing-strategy.md) | Testing Strategy and Tools | Accepted | 2025-10-05 |
 | [ADR-006](006-containerization.md) | Containerization and Deployment | Accepted | 2025-10-05 |
 | [ADR-007](007-security-scanning.md) | Security Scanning and Monitoring | Accepted | 2025-10-05 |
