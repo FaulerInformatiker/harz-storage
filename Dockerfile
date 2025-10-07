@@ -1,9 +1,8 @@
 FROM node:22.20-alpine AS deps
 WORKDIR /app
 # Update npm to latest version to fix cross-spawn vulnerability
-RUN npm install -g npm@latest
 COPY package*.json ./
-RUN npm ci
+RUN npm install -g npm@latest && npm ci
 
 FROM node:22.20-alpine AS builder
 WORKDIR /app
@@ -14,24 +13,22 @@ COPY --from=deps /app/node_modules ./node_modules
 RUN npm run build
 
 # Generate SBOM
-RUN npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json
-RUN npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
+RUN npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json && \
+    npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
 
 FROM node:22.20-alpine AS runner
 WORKDIR /app
 
-# Install security updates and curl for healthcheck
-RUN apk update && apk upgrade && apk add --no-cache curl && rm -rf /var/cache/apk/*
-
-# Update npm to latest version to fix cross-spawn vulnerability
-RUN npm install -g npm@latest
+# Install security updates and curl for healthcheck, update npm
+RUN apk update && apk upgrade && apk add --no-cache curl=8.14.1-r2 && rm -rf /var/cache/apk/* && \
+    npm install -g npm@latest
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # Create non-root user with specific UID/GID
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs
 
 # Copy built application with proper ownership
 COPY --from=builder /app/public ./public
