@@ -21,7 +21,7 @@ playwright.config.ts   # Playwright configuration
 - **Framework**: Jest with Next.js integration
 - **Testing Library**: React Testing Library
 - **Environment**: jsdom
-- **Coverage**: 70% minimum threshold
+- **Coverage**: 90% minimum threshold
 
 ### Running Tests
 
@@ -64,10 +64,10 @@ test('renders hero section', () => {
 
 ### Coverage Requirements
 
-- **Branches**: 70%
-- **Functions**: 70%
-- **Lines**: 70%
-- **Statements**: 70%
+- **Branches**: 90%
+- **Functions**: 90%
+- **Lines**: 90%
+- **Statements**: 90%
 
 ## E2E Testing (Playwright)
 
