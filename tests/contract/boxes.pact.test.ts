@@ -1,15 +1,13 @@
-import { Pact } from '@pact-foundation/pact';
+import { PactV4 } from '@pact-foundation/pact';
 import { getBoxes } from '../../lib/api';
 import path from 'path';
 import { fetch as undiciFetch } from 'undici';
 
-const mockProvider = new Pact({
+const mockProvider = new PactV4({
   consumer: 'harz-storage-frontend',
   provider: 'harz-storage-api',
   port: 1235,
-  log: path.resolve(process.cwd(), 'logs', 'pact.log'),
   dir: path.resolve(process.cwd(), 'pacts'),
-  logLevel: 'info',
 });
 
 // Store original fetch and NODE_ENV
@@ -40,33 +38,33 @@ describe.skip('Boxes API Contract', () => {
         }
       ];
 
-      await mockProvider.addInteraction({
-        state: 'boxes are available',
-        uponReceiving: 'a request for available boxes',
-        withRequest: {
+      await mockProvider.addInteraction()
+        .given('boxes are available')
+        .uponReceiving('a request for available boxes')
+        .withRequest({
           method: 'GET',
           path: '/api/boxes'
-        },
-        willRespondWith: {
+        })
+        .willRespondWith({
           status: 200,
           headers: {
             'Content-Type': 'application/json',
           },
           body: expectedBoxes
-        }
-      });
+        })
+        .executeTest(async (mockServer) => {
+          // Set NODE_ENV to production so API_BASE_URL is "/api"
+          (process.env as any).NODE_ENV = 'production';
+          
+          // Mock fetch to redirect to Pact mock server
+          global.fetch = jest.fn().mockImplementation(async (url: string, options: any) => {
+            const mockUrl = url.replace(/^\/api/, `${mockServer.url}/api`);
+            return await undiciFetch(mockUrl, options);
+          });
 
-      // Set NODE_ENV to production so API_BASE_URL is "/api"
-      (process.env as any).NODE_ENV = 'production';
-      
-      // Mock fetch to redirect to Pact mock server
-      global.fetch = jest.fn().mockImplementation(async (url: string, options: any) => {
-        const mockUrl = url.replace(/^\/api/, `http://localhost:1235/api`);
-        return await undiciFetch(mockUrl, options);
-      });
-
-      const result = await getBoxes();
-      expect(result).toEqual(expectedBoxes);
+          const result = await getBoxes();
+          expect(result).toEqual(expectedBoxes);
+        });
     });
   });
 });

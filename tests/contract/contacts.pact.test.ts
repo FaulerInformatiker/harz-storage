@@ -1,15 +1,13 @@
-import { Pact } from '@pact-foundation/pact';
+import { PactV4 } from '@pact-foundation/pact';
 import { submitContactForm } from '../../lib/api';
 import path from 'path';
 import { like, term } from '@pact-foundation/pact/src/dsl/matchers';
 
-const mockProvider = new Pact({
+const mockProvider = new PactV4({
   consumer: 'harz-storage-frontend',
   provider: 'harz-storage-api',
   port: 1234,
-  log: path.resolve(process.cwd(), 'logs', 'pact.log'),
   dir: path.resolve(process.cwd(), 'pacts'),
-  logLevel: 'info',
 });
 
 // Store original fetch and NODE_ENV
@@ -36,10 +34,10 @@ describe.skip('Contacts API Contract', () => {
         message: 'I need storage space'
       };
 
-      await mockProvider.addInteraction({
-        state: 'contact can be created',
-        uponReceiving: 'a request to create a contact',
-        withRequest: {
+      await mockProvider.addInteraction()
+        .given('contact can be created')
+        .uponReceiving('a request to create a contact')
+        .withRequest({
           method: 'POST',
           path: '/api/contacts',
           headers: {
@@ -52,8 +50,8 @@ describe.skip('Contacts API Contract', () => {
               generate: '2025-10-05T11:32:16.503Z'
             })
           }
-        },
-        willRespondWith: {
+        })
+        .willRespondWith({
           status: 201,
           headers: {
             'Content-Type': 'application/json',
@@ -66,29 +64,29 @@ describe.skip('Contacts API Contract', () => {
               generate: '2025-10-05T11:32:16.503Z'
             })
           }
-        }
-      });
+        })
+        .executeTest(async (mockServer) => {
+          // Set NODE_ENV to production so API_BASE_URL is "/api"
+          (process.env as any).NODE_ENV = 'production';
+          
+          // Mock fetch to redirect to Pact mock server
+          global.fetch = jest.fn().mockImplementation(async (url: string, options?: any) => {
+            const mockUrl = url.replace(/^\/api/, `${mockServer.url}/api`);
+            try {
+              const response = await originalFetch(mockUrl, options);
+              return response;
+            } catch (error) {
+              console.error('Fetch error:', error);
+              throw error;
+            }
+          });
 
-      // Set NODE_ENV to production so API_BASE_URL is "/api"
-      (process.env as any).NODE_ENV = 'production';
-      
-      // Mock fetch to redirect to Pact mock server
-      global.fetch = jest.fn().mockImplementation(async (url: string, options?: any) => {
-        const mockUrl = url.replace(/^\/api/, `http://localhost:1234/api`);
-        try {
-          const response = await originalFetch(mockUrl, options);
-          return response;
-        } catch (error) {
-          console.error('Fetch error:', error);
-          throw error;
-        }
-      });
-
-      const result = await submitContactForm(contactData);
-      expect(result).toHaveProperty('id');
-      expect(result).toHaveProperty('createdAt');
-      expect(result.name).toBe(contactData.name);
-      expect(result.email).toBe(contactData.email);
+          const result = await submitContactForm(contactData);
+          expect(result).toHaveProperty('id');
+          expect(result).toHaveProperty('createdAt');
+          expect(result.name).toBe(contactData.name);
+          expect(result.email).toBe(contactData.email);
+        });
     });
   });
 });
