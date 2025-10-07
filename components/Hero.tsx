@@ -50,7 +50,9 @@ export default function Hero() {
           </div>
 
           {/* Right Content - Benefits Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <h2 className="sr-only">{t("hero.benefits")}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="text-3xl mb-4">🔑</div>
               <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{t("hero.benefit1.title")}</h3>
@@ -70,6 +72,7 @@ export default function Hero() {
               <div className="text-3xl mb-4">📍</div>
               <h3 className="font-semibold mb-2">{t("business.newInTown")}</h3>
               <p className="text-emerald-100 text-sm">{t("business.localPartner")}</p>
+            </div>
             </div>
           </div>
         </div>
