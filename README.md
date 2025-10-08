@@ -121,6 +121,13 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 
 ## 🔧 Development
 
+### Analytics Setup
+
+This project includes **Umami analytics** for privacy-focused visitor tracking. See [Analytics Documentation](docs/ANALYTICS.md) for complete setup instructions including:
+- Local development with Docker Compose
+- Production Kubernetes deployment
+- GDPR-compliant tracking configuration
+
 ### Amazon Q Integration
 
 This project includes Amazon Q Developer rules for consistent development practices:
