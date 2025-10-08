@@ -23,11 +23,13 @@ const APPROVED_LICENSES = new Set([
   'Unlicense',
   'WTFPL',
   '0BSD',
+  'MIT-0',
   'BlueOak-1.0.0',
   'Python-2.0',
   // Compound licenses (OR combinations)
   '(MIT OR Apache-2.0)',
   '(MIT OR CC0-1.0)',
+  '(WTFPL OR MIT)',
   '(MIT OR WTFPL)',
   '(BSD-2-Clause OR MIT OR Apache-2.0)',
   '(MIT AND CC-BY-3.0)',
