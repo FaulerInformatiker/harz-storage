@@ -108,7 +108,8 @@
       "description": "Jeder Kunde erhält einen individuellen Zugangscode für maximale Sicherheit"
     },
     "note": "Zusätzlich empfehlen wir jedem Kunden, eine Hausratversicherung abzuschließen oder zu prüfen, ob die bestehende Versicherung auch Gegenstände in Lagerboxen abdeckt.",
-    "cta": "Sicherheit anfragen"
+    "cta": "Sicherheit anfragen",
+    "imageAlt": "Überwachungskamera zur Sicherheit"
   },
   "business": {
     "newInTown": "Neu in Langelsheim",

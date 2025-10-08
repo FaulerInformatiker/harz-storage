@@ -33,8 +33,9 @@ export default function Security() {
           <div className="relative w-full max-w-md mx-auto h-48 rounded-lg overflow-hidden">
             <Image
               src="/images/security-camera.jpg"
-              alt="Security camera monitoring"
+              alt={t("security.imageAlt")}
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover pointer-events-none"
             />
           </div>
@@ -43,7 +44,7 @@ export default function Security() {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {securityFeatures.map((feature, index) => (
             <div key={index} className="text-center p-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-600 text-white rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-700 text-white rounded-full mb-4">
                 <feature.icon size={32} />
               </div>
               <h3 className="text-xl font-semibold mb-2">{t(feature.titleKey)}</h3>
@@ -56,7 +57,7 @@ export default function Security() {
           <p className="text-lg text-gray-300 mb-6">
             {t("security.note")}
           </p>
-          <a href="#kontakt" className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
+          <a href="#kontakt" className="bg-emerald-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors">
             {t("security.cta")}
           </a>
         </div>
