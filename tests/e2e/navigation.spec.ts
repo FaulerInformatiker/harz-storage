@@ -16,8 +16,8 @@ test.describe('Navigation Links', () => {
   });
 
   test('should navigate to contact section from pricing CTA', async ({ page }) => {
-    // Find and click pricing CTA button with force
-    const pricingCTA = page.locator('text=Box anfragen').first();
+    // Find and click pricing CTA button with more reliable selector
+    const pricingCTA = page.locator('a[href="#kontakt"]').first();
     await pricingCTA.click({ force: true });
     
     // Check if contact section is visible
