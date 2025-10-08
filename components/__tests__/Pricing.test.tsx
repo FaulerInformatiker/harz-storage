@@ -53,7 +53,7 @@ describe('Pricing Component', () => {
   });
 
   it('shows loading state initially', async () => {
-    global.fetch = vi.fn(() => new Promise(() => {})); // Never resolves
+    global.fetch = vi.fn(() => new Promise(() => {})) as any; // Never resolves
     
     await act(async () => {
       render(<PricingWithProvider />);
