@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Client-side bundle",
+    "path": ".next/static/chunks/**/*.js",
+    "limit": "250 KB",
+    "brotli": true
+  },
+  {
+    "name": "Main page bundle",
+    "path": ".next/static/chunks/pages/index*.js",
+    "limit": "20 KB",
+    "brotli": true
+  },
+  {
+    "name": "All static assets",
+    "path": ".next/static/**/*",
+    "limit": "300 KB",
+    "brotli": true
+  }
+]
