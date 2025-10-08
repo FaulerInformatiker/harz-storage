@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { TranslationProvider } from "@/lib/TranslationContext";
 import { ThemeProvider } from "@/lib/ThemeContext";
+import Analytics from "@/components/Analytics";
 
 export const metadata: Metadata = {
   title: "HarzStorage - Self-Storage in Langelsheim",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <ThemeProvider>
           <TranslationProvider>{children}</TranslationProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
