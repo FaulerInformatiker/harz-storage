@@ -18,11 +18,13 @@ export default function RootLayout({
   return (
     <html lang="de" suppressHydrationWarning>
       <body className="antialiased">
-        <Script
-          src="http://localhost:3010/script.js"
-          data-website-id="ce602d30-5a26-4371-a646-b2857b702dbc"
-          strategy="afterInteractive"
-        />
+        {process.env.NODE_ENV === 'development' && (
+          <Script
+            src="http://localhost:3010/script.js"
+            data-website-id="ce602d30-5a26-4371-a646-b2857b702dbc"
+            strategy="afterInteractive"
+          />
+        )}
         <ThemeProvider>
           <TranslationProvider>{children}</TranslationProvider>
         </ThemeProvider>

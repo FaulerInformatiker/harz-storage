@@ -3,6 +3,11 @@
 ## Project Overview
 HarzStorage is a modern Next.js self-storage website with comprehensive testing, security, and deployment automation. Follow these rules for consistent development practices.
 
+## 🎯 Quality Standards
+- **Lighthouse Scores**: Performance 99%, Accessibility 96%, Best Practices 100%, SEO 100%
+- **Test Coverage**: 92.85% minimum
+- **See detailed performance standards**: `.amazonq/lighthouse-rules.md`
+
 ## Code Quality & Standards
 
 ### TypeScript Requirements
