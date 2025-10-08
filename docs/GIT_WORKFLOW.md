@@ -77,7 +77,7 @@ The `main` branch is protected with the following rules:
   - **Auto-format**: On save (IDE integration)
 
 ### Testing & Coverage
-- **Jest**: Unit testing framework
+- **Vitest**: Unit testing framework
   - **Trigger**: Every CI run
   - **Status**: ✅ Active
   - **Coverage**: 95.62% statements, 86.11% branches
@@ -133,7 +133,7 @@ The `main` branch is protected with the following rules:
 | Trivy | ✅ Active | Security workflow | On security scan | N/A |
 | ESLint | ✅ Active | Every CI | On push/PR | `.eslintrc.json` |
 | TypeScript | ✅ Active | Every CI | On push/PR | `tsconfig.json` |
-| Jest | ✅ Active | Every CI | On push/PR | `jest.config.js` |
+| Vitest | ✅ Active | Every CI | On push/PR | `vitest.config.ts` |
 | Playwright | ✅ Active | Every CI | On push/PR | `playwright.config.ts` |
 | Build | ✅ Active | Every CI | On push/PR | `next.config.js` |
 | SBOM | ✅ Active | Security workflow | On security scan | N/A |
@@ -170,7 +170,7 @@ The `main` branch is protected with the following rules:
 Config Files:
 ├── .eslintrc.json        # ESLint rules
 ├── .prettierrc           # Code formatting
-├── jest.config.js        # Testing configuration
+├── vitest.config.ts      # Testing configuration
 ├── playwright.config.ts  # E2E test configuration
 ├── tsconfig.json         # TypeScript configuration
 └── next.config.js        # Next.js build configuration
@@ -197,7 +197,7 @@ gh pr list --author="app/renovate"
 ```bash
 # Run tools locally
 npm run lint              # ESLint
-npm run test:coverage     # Jest with coverage
+npm run test:coverage     # Vitest with coverage
 npm run test:e2e          # Playwright E2E
 npm run build             # Next.js build
 npm audit                 # Security audit
@@ -334,7 +334,7 @@ npx tsc --noEmit
 ### On Pull Request
 1. **Lint Check**: Code style and quality
 2. **Type Check**: TypeScript compilation
-3. **Unit Tests**: Jest test suite with coverage
+3. **Unit Tests**: Vitest test suite with coverage
 4. **E2E Tests**: Playwright browser tests
 5. **Build Test**: Next.js production build
 6. **Security Scan**: npm audit and ZAP baseline

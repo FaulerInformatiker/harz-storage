@@ -26,9 +26,9 @@ HarzStorage is a modern Next.js self-storage website with comprehensive testing,
 
 ## Testing Requirements
 
-### Unit Testing (Jest + React Testing Library)
+### Unit Testing (Vitest + React Testing Library)
 - MANDATORY: Write unit tests for all new components and functions
-- Maintain minimum 90% code coverage for branches, functions, lines, statements (updated from 70% in TESTING.md)
+- Maintain minimum 90% code coverage for branches, functions, lines, statements
 - Mock external dependencies and API calls
 - Test both happy path and error scenarios
 - Use descriptive test names that explain the expected behavior

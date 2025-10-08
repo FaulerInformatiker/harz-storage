@@ -1,11 +1,12 @@
+import { vi } from 'vitest';
 import { submitContactForm, getBoxes } from '../api';
 
-global.fetch = jest.fn();
-const mockFetch = fetch as jest.MockedFunction<typeof fetch>;
+global.fetch = vi.fn();
+const mockFetch = fetch as ReturnType<typeof vi.fn>;
 
 describe('API Functions', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('submitContactForm', () => {

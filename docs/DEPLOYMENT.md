@@ -304,6 +304,9 @@ module.exports = {
 
 - Google Analytics
 - Core Web Vitals tracking
+  - Largest Contentful Paint (LCP) < 2.5s
+  - First Input Delay (FID) < 100ms
+  - Cumulative Layout Shift (CLS) < 0.1
 - User behavior analysis
 
 ### Health Checks
