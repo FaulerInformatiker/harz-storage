@@ -13,6 +13,7 @@ export default defineConfig({
       'components/**/*.{test,spec}.{js,ts,jsx,tsx}',
       'lib/**/*.{test,spec}.{js,ts,jsx,tsx}',
       'tests/security/**/*.{test,spec}.{js,ts,jsx,tsx}',
+      'tests/contract/**/*.{test,spec}.{js,ts,jsx,tsx}',
     ],
     exclude: [
       'node_modules/',

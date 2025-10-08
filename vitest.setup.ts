@@ -20,5 +20,12 @@ vi.mock('next/image', () => ({
   default: vi.fn(() => null),
 }))
 
-// Global fetch mock
-global.fetch = vi.fn()
+// Global fetch mock with proper Response structure
+global.fetch = vi.fn(() =>
+  Promise.resolve({
+    ok: true,
+    status: 200,
+    json: () => Promise.resolve([]),
+    text: () => Promise.resolve(''),
+  } as Response)
+)
