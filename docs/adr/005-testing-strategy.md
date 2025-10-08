@@ -16,16 +16,16 @@ We need comprehensive testing coverage for:
 We will implement a **multi-layered testing strategy** with specialized tools for each layer.
 
 ### Testing Stack:
-- **Unit/Integration**: Jest + React Testing Library
+- **Unit/Integration**: Vitest + React Testing Library
 - **End-to-End**: Playwright
 - **Contract Testing**: Pact
 - **Security Testing**: Custom validation tests
 - **API Testing**: Supertest-style testing for Next.js API routes
 
 ### Key Dependencies:
-- `jest@29.7.0` - Test runner and framework
+- `vitest@3.2.4` - Test runner and framework
 - `@testing-library/react@16.0.1` - React component testing
-- `@testing-library/jest-dom@6.6.3` - DOM matchers
+- `@testing-library/jest-dom@6.6.3` - DOM matchers (compatible with Vitest)
 - `playwright@1.48.2` - E2E testing
 - `@pact-foundation/pact@15.0.1` - Contract testing
 
@@ -69,7 +69,7 @@ tests/
 ├── contract/            # Pact contract tests
 └── security/            # Security validation tests
 
-app/__tests__/           # Jest unit tests
+app/__tests__/           # Vitest unit tests
 components/__tests__/    # Component tests
 lib/__tests__/          # Utility function tests
 ```

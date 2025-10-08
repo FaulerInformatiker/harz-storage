@@ -1,22 +1,23 @@
+import { vi, Mock } from 'vitest';
 import { GET } from '../route';
 import { NextResponse } from 'next/server';
 
 // Mock NextResponse
-jest.mock('next/server', () => ({
+vi.mock('next/server', () => ({
   NextResponse: {
-    json: jest.fn(),
+    json: vi.fn(),
   },
 }));
 
 describe('/api/boxes', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('GET', () => {
     it('should return boxes data successfully', async () => {
-      const mockJson = jest.fn();
-      (NextResponse.json as jest.Mock).mockReturnValue({ json: mockJson });
+      const mockJson = vi.fn();
+      (NextResponse.json as Mock).mockReturnValue({ json: mockJson });
 
       await GET();
 
@@ -54,10 +55,10 @@ describe('/api/boxes', () => {
 
     it('should handle errors and return 500 status', async () => {
       // Mock console.error to avoid test output
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       
       // Force an error by mocking NextResponse.json to throw
-      (NextResponse.json as jest.Mock)
+      (NextResponse.json as Mock)
         .mockImplementationOnce(() => {
           throw new Error('Test error');
         })

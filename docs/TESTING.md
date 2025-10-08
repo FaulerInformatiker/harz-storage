@@ -2,23 +2,23 @@
 
 ## Overview
 
-The HarzStorage project uses a comprehensive testing strategy with Jest for unit tests and Playwright for E2E tests.
+The HarzStorage project uses a comprehensive testing strategy with Vitest for unit tests and Playwright for E2E tests.
 
 ## Test Structure
 
 ```
-app/__tests__/          # Jest Unit Tests
+app/__tests__/          # Vitest Unit Tests
 tests/e2e/             # Playwright E2E Tests
 mock-api/              # JSON Server Mock Data
-jest.config.js         # Jest configuration
+vitest.config.ts       # Vitest configuration
 playwright.config.ts   # Playwright configuration
 ```
 
-## Unit Testing (Jest + React Testing Library)
+## Unit Testing (Vitest + React Testing Library)
 
 ### Configuration
 
-- **Framework**: Jest with Next.js integration
+- **Framework**: Vitest with Next.js integration
 - **Testing Library**: React Testing Library
 - **Environment**: jsdom
 - **Coverage**: 90% minimum threshold
@@ -229,14 +229,14 @@ test("should switch languages", async ({ page }) => {
 
 ## Debugging Tests
 
-### Jest
+### Vitest
 
 ```bash
 # Debug specific test
-npm test -- --testNamePattern="test name"
+npm test -- --run --reporter=verbose "test name"
 
-# Verbose output
-npm test -- --verbose
+# Watch mode with UI
+npm run test:ui
 ```
 
 ### Playwright
@@ -269,6 +269,6 @@ npx playwright show-trace trace.zip
 
 ### Test Reports
 
-- Jest coverage reports in `coverage/`
+- Vitest coverage reports in `coverage/`
 - Playwright HTML reports in `playwright-report/`
 - Test artifacts in `test-results/`

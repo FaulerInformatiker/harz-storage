@@ -23,6 +23,7 @@ const APPROVED_LICENSES = new Set([
   'Unlicense',
   'WTFPL',
   '0BSD',
+  'MIT-0',
   'BlueOak-1.0.0',
   'Python-2.0',
   // Compound licenses (OR combinations)

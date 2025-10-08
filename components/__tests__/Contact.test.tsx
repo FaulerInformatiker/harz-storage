@@ -1,10 +1,11 @@
+import { vi } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { TranslationProvider } from '../../lib/TranslationContext';
 import Contact from '../Contact';
 import * as api from '../../lib/api';
 
-jest.mock('../../lib/api');
-const mockSubmitContactForm = api.submitContactForm as jest.MockedFunction<typeof api.submitContactForm>;
+vi.mock('../../lib/api');
+const mockSubmitContactForm = api.submitContactForm as ReturnType<typeof vi.fn>;
 
 const ContactWithProvider = () => (
   <TranslationProvider>
@@ -14,7 +15,7 @@ const ContactWithProvider = () => (
 
 describe('Contact Component', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('renders contact form', () => {

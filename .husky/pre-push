@@ -3,6 +3,9 @@
 echo "🧪 Running tests before push..."
 npm test
 
+echo "📊 Validating test coverage..."
+npm run test:coverage
+
 echo "📋 Running contract tests..."
 npm run test:contract
 
