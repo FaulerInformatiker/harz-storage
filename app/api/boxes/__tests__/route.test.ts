@@ -55,7 +55,7 @@ describe('/api/boxes', () => {
 
     it('should handle errors and return 500 status', async () => {
       // Mock console.error to avoid test output
-      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       
       // Force an error by mocking NextResponse.json to throw
       (NextResponse.json as Mock)
