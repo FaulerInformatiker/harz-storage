@@ -30,6 +30,7 @@ const APPROVED_LICENSES = new Set([
   '(MIT OR Apache-2.0)',
   '(MIT OR CC0-1.0)',
   '(MIT OR WTFPL)',
+  '(WTFPL OR MIT)',
   '(BSD-2-Clause OR MIT OR Apache-2.0)',
   '(MIT AND CC-BY-3.0)',
   'MIT,Apache2'
