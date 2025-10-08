@@ -14,7 +14,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![ESLint](https://img.shields.io/badge/ESLint-passing-green?logo=eslint)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-enabled-ff69b4?logo=prettier)](https://prettier.io/)
-[![Jest](https://img.shields.io/badge/Jest-40%20tests-green?logo=jest)](https://jestjs.io/)
+[![Vitest](https://img.shields.io/badge/Vitest-40%20tests-green?logo=vitest)](https://vitest.dev/)
 [![Playwright](https://img.shields.io/badge/Playwright-13%20E2E-green?logo=playwright)](https://playwright.dev/)
 
 ## Technology Stack
@@ -58,7 +58,7 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 - **SEO-optimiert** - Proper Meta-Tags und semantisches HTML
 - **Performance** - Optimiert mit Next.js App Router
 - **Accessibility** - WCAG-konforme Implementierung
-- **Comprehensive Testing** - Jest Unit Tests + Playwright E2E Tests
+- **Comprehensive Testing** - Vitest Unit Tests + Playwright E2E Tests
 
 ## 🏗️ Technologie-Stack
 
@@ -68,7 +68,7 @@ Eine moderne, responsive Website für HarzStorage, einen Self-Storage-Anbieter i
 - **TypeScript**: Vollständige Typisierung
 - **i18n**: React Context für Sprachverwaltung
 - **API**: REST API mit TypeScript Interfaces
-- **Testing**: Jest + React Testing Library + Playwright
+- **Testing**: Vitest + React Testing Library + Playwright
 - **Mock Server**: JSON Server für lokale Entwicklung
 - **CI/CD**: GitHub Actions Ready
 
@@ -189,7 +189,7 @@ npm run start
 
 ## 🧪 Testing
 
-### Unit Tests (Jest + React Testing Library)
+### Unit Tests (Vitest + React Testing Library)
 
 ```bash
 # Tests ausführen
@@ -284,7 +284,7 @@ npm run test:lighthouse
 ### Test Struktur
 
 ```
-app/__tests__/          # Jest Unit Tests
+app/__tests__/          # Vitest Unit Tests
 tests/e2e/             # Playwright E2E Tests
 mock-api/              # JSON Server Mock Data
 lighthouserc.js        # Lighthouse CI Configuration

@@ -156,11 +156,11 @@ const handleSubmit = async (formData: ContactFormData) => {
 
 ### Unit Tests
 
-Mock API calls in Jest tests:
+Mock API calls in Vitest tests:
 
 ```typescript
-jest.mock("../lib/api", () => ({
-  submitContactForm: jest.fn(),
+vi.mock("../lib/api", () => ({
+  submitContactForm: vi.fn(),
 }));
 ```
 

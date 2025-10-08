@@ -71,7 +71,7 @@ We will use **npm** with **Renovate Bot** for automated dependency management an
     "tailwindcss": "3.4.14"
   },
   "development": {
-    "jest": "29.7.0",
+    "vitest": "3.2.4",
     "playwright": "1.48.2",
     "@testing-library/react": "16.0.1"
   },

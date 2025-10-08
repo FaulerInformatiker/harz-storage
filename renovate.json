@@ -34,8 +34,8 @@
     {
       "groupName": "Testing packages",
       "matchPackageNames": [
-        "/^jest/",
-        "/^@jest//",
+        "/^vitest/",
+        "/^@vitest//",
         "/^@testing-library//"
       ]
     },

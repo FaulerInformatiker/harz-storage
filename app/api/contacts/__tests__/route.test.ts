@@ -1,16 +1,17 @@
+import { vi } from 'vitest';
 import { POST } from '../route';
 import { NextResponse } from 'next/server';
 
 // Mock NextResponse
-jest.mock('next/server', () => ({
+vi.mock('next/server', () => ({
   NextResponse: {
-    json: jest.fn(),
+    json: vi.fn(),
   },
 }));
 
 describe('/api/contacts', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('POST', () => {
@@ -24,12 +25,12 @@ describe('/api/contacts', () => {
 
     it('should create contact submission successfully', async () => {
       const mockRequest = {
-        json: jest.fn().mockResolvedValue(mockContactData)
+        json: vi.fn().mockResolvedValue(mockContactData)
       } as unknown as Request;
 
       // Mock Math.random for consistent ID
-      const mockRandom = jest.spyOn(Math, 'random').mockReturnValue(0.123456789);
-      const mockDate = jest.spyOn(Date.prototype, 'toISOString').mockReturnValue('2023-01-01T00:00:00.000Z');
+      const mockRandom = vi.spyOn(Math, 'random').mockReturnValue(0.123456789);
+      const mockDate = vi.spyOn(Date.prototype, 'toISOString').mockReturnValue('2023-01-01T00:00:00.000Z');
 
       await POST(mockRequest);
 
@@ -44,10 +45,10 @@ describe('/api/contacts', () => {
     });
 
     it('should handle invalid JSON and return 500 status', async () => {
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
       
       const mockRequest = {
-        json: jest.fn().mockRejectedValue(new Error('Invalid JSON'))
+        json: vi.fn().mockRejectedValue(new Error('Invalid JSON'))
       } as unknown as Request;
 
       await POST(mockRequest);
@@ -62,10 +63,10 @@ describe('/api/contacts', () => {
     });
 
     it('should handle request.json() failure', async () => {
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
       
       const mockRequest = {
-        json: jest.fn().mockImplementation(() => {
+        json: vi.fn().mockImplementation(() => {
           throw new Error('Request parsing failed');
         })
       } as unknown as Request;
