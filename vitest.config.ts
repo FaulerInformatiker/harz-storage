@@ -52,7 +52,7 @@ export default defineConfig({
         'lighthouserc.js',
       ],
       thresholds: {
-        branches: 89,
+        branches: 90,
         functions: 90,
         lines: 90,
         statements: 90,
