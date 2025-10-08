@@ -45,7 +45,7 @@ describe('/api/contacts', () => {
     });
 
     it('should handle invalid JSON and return 500 status', async () => {
-      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       
       const mockRequest = {
         json: vi.fn().mockRejectedValue(new Error('Invalid JSON'))
@@ -63,7 +63,7 @@ describe('/api/contacts', () => {
     });
 
     it('should handle request.json() failure', async () => {
-      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       
       const mockRequest = {
         json: vi.fn().mockImplementation(() => {

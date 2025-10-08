@@ -28,7 +28,8 @@
       ]
     },
     "types": [
-      "@testing-library/jest-dom"
+      "@testing-library/jest-dom",
+      "vitest/globals"
     ],
     "target": "ES2017"
   },
