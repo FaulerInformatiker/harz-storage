@@ -8,15 +8,12 @@ const mockProvider = new PactV4({
   dir: path.resolve(process.cwd(), 'pacts'),
 });
 
-// Store original fetch and NODE_ENV
-const originalFetch = global.fetch;
-const originalNodeEnv = process.env.NODE_ENV;
-
+// TODO: Migrate to Pact v16 API
+// Current implementation requires research into proper v16 syntax
+// The API has changed significantly from v15 to v16
 describe.skip('Contacts API Contract', () => {
   afterAll(() => {
-    // Restore original fetch and NODE_ENV
-    global.fetch = originalFetch;
-    (process.env as any).NODE_ENV = originalNodeEnv;
+    // Cleanup if needed
   });
 
   describe('POST /api/contacts', () => {
@@ -29,8 +26,23 @@ describe.skip('Contacts API Contract', () => {
         message: 'I need storage space'
       };
 
-      // Test is skipped - placeholder for Pact v16 migration
+      // TODO: Implement proper Pact v16 interaction
+      // Research required for correct API usage
       expect(contactData).toBeDefined();
+    });
+
+    it('should handle validation errors', async () => {
+      const invalidContactData = {
+        name: '',
+        email: 'invalid-email',
+        phone: '',
+        size: '',
+        message: ''
+      };
+
+      // TODO: Implement proper Pact v16 interaction
+      // Research required for correct API usage
+      expect(invalidContactData).toBeDefined();
     });
   });
 });
