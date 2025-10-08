@@ -8,15 +8,12 @@ const mockProvider = new PactV4({
   dir: path.resolve(process.cwd(), 'pacts'),
 });
 
-// Store original fetch and NODE_ENV
-const originalFetch = global.fetch;
-const originalNodeEnv = process.env.NODE_ENV;
-
+// TODO: Migrate to Pact v16 API
+// Current implementation requires research into proper v16 syntax
+// The API has changed significantly from v15 to v16
 describe.skip('Boxes API Contract', () => {
   afterAll(() => {
-    // Restore original fetch and NODE_ENV
-    global.fetch = originalFetch;
-    (process.env as any).NODE_ENV = originalNodeEnv;
+    // Cleanup if needed
   });
 
   describe('GET /api/boxes', () => {
@@ -33,8 +30,15 @@ describe.skip('Boxes API Contract', () => {
         }
       ];
 
-      // Test is skipped - placeholder for Pact v16 migration
+      // TODO: Implement proper Pact v16 interaction
+      // Research required for correct API usage
       expect(expectedBoxes).toBeDefined();
+    });
+
+    it('should handle empty boxes response', async () => {
+      // TODO: Implement proper Pact v16 interaction
+      // Research required for correct API usage
+      expect([]).toBeDefined();
     });
   });
 });
