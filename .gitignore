@@ -66,3 +66,9 @@ report_xml.xml
 # Mock API data (dynamic, changes during tests)
 mock-api/db.json
 zap.yaml
+
+# Debug and temporary files
+dbgmd-*
+
+# Amazon Q CLI temporary files
+.amazonq/cli-todo-lists/
