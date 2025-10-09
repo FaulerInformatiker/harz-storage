@@ -49,7 +49,7 @@ export default defineConfig({
         'app/impressum/**',
         'app/layout.tsx',
         'components/Advantages.tsx',
-        'lighthouserc.js',
+        'server.js',
       ],
       thresholds: {
         branches: 90,
