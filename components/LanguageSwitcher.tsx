@@ -9,7 +9,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="flex items-center space-x-2">
-      <Globe className="w-4 h-4 text-gray-600" />
+      <Globe className="w-4 h-4 text-slate-700 dark:text-slate-300" />
       <div className="flex space-x-1">
         {languages.map((lng) => (
           <button
@@ -17,8 +17,8 @@ export default function LanguageSwitcher() {
             onClick={() => setLanguage(lng)}
             className={`px-2 py-1 text-sm rounded transition-colors ${
               language === lng
-                ? "bg-primary-600 text-white"
-                : "text-gray-600 hover:bg-gray-100"
+                ? "bg-blue-600 text-white"
+                : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
             }`}
           >
             {lng.toUpperCase()}

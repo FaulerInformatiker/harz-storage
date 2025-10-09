@@ -35,7 +35,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <a
                 href="#kontakt"
-                className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-700 transition-colors shadow-lg"
+                className="bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-800 transition-colors shadow-lg"
               >
                 {t("hero.cta")}
               </a>
@@ -68,10 +68,10 @@ export default function Hero() {
               <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{t("hero.benefit3.title")}</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm">{t("hero.benefit3.desc")}</p>
             </div>
-            <div className="p-6 rounded-2xl bg-emerald-600 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="p-6 rounded-2xl bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="text-3xl mb-4">📍</div>
               <h3 className="font-semibold mb-2">{t("business.newInTown")}</h3>
-              <p className="text-emerald-100 text-sm">{t("business.localPartner")}</p>
+              <p className="text-emerald-50 text-sm">{t("business.localPartner")}</p>
             </div>
             </div>
           </div>

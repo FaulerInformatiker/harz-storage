@@ -42,7 +42,7 @@ const nextConfig = {
           },
           {
             key: "Cross-Origin-Embedder-Policy",
-            value: process.env.NODE_ENV === 'development' ? "unsafe-none" : "require-corp",
+            value: "unsafe-none",
           },
           {
             key: "Cross-Origin-Opener-Policy",

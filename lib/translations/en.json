@@ -108,7 +108,8 @@
       "description": "Each customer receives an individual access code for maximum security"
     },
     "note": "Additionally, we recommend every customer to take out household insurance or check if existing insurance also covers items in storage boxes.",
-    "cta": "Request Security Info"
+    "cta": "Request Security Info",
+    "imageAlt": "Security camera monitoring"
   },
   "business": {
     "newInTown": "New in Langelsheim",
