@@ -87,4 +87,31 @@ describe('TranslationContext', () => {
     // Should fallback to default language
     expect(screen.getByTestId('language')).toHaveTextContent('de');
   });
+
+  it('provides fallback when used outside provider', () => {
+    // Component that uses useTranslation outside provider
+    function FallbackTestComponent() {
+      const { language, setLanguage, t } = useTranslation();
+      return (
+        <div>
+          <span data-testid="fallback-language">{language}</span>
+          <span data-testid="fallback-translation">{t('test.key')}</span>
+          <button onClick={() => setLanguage('en')} data-testid="fallback-button">
+            Change Language
+          </button>
+        </div>
+      );
+    }
+
+    // Render without provider to test fallback
+    render(<FallbackTestComponent />);
+    
+    expect(screen.getByTestId('fallback-language')).toHaveTextContent('de');
+    expect(screen.getByTestId('fallback-translation')).toHaveTextContent('test.key');
+    
+    // setLanguage should be a no-op function
+    const button = screen.getByTestId('fallback-button');
+    fireEvent.click(button);
+    expect(screen.getByTestId('fallback-language')).toHaveTextContent('de'); // Should remain unchanged
+  });
 });
