@@ -149,19 +149,19 @@ gh pr create --title "feat: Your Feature"
 
 ```bash
 # Abhängigkeiten installieren
-npm install
+pnpm install
 
 # Mock API Datenbank einrichten (nur beim ersten Mal)
-npm run mock-api:setup
+pnpm run mock-api:setup
 
 # Entwicklungsserver starten
-npm run dev
+pnpm run dev
 
 # Mit Mock API Server (empfohlen)
-npm run dev:full
+pnpm run dev:full
 
 # Mock API Server separat starten
-npm run mock-api
+pnpm run mock-api
 ```
 
 ### API Entwicklung
@@ -181,10 +181,10 @@ npm run mock-api
 
 ```bash
 # Build erstellen
-npm run build
+pnpm run build
 
 # Produktionsserver starten
-npm run start
+pnpm run start
 ```
 
 ## 🧪 Testing
@@ -193,13 +193,13 @@ npm run start
 
 ```bash
 # Tests ausführen
-npm test
+pnpm test
 
 # Tests mit Watch-Modus
-npm run test:watch
+pnpm run test:watch
 
 # Coverage Report
-npm run test:coverage
+pnpm run test:coverage
 ```
 
 **Test Coverage**: 90% Minimum für branches, functions, lines, statements
@@ -232,13 +232,13 @@ app/api/
 
 ```bash
 # E2E Tests ausführen
-npm run test:e2e
+pnpm run test:e2e
 
 # E2E Tests mit UI
-npm run test:e2e:ui
+pnpm run test:e2e:ui
 
 # Playwright Report anzeigen
-npx playwright show-report
+pnpm exec playwright show-report
 ```
 
 **E2E Test Suites**:
@@ -253,10 +253,10 @@ npx playwright show-report
 
 ```bash
 # Run contract tests
-npm run test:contract
+pnpm run test:contract
 
 # Publish contracts to Pact Broker (requires PACT_BROKER_BASE_URL)
-npm run test:contract:publish
+pnpm run test:contract:publish
 ```
 
 **⚠️ Important**: Contract tests represent external API expectations. See [Contract Testing Rules](docs/CONTRACT_TESTING_RULES.md) before modifying contract tests.
@@ -269,7 +269,7 @@ npm run test:contract:publish
 
 ```bash
 # Run Lighthouse CI tests
-npm run test:lighthouse
+pnpm run test:lighthouse
 ```
 
 **Performance Standards**:
@@ -392,9 +392,9 @@ const result = await submitContactForm(formData);
 
 ```bash
 # Local version bumping (for testing)
-npm run release:patch   # 1.0.0 -> 1.0.1
-npm run release:minor   # 1.0.0 -> 1.1.0
-npm run release:major   # 1.0.0 -> 2.0.0
+pnpm run release:patch   # 1.0.0 -> 1.0.1
+pnpm run release:minor   # 1.0.0 -> 1.1.0
+pnpm run release:major   # 1.0.0 -> 2.0.0
 ```
 
 ### Manual Release Trigger
@@ -459,16 +459,16 @@ autoscaling:
 ### Container Security Scanning
 
 ```bash
-# Complete security scan (npm + Docker)
-npm run security:complete
+# Complete security scan (pnpm + Docker)
+pnpm run security:complete
 
 # Docker container security scan only
-npm run security:docker
+pnpm run security:docker
 
 # Individual scans
-npm run audit                    # NPM vulnerability audit
-npm run lint:security           # ESLint security rules
-npm run security:zap            # OWASP ZAP penetration test
+pnpm audit                    # pnpm vulnerability audit
+pnpm run lint:security           # ESLint security rules
+pnpm run security:zap            # OWASP ZAP penetration test
 ```
 
 ### Security Tools
@@ -479,7 +479,7 @@ npm run security:zap            # OWASP ZAP penetration test
 - **Docker Scout**: Supply chain security (if available)
 - **OWASP ZAP**: Web application penetration testing
 - **ESLint Security**: Static code analysis
-- **npm audit**: Dependency vulnerability checking
+- **pnpm audit**: Dependency vulnerability checking
 
 ### Security Features
 

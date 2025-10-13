@@ -1,27 +1,28 @@
 FROM node:22.20-alpine AS deps
 WORKDIR /app
-# Update npm to latest version to fix cross-spawn vulnerability
-COPY package*.json ./
-RUN npm install -g npm@latest && npm ci
+# Install pnpm
+RUN npm install -g pnpm@latest
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 FROM node:22.20-alpine AS builder
 WORKDIR /app
-# Update npm to latest version to fix cross-spawn vulnerability
-RUN npm install -g npm@latest
+# Install pnpm
+RUN npm install -g pnpm@latest
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN npm run build
+RUN pnpm run build
 
 # Generate SBOM
-RUN npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json && \
-    npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
+RUN pnpm exec @cyclonedx/cyclonedx-npm --output-file sbom-npm.json && \
+    pnpm exec @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
 
 FROM node:22.20-alpine AS runner
 WORKDIR /app
 
-# Install security updates and curl for healthcheck, update npm
+# Install security updates and curl for healthcheck, install pnpm
 RUN apk update && apk upgrade && apk add --no-cache curl=8.14.1-r2 && rm -rf /var/cache/apk/* && \
-    npm install -g npm@latest
+    npm install -g pnpm@latest
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
