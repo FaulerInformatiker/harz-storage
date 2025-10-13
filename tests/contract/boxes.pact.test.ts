@@ -1,44 +1,90 @@
-import { PactV4 } from '@pact-foundation/pact';
 import { getBoxes } from '../../lib/api';
-import path from 'path';
+import { vi } from 'vitest';
 
-const mockProvider = new PactV4({
-  consumer: 'harz-storage-frontend',
-  provider: 'harz-storage-api',
-  dir: path.resolve(process.cwd(), 'pacts'),
-});
-
-// TODO: Migrate to Pact v16 API
-// Current implementation requires research into proper v16 syntax
-// The API has changed significantly from v15 to v16
-describe.skip('Boxes API Contract', () => {
-  afterAll(() => {
-    // Cleanup if needed
+// Integration tests for Boxes API contract
+// These tests verify the API contract without complex Pact setup
+describe('Boxes API Contract', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
   });
 
   describe('GET /api/boxes', () => {
     it('should return available boxes', async () => {
-      const expectedBoxes = [
-        {
-          id: '5m2',
-          size: '5m²',
-          price: 25,
-          available: true,
-          description: 'Perfect for boxes and small items',
-          icon: '📦',
-          currency: '€/Monat'
-        }
-      ];
+      // Mock successful API response
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => [
+          {
+            id: '1',
+            size: '5m²',
+            price: 25,
+            description: 'Perfect for boxes and small items',
+            available: true,
+          },
+          {
+            id: '2',
+            size: '10m²',
+            price: 45,
+            description: 'Ideal for 1-room apartment',
+            available: true,
+          },
+          {
+            id: '3',
+            size: '20m²',
+            price: 80,
+            description: 'Great for 2-3 room apartment',
+            available: false,
+          },
+        ],
+      });
+      global.fetch = mockFetch;
 
-      // TODO: Implement proper Pact v16 interaction
-      // Research required for correct API usage
-      expect(expectedBoxes).toBeDefined();
+      const boxes = await getBoxes();
+
+      expect(boxes).toHaveLength(3);
+      expect(boxes[0]).toEqual({
+        id: '1',
+        size: '5m²',
+        price: 25,
+        description: 'Perfect for boxes and small items',
+        available: true,
+      });
+      expect(boxes[1]).toEqual({
+        id: '2',
+        size: '10m²',
+        price: 45,
+        description: 'Ideal for 1-room apartment',
+        available: true,
+      });
+
+      // Verify the API was called correctly
+      expect(mockFetch).toHaveBeenCalledWith(
+        '/api/boxes',
+        expect.objectContaining({
+          cache: 'no-store',
+        })
+      );
     });
 
     it('should handle empty boxes response', async () => {
-      // TODO: Implement proper Pact v16 interaction
-      // Research required for correct API usage
-      expect([]).toBeDefined();
+      // Mock empty response
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => [],
+      });
+      global.fetch = mockFetch;
+
+      const boxes = await getBoxes();
+
+      expect(boxes).toEqual([]);
+
+      // Verify the API was called correctly
+      expect(mockFetch).toHaveBeenCalledWith(
+        '/api/boxes',
+        expect.objectContaining({
+          cache: 'no-store',
+        })
+      );
     });
   });
 });
