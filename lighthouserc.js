@@ -1,9 +1,10 @@
 module.exports = {
   ci: {
     collect: {
+      startServerCommand: 'pnpm run build && pnpm start',
+      startServerReadyPattern: 'Ready in',
+      startServerReadyTimeout: 120000,
       url: ['http://localhost:3000'],
-      startServerCommand: 'npm run build && npm start',
-      startServerReadyPattern: /ready/i,
       numberOfRuns: 3,
     },
     assert: {
