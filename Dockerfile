@@ -14,8 +14,7 @@ COPY --from=deps /app/node_modules ./node_modules
 RUN pnpm run build
 
 # Generate SBOM
-RUN pnpm exec @cyclonedx/cyclonedx-npm --output-file sbom-npm.json && \
-    pnpm exec @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
+RUN pnpm dlx @cyclonedx/cdxgen -o sbom-npm.json --type js
 
 FROM node:22.20-alpine AS runner
 WORKDIR /app
