@@ -50,9 +50,9 @@ test.describe("Contact Form API", () => {
   });
 
   test("should show loading state during submission", async ({ page }) => {
-    // Add shorter delay to API response to catch loading state
+    // Add delay to API response to catch loading state
     await page.route("http://localhost:3001/contacts", async (route) => {
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       await route.fulfill({
         status: 201,
         contentType: "application/json",
@@ -66,14 +66,10 @@ test.describe("Contact Form API", () => {
     await page.fill('input[name="email"]', "test@example.com");
 
     // Click submit and immediately check for loading state
-    const submitPromise = page.click('button[type="submit"]');
+    await page.click('button[type="submit"]');
     
-    // Check for any loading indicator - button text change or disabled state
-    const hasLoadingText = await page.locator('button:has-text("Wird gesendet"), button:has-text("gesendet"), button[disabled]').waitFor({ timeout: 2000 }).then(() => true).catch(() => false);
-    
-    await submitPromise;
-    
-    // At least one loading indicator should have appeared
-    expect(hasLoadingText).toBeTruthy();
+    // Check for loading text or disabled button
+    const loadingButton = page.locator('button[type="submit"]:has-text("Wird gesendet"), button[type="submit"]:has-text("Sending"), button[type="submit"][disabled]');
+    await expect(loadingButton).toBeVisible({ timeout: 500 });
   });
 });
