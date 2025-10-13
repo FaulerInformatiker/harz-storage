@@ -26,9 +26,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run license:check
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run license:check
 
   release:
     needs: license-check
@@ -51,31 +53,35 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "npm"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install Playwright browsers
-        run: npx playwright install chromium --with-deps
+        run: pnpm exec playwright install chromium --with-deps
 
       - name: Run tests
-        run: npm test
+        run: pnpm test
 
       - name: Run contract tests
-        run: npm run test:contract
+        run: pnpm run test:contract
 
       - name: Run E2E tests
-        run: npm run test:e2e
+        run: pnpm run test:e2e
 
       - name: Build application
-        run: npm run build
+        run: pnpm run build
 
       - name: Configure Git
         run: |
@@ -86,13 +92,13 @@ jobs:
         id: version
         run: |
           VERSION_TYPE="${{ github.event.inputs.version_type }}"
-          NEW_VERSION=$(npm version $VERSION_TYPE --no-git-tag-version)
+          NEW_VERSION=$(pnpm version $VERSION_TYPE --no-git-tag-version)
           echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
           echo "version_number=${NEW_VERSION#v}" >> $GITHUB_OUTPUT
 
       - name: Generate changelog
         run: |
-          npm run changelog:generate
+          pnpm run changelog:generate
           git add CHANGELOG.md
 
       - name: Update Helm chart version
@@ -102,7 +108,7 @@ jobs:
 
       - name: Commit version bump
         run: |
-          git add package.json package-lock.json helm/Chart.yaml CHANGELOG.md
+          git add package.json pnpm-lock.yaml helm/Chart.yaml CHANGELOG.md
           git commit -m "chore: bump version to ${{ steps.version.outputs.new_version }} [skip ci]"
           git tag ${{ steps.version.outputs.new_version }}
 
@@ -146,7 +152,7 @@ jobs:
 
       - name: Generate dependency report
         run: |
-          npm audit --audit-level=moderate --json > security-audit-${{ steps.version.outputs.version_number }}.json || true
+          pnpm audit --audit-level=moderate --json > security-audit-${{ steps.version.outputs.version_number }}.json || true
 
       - name: Package Helm chart
         run: |

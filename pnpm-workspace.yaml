@@ -1,0 +1,8 @@
+packages:
+  - "."
+
+ignoredBuiltDependencies:
+  - esbuild
+  - libxmljs2
+  - sharp
+  - unrs-resolver
