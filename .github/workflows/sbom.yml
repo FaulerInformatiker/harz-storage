@@ -35,8 +35,8 @@ jobs:
 
       - name: Generate pnpm SBOM
         run: |
-          npx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json
-          npx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
+          pnpm dlx @cyclonedx/cyclonedx-npm --output-file sbom-npm.json
+          pnpm dlx @cyclonedx/cyclonedx-npm --output-format xml --output-file sbom-npm.xml
 
       - name: Build Docker image
         run: docker build -t harz-storage:sbom .
