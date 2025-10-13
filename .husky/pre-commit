@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+echo "🔒 Checking lockfile is up to date..."
+pnpm install --frozen-lockfile
+
 echo "🔍 Running TypeScript type checking..."
 npx tsc --noEmit
 
