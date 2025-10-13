@@ -11,10 +11,8 @@ WORKDIR /app
 RUN npm install -g pnpm@latest
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN pnpm run build
-
-# Generate SBOM
-RUN pnpm dlx @cyclonedx/cdxgen -o sbom-npm.json --type js
+RUN pnpm run build && \
+    pnpm dlx @cyclonedx/cdxgen -o sbom-npm.json --type js
 
 FROM node:22.20-alpine AS runner
 WORKDIR /app
