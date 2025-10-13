@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+echo "🔍 Running TypeScript type checking..."
+npx tsc --noEmit
+
+echo "🔧 Running ESLint..."
+npm run lint
+
 echo "🧪 Running unit tests..."
 npm test
 

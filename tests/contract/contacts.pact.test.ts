@@ -10,12 +10,17 @@ describe('Contacts API Contract', () => {
 
   describe('POST /api/contacts', () => {
     it('should create a contact successfully', async () => {
-      // Mock successful API response
+      // Mock successful API response matching actual API return type
       const mockFetch = vi.fn().mockResolvedValue({
         ok: true,
         json: async () => ({
-          success: true,
-          message: 'Contact form submitted successfully',
+          id: 1,
+          name: 'John Doe',
+          email: 'john@example.com',
+          phone: '+49123456789',
+          size: '10m²',
+          message: 'I need storage space',
+          createdAt: '2025-10-13T19:30:00.000Z',
         }),
       });
       global.fetch = mockFetch;
@@ -28,8 +33,10 @@ describe('Contacts API Contract', () => {
         message: 'I need storage space',
       });
 
-      expect(result.success).toBe(true);
-      expect(result.message).toBe('Contact form submitted successfully');
+      expect(result.id).toBe(1);
+      expect(result.name).toBe('John Doe');
+      expect(result.email).toBe('john@example.com');
+      expect(result.createdAt).toBeDefined();
       
       // Verify the API was called with correct parameters
       expect(mockFetch).toHaveBeenCalledWith(
@@ -49,14 +56,6 @@ describe('Contacts API Contract', () => {
       const mockFetch = vi.fn().mockResolvedValue({
         ok: false,
         status: 400,
-        json: async () => ({
-          success: false,
-          message: 'Validation failed',
-          errors: {
-            name: 'Name is required',
-            email: 'Invalid email format',
-          },
-        }),
       });
       global.fetch = mockFetch;
 
