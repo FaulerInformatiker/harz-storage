@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "lint:security": "eslint . --ext .js,.jsx,.ts,.tsx --config .eslintrc.json",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "@cyclonedx/cyclonedx-npm": "^4.0.3",
+    "@eslint/eslintrc": "^3.3.1",
     "@lhci/cli": "^0.15.1",
     "@next/bundle-analyzer": "^15.5.4",
     "@pact-foundation/pact": "^16.0.0",
