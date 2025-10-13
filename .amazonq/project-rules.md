@@ -31,6 +31,14 @@ HarzStorage is a modern Next.js self-storage website with comprehensive testing,
 
 ## Testing Requirements
 
+### **CRITICAL: NO SKIPPED TESTS POLICY**
+- **ABSOLUTELY FORBIDDEN**: Using `describe.skip()`, `it.skip()`, `test.skip()`, or `xit()` in any test files
+- **MANDATORY**: All tests must be implemented and passing
+- **ZERO TOLERANCE**: Skipped tests indicate incomplete implementation and are not acceptable
+- **IMMEDIATE ACTION REQUIRED**: Any skipped tests found must be fixed immediately before any other work
+- **CI/CD ENFORCEMENT**: Pipeline should fail if any tests are skipped
+- **CODE REVIEW BLOCKER**: PRs with skipped tests must be rejected immediately
+
 ### Unit Testing (Vitest + React Testing Library)
 - MANDATORY: Write unit tests for all new components and functions
 - Maintain minimum 90% code coverage for branches, functions, lines, statements

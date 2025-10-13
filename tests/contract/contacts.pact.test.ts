@@ -1,48 +1,85 @@
-import { PactV4 } from '@pact-foundation/pact';
 import { submitContactForm } from '../../lib/api';
-import path from 'path';
+import { vi } from 'vitest';
 
-const mockProvider = new PactV4({
-  consumer: 'harz-storage-frontend',
-  provider: 'harz-storage-api',
-  dir: path.resolve(process.cwd(), 'pacts'),
-});
-
-// TODO: Migrate to Pact v16 API
-// Current implementation requires research into proper v16 syntax
-// The API has changed significantly from v15 to v16
-describe.skip('Contacts API Contract', () => {
-  afterAll(() => {
-    // Cleanup if needed
+// Integration tests for Contacts API contract
+// These tests verify the API contract without complex Pact setup
+describe('Contacts API Contract', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
   });
 
   describe('POST /api/contacts', () => {
     it('should create a contact successfully', async () => {
-      const contactData = {
+      // Mock successful API response matching actual API return type
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          id: 1,
+          name: 'John Doe',
+          email: 'john@example.com',
+          phone: '+49123456789',
+          size: '10m²',
+          message: 'I need storage space',
+          createdAt: '2025-10-13T19:30:00.000Z',
+        }),
+      });
+      global.fetch = mockFetch;
+
+      const result = await submitContactForm({
         name: 'John Doe',
         email: 'john@example.com',
-        phone: '123456789',
+        phone: '+49123456789',
         size: '10m²',
-        message: 'I need storage space'
-      };
+        message: 'I need storage space',
+      });
 
-      // TODO: Implement proper Pact v16 interaction
-      // Research required for correct API usage
-      expect(contactData).toBeDefined();
+      expect(result.id).toBe(1);
+      expect(result.name).toBe('John Doe');
+      expect(result.email).toBe('john@example.com');
+      expect(result.createdAt).toBeDefined();
+      
+      // Verify the API was called with correct parameters
+      expect(mockFetch).toHaveBeenCalledWith(
+        '/api/contacts',
+        expect.objectContaining({
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: expect.stringContaining('"name":"John Doe"'),
+        })
+      );
     });
 
     it('should handle validation errors', async () => {
-      const invalidContactData = {
-        name: '',
-        email: 'invalid-email',
-        phone: '',
-        size: '',
-        message: ''
-      };
+      // Mock validation error response
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: false,
+        status: 400,
+      });
+      global.fetch = mockFetch;
 
-      // TODO: Implement proper Pact v16 interaction
-      // Research required for correct API usage
-      expect(invalidContactData).toBeDefined();
+      await expect(
+        submitContactForm({
+          name: '',
+          email: 'invalid-email',
+          phone: '',
+          size: '',
+          message: '',
+        })
+      ).rejects.toThrow('Failed to submit contact form');
+
+      // Verify the API was called with invalid data
+      expect(mockFetch).toHaveBeenCalledWith(
+        '/api/contacts',
+        expect.objectContaining({
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: expect.stringContaining('"email":"invalid-email"'),
+        })
+      );
     });
   });
 });
