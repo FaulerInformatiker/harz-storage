@@ -117,7 +117,7 @@ try {
   execSync('npx license-checker --version', { stdio: 'ignore' });
 } catch {
   console.log('Installing license-checker...');
-  execSync('pnpm add --save-dev license-checker', { stdio: 'inherit' });
+  execSync('pnpm add --save-dev -w license-checker', { stdio: 'inherit' });
 }
 
 const success = checkLicenses();
