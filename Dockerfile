@@ -37,7 +37,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Copy SBOM files into the image
 COPY --from=builder /app/sbom-npm.json /app/sbom/
-COPY --from=builder /app/sbom-npm.xml /app/sbom/
 
 # Set proper permissions
 RUN chmod -R 755 /app && \
