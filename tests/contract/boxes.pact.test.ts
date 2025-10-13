@@ -11,7 +11,7 @@ const mockProvider = new PactV4({
 // TODO: Migrate to Pact v16 API
 // Current implementation requires research into proper v16 syntax
 // The API has changed significantly from v15 to v16
-describe.skip('Boxes API Contract', () => {
+describe('Boxes API Contract', () => {
   afterAll(() => {
     // Cleanup if needed
   });
