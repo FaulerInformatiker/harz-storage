@@ -1,11 +1,11 @@
-FROM node:22.20-alpine AS deps
+FROM node:22.23-alpine AS deps
 WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm@latest
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-FROM node:22.20-alpine AS builder
+FROM node:22.23-alpine AS builder
 WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm@latest
@@ -14,7 +14,7 @@ COPY --from=deps /app/node_modules ./node_modules
 RUN pnpm run build && \
     pnpm dlx @cyclonedx/cdxgen -o sbom-npm.json --type js
 
-FROM node:22.20-alpine AS runner
+FROM node:22.23-alpine AS runner
 WORKDIR /app
 
 # Install security updates and curl for healthcheck, install pnpm
